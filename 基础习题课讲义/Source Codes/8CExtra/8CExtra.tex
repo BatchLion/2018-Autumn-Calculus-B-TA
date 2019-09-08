@@ -1,0 +1,371 @@
+\documentclass[12pt,UTF8]{ctexart}
+\usepackage{ctex,amsmath,amssymb,geometry,fancyhdr,bm,amsfonts
+,mathtools,extarrows,graphicx,url,enumerate,color,float,multicol} 
+% 加入中文支持
+\newcommand\Set[2]{%
+\left\{#1\ \middle\vert\ #2 \right\}}
+\geometry{a4paper,scale=0.80}
+\pagestyle{fancy}
+\rhead{第5章补充题}
+\lhead{基础习题课讲义}
+\chead{微积分B(1)}
+\begin{document}
+\def\thesection{8C}
+\section{第5章补充题}
+\def\thesubsection{\thesection.\arabic{subsection}}
+\subsection{第5章补充题解答}
+\begin{enumerate}
+\item求证$n$次拉盖尔多项式
+\[
+\mathrm L_n(x)=\mathrm e^x\frac{\mathrm d^n}{\mathrm dx^n}(x^n\mathrm e^{-x})
+\]在$(0,+\infty)$上有$n$个相异实根.
+
+证明：首先证明：若$f\in C[a,+\infty),f(a)=0,\lim\limits_{x\rightarrow+\infty}f(x)=0$，且$f(x)$不恒等于$0$，则$\exists\eta\in[a,+\infty),s.t.f'(\eta)=0$.
+
+若存在一点$x_0\in[a,+\infty),s.t.f(x_0)>0$，由于$\lim\limits_{x\rightarrow+\infty}f(x)=0$，所以$\exists X>\mathrm{max}\{a,x_0\},\\
+s.t.f(x)<f(x_0)$. 在区间$[a,X]$上，对连续函数$f(x)$应用最大最小值定理可知：$\exists\eta\in[a,X],s.t.f(\eta)=\mathrm{max}\{f(x)|0\leq x\leq X\}$，则当$x>X$时，$f(x)<f(x_0)\leq f(\eta)$，所以$f(\eta)$是$f(x)$在$[a,+\infty)$上的最大值，则$f'(\eta)=0$.
+
+同理，若存在一点$x_0\in[a,+\infty),s.t.f(x_0)<0$，则$\exists\eta',s.t.f(\eta')=\mathrm{min}\{f(x)|a\leq x<+\infty\},f'(\eta')=0$.
+
+记$f(x)=x^n\mathrm e^{-x}$，则$f(x)$的$1$到$n-1$阶导数$f'(x),f''(x),\cdots,f^{(n-1)}(x)$都以点$x=0$为零点，且$\lim\limits_{x\rightarrow+\infty}f^{(k)}(x)=0,k=0,1,\cdots,n-1$.
+
+根据上面证明的结论，$\exists\xi_1^{[1]},s.t.\frac{\mathrm d}{\mathrm dx}f(\xi_1^{[1]})=0$，此时$x=0,x=\xi_1^{[1]}$都是$\frac{\mathrm d}{\mathrm dx}f(x)$的零点，且仍有$\lim\limits_{x\rightarrow+\infty}\frac{\mathrm d}{\mathrm dx}f(x)=0$，根据罗尔定理和上面证明的结论$\frac{\mathrm d^2}{\mathrm dx^2}f(x)$在$(0,+\infty)$上存在两个不同的零点$x=\xi_2^{[1]},x=\xi_2^{[2]}$，此时$x=0,x=\xi_2^{[1]},x=\xi_2^{[2]}$都是$\frac{\mathrm d^2}{\mathrm dx^2}f(x)$的零点，且仍有$\lim\limits_{x\rightarrow+\infty}\frac{\mathrm d^2}{\mathrm dx^2}f(x)=0$，故$\frac{\mathrm d^3}{\mathrm dx^3}f(x)$在$(0,+\infty)$上存在$3$个不同的零点，以此类推，可知$\frac{\mathrm d^n}{\mathrm dx^n}f(x)$在$(0,+\infty)$上存在$n$个不同的零点.
+
+因为$\mathrm L_n(x)$是一个$n$次多项式，故最多有$n$个实零点，因此$n$次拉盖尔多项式在$(0,+\infty)$上有$n$个相异实零点.
+
+\item设$f$在$[a,b]$上可导，且$f'(a)f'(b)<0$，试证存在$\xi\in(a,b)$，使得$f'(\xi)=0$.
+
+证明：$\because f'(a)f'(b)<0$不妨设$f'(a)>0,f'(b)<0$
+
+$\because f'(a)>0$
+
+$\therefore\exists x_1\in(a,b),s.t.f(x_1)>f(a)$
+
+$\because f'(b)<0$
+
+$\therefore\exists x_2\in(x_1,b),s.t.f(x_2)>f(b)$
+
+$\therefore\exists\xi\in(a,b),s.t.f(\xi)=\mathrm{max}\{f(x)|a\leq x\leq b\}$
+
+$\therefore f'(\xi)=0$.
+
+\item设$f$在$[a,b]$上可导，且$f'(a)\neq f'(b)$，试证对于介于$f'(a)$和$f'(b)$之间的每一个实数$\mu$都存在$\xi\in(a,b)$，使$f'(\xi)=\mu$.
+
+证明：令$F(x)=f(x)-\mu x$
+
+$\because F'(a)F'(b)=[f'(a)-\mu][f'(b)-\mu]<0$
+
+$\therefore$根据上题的结论，$\exists\xi\in(a,b),s.t.F'(\xi)=f'(\xi)-\mu=0$，即$f'(\xi)=\mu$.
+
+\item设$f$在$(-\infty,+\infty)$上可导，并且满足$\frac{f(x)}{|x|}\rightarrow+\infty(x\rightarrow\infty)$，试证$\forall a\in\mathbb R,\exists\xi\in(-\infty,+\infty)$，使得$f'(\xi)=a$.
+
+证明：方法1：$\because\frac{f(x)}{|x|}\rightarrow+\infty(x\rightarrow\infty)$
+
+$\therefore\frac{f(x)}{x}\rightarrow+\infty(x\rightarrow+\infty),\frac{f(x)}{x}\rightarrow-\infty(x\rightarrow-\infty)$
+
+设$x=x_0$是$f(x)$上的任意点
+
+$\because f$在$(-\infty,+\infty)$上可导
+
+$\therefore$根据拉格朗日中值定理，$\frac{f(x)-f(x_0)}{x-x_0}=f'(\eta),\eta$介于$x_0$和$x$之间
+
+$\therefore\lim\limits_{\eta\rightarrow+\infty}f'(\eta)=\lim\limits_{x\rightarrow+\infty}\frac{f(x)-f(x_0)}{x-x_0}=\lim\limits_{x\rightarrow+\infty}\frac{\frac{f(x)}x-\frac{f(x_0)}x}{1-\frac{x_0}x}=+\infty,\lim\limits_{\eta\rightarrow-\infty}f'(\eta)=\lim\limits_{x\rightarrow-\infty}\frac{f(x)-f(x_0)}{x-x_0}\\
+=\lim\limits_{x\rightarrow-\infty}\frac{\frac{f(x)}x-\frac{f(x_0)}x}{1-\frac{x_0}x}=-\infty$
+
+$\therefore\forall a\in\mathbb R,\exists\eta_1>x_0,s.t.f'(\eta_1)>a,\exists\eta_2<x_0,s.t.f'(\eta_2)<f'(a)$
+
+$\therefore\exists\xi\in(\eta_1,\eta_2),s.t.f'(\xi)=a$.
+
+方法2：设$g(x)=f(x)-f(0)$
+
+$\because\frac{f(x)}{|x|}\rightarrow+\infty(x\rightarrow\infty)$
+
+$\therefore\forall a\in\mathbb R$，取$M\geq|a|$，则$\exists N>0,s.t.g(N)-g(0)=f(N)-f(0)=N[\frac{f(N)}N-\frac{f(0)}N]>NM\geq N|a|,g(-N)-g(0)=f(-N)-f(0)=N[\frac{f(-N)}N-\frac{f(0)}N]>NM\geq N|a|$
+
+$\because g$在$(-\infty,+\infty)$上可导
+
+$\therefore$根据拉格朗日中值定理$\exists\eta_1\in(0,N),s.t.g(N)-g(0)=g'(\eta_1)N\geq N|a|\geq Na,\exists\eta_2\in(-N,0),s.t.g(-N)-g(0)=-g'(\eta_2)N\geq N|a|\geq-Na$
+
+$\therefore g'(\eta_2)\leq a\leq g'(\eta_1)$
+
+$\therefore\exists\xi\in(\eta_1,\eta_2),s.t.g'(\xi)=f'(\xi)=a$.
+
+方法3：令$g(x)=f(x)-ax$
+
+$\because\frac{f(x)}{|x|}\rightarrow+\infty(x\rightarrow\infty)$
+
+$\therefore\lim\limits_{x\rightarrow-\infty}g(x)=\lim\limits_{x\rightarrow-\infty}x(\frac{f(x)}x-a)=+\infty,\lim\limits_{x\rightarrow+\infty}g(x)=\lim\limits_{x\rightarrow+\infty}x(\frac{f(x)}x-a)=+\infty$
+
+$\therefore\exists x_1>0,x_2<0,s.t.g(x_1)>0,g(x_2)<0$
+
+$\therefore$对于$g(x_1)>0,g(x_2)>0,\exists N_1>x_2,N_2>-x_2,s.t.g(x)>g(x_1)(x>N_1),g(x)>g(x_2),(x<-N_2)$
+
+$\because f$在$(-\infty,+\infty)$上可导，则$g(x)$在$(-\infty,+\infty)$上可导，故连续
+
+$\therefore\exists\xi\in[N_1,N_2],s.t.g(\xi)=\min\{g(x)|N_1<x<N_2\}$且$g(\xi)<g(x_1),g(\xi)<g(x_2)$
+
+$\therefore g(\xi)\leq g(x),x\in(-\infty,+\infty)$，即$g(\xi)=\min\{g(x)|-\infty<x<+\infty\}$
+
+$\therefore g'(\xi)=f'(\xi)-a=0$，即$f'(\xi)=a$.
+
+\item设$f$在$[a,b]$上可导，在$(a,b)$内二阶可导，如果$f'(a)f'(b)>0$，且$f(a)=f(b)$，试证$\exists\xi\in(a,b)$使得$f''(\xi)=0$.
+
+证明：$\because f'(a)f'(b)>0$，不妨设$f'(a)>0,f'(b)>0$
+
+$\therefore\exists x_1\in(a,b),s.t.f(x_1)>f(a),\exists x_2\in(x_1,b),s.t.f(x_2)<f(b)=f(a)$
+
+$\therefore\exists\eta\in(x_1,x_2),s.t.f(\eta)=f(a)=f(b)$
+
+$\therefore\exists\xi_1\in(a,\eta),\xi_2\in(\eta,b),s.t.f'(\xi_1)=f'(\xi_2)=0$
+
+$\therefore\exists\xi\in(\xi_1,\xi_2)\subset(a,b),s.t.f''(\xi)=0$.
+
+\item若$f$在$(a,b)$可导，则其导函数$f'(x)$没有第一类间断点.
+
+证明：方法1：假设$f'(x)$存在第一类间断点$x_0\in(a,b)$，则$\lim\limits_{x\rightarrow x_0^+}f'(x)$和$\lim\limits_{x\rightarrow x_0^-}f'(x)$都存在
+
+$\because f$在$(a,b)$可导
+
+$\therefore f'_+(x_0)=f'(x_0)=f'_-(x_0)$
+
+又$\because f'_+(x_0)=\lim\limits_{x\rightarrow x_0^+}\frac{f(x)-f(x_0)}{x-x_0}=\lim\limits_{\xi\rightarrow x_0^+}\frac{f'(\xi)(x-x_0)}{x-x_0}=\lim\limits_{x\rightarrow x_0^+}f'(x),f'_-(x_0)=\lim\limits_{x\rightarrow x_0^-}\frac{f(x)-f(x_0)}{x-x_0}\\
+=\lim\limits_{\xi\rightarrow x_0^-}\frac{f'(\xi)(x-x_0)}{x-x_0}=\lim\limits_{x\rightarrow x_0^-}f'(x)$
+
+$\therefore\lim\limits_{x\rightarrow x_0^+}f'(x)=f'(x_0)=\lim\limits_{x\rightarrow x_0^-}f'(x)$
+
+$\therefore f'(x)$在$x_0$处连续，假设不成立
+
+$\therefore f'(x)$没有第一类间断点.
+
+方法2：假设$x_0\in(a,b)$是$f'(x)$的第一类间断点，不妨设$\lim\limits_{x\rightarrow x_0^+}f'(x)=A,A\neq f'(x_0)$（这里不妨设$A>f'(x_0)$）
+
+根据极限的保号性，$\exists\delta>0,s.t.f'(x)>\frac{A+f'(x_0)}2>f'(x_0),x\in(x_0,x_0+\delta)$
+
+取$x_1\in(x_0,x_0+\delta),\mu=\frac{A+3f'(x_0)}4$，则$f'(x_1)>\frac{A+f'(x_0)}2>\mu>f'(x_0)$
+
+此时不存在$\xi\in(x_0,x_0+\delta),s.t.f'(\xi)=\mu$，这与上述第3题的结论（Darboux定理）矛盾
+
+故$f'(x)$没有第一类间断点.
+
+\item试举出一个函数$f$，它在$(-\infty,+\infty)$上处处可导，其导函数$f'(x)$在$x=0$处有第二类间断点.
+
+解：$f(x)=\begin{cases}
+x^2\sin\frac1x,&x\neq0\\
+0,&x=0
+\end{cases}$，$f'(x)=\begin{cases}
+2x\sin\frac1x-\cos\frac1x,&x\neq0\\
+0,&x=0
+\end{cases}$
+
+\item设$f(x)$在$[0,a]$二阶可导，$|f''(x)|\leq M,0\leq x\leq a$. 又设$f(x)$在$(0,a)$取得极大值. 求证$|f'(0)|+|f'(a)|\leq Ma$.
+
+证明：$\because f(x)$在$(0,a)$取得极大值
+
+$\therefore\exists\xi\in(0,a),s.t.f'(\xi)=0$
+
+$\therefore\exists\eta_1\in(0,\xi),s.t.f'(\xi)-f'(0)=f''(\eta_1)\xi,\exists\eta_2\in(\xi,a),s.t.f'(a)-f'(\xi)=f''(\eta_2)(a-\xi)$
+
+$\therefore|f'(0)|+|f'(a)|=|f'(\xi)-f'(0)|+|f'(a)-f'(\xi)|=|f''(\eta_1)|\xi+|f''(\eta_2)|(a-\xi)\leq M\xi+M(a-\xi)=Ma$.
+
+\item设$f(x)$在$[0,1]$处处可导，$f(0)=0,f(1)=1$且$f(x)\not\equiv x$. 求证$\exists\xi\in(0,1)$使$f'(\xi)>1$.
+
+证明：方法1：假设$\forall x\in(0,1),s.t.f'(x)\leq1$，令$F(x)=f(x)-x$，则$F'(x)=f'(x)-1\leq0$
+
+$\therefore F(x)$单调非增
+
+$\because F(0)=0=F(1)$
+
+$\therefore\forall x\in(0,1),0=F(0)\geq F(x)\geq F(1)=0$
+
+$\therefore F(x)\equiv0$，矛盾
+
+故$\exists\xi\in(0,1)$使$f'(\xi)>1$.
+
+方法2：$\because f(x)\not\equiv x$
+
+$\therefore\exists x_0\in(0,1),s.t.f(x_0)\neq x_0$
+
+若$f(x_0)>x_0$，则$\exists\eta\in(0,x_0),s.t.f(x_0)-f(0)=f'(\eta)x_0>x_0-f(0)=x_0$
+
+$\therefore[f'(\eta)-1]x_0>0$，即$f'(\eta)>1$.
+
+\item选择$a$与$b$，使得$x-(a+b\cos x)\sin x$为5阶无穷小$(x\rightarrow0)$.
+
+解：\[\begin{split}
+&x-(a+b\cos x)\sin x\\
+=&x-\{a+b[\sum_{k=0}^n\frac{(-1)^k}{(2k)!}x^{2k}+o(x^{2n+1}]\}[\sum_{k=0}^n\frac{(-1)^k}{(2k+1)!}x^{2k+1}+o(x^{2n+2})]\\
+=&x-\{a+b[1-\frac12x^2+\frac1{4!}x^4+o(x^5)]\}[x-\frac1{3!}x^3+\frac1{5!}x^5+o(x^6)]\\
+=&(1-a-b)x+(\frac b2+\frac{a+b}{3!})x^3+(\frac b{4!}-\frac b{2\cdot3!}-\frac{a+b}{5!})x^5+o(x^5)
+\end{split}\]
+
+要使$x-(a+b\cos x)\sin x$为5阶无穷小$(x\rightarrow0)$
+
+则\[\begin{cases}
+1-a-b=0\\
+\frac b2+\frac{a+b}{3!}=0
+\end{cases}\]
+
+则$a=\frac43,b=-\frac13$.
+
+\item利用泰勒公式求下列极限：
+\newline
+(1)$\lim\limits_{x\rightarrow0}\frac{\sin(\sin x)-\tan(\tan x)}{\sin x-\tan x}$；
+\newline
+(2)$\lim\limits_{x\rightarrow0^+}\frac{\mathrm e^x-1-x}{\sqrt{1-x}-\cos\sqrt x}$；
+\newline
+(3)$\lim\limits_{x\rightarrow0}\frac1{x^4}[\ln(1+\sin^2x)-6(\sqrt[3]{2-\cos x}-1)]$.
+
+解：(1)\[\begin{split}
+&\lim\limits_{x\rightarrow0}\frac{\sin(\sin x)-\tan(\tan x)}{\sin x-\tan x}\\
+=&\lim\limits_{x\rightarrow0}\frac{[\sin x-\frac16\sin^3x+o(\sin^4x)]-[\tan x+\frac13\tan^3x+o(\tan^4x)]}{[x-\frac16x^3+o(x^4)]-[x+\frac13x^3+o(x^4)]}\\
+=&\lim\limits_{x\rightarrow0}\frac{[x-\frac16x^3+o(x^4)-\frac16x^3+o(x^3)+o(x^4)]-[x+\frac13x^3+o(x^4)+\frac13x^3+o(x^3)+o(x^4)]}{-\frac12x^3+o(x^4)}\\
+=&2.
+\end{split}\]
+
+(2)\[\begin{split}
+&\lim\limits_{x\rightarrow0^+}\frac{\mathrm e^x-1-x}{\sqrt{1-x}-\cos\sqrt x}\\
+=&\lim\limits_{x\rightarrow0^+}\frac{1+x+\frac{x^2}{2!}+o(x^2)-1-x}{1-\frac12x+\frac{\frac12(\frac12-1)}{2!}x^2+o(x^2)-[1-\frac12x+\frac1{4!}x^2+o(x^2)]}\\
+=&-3.
+\end{split}\]
+(3)\[\begin{split}
+&\lim\limits_{x\rightarrow0}\frac1{x^4}[\ln(1+\sin^2x)-6(\sqrt[3]{2-\cos x}-1)]\\
+=&\lim\limits_{x\rightarrow0}\frac1{x^4}(\sin^2x-\frac12\sin^4x+o(\sin^4x)-6\{1+\frac13(1-\cos x)+\frac{\frac13(\frac13-1)}{2!}(1-\cos x)^2\\
+&+o[(1-\cos x)^2]-1\})\\
+=&\lim\limits_{x\rightarrow0}\frac1{x^4}([x-\frac16x^3+o(x^3)]^2-\frac12x^4+o(x^4)+o(x^4)-6\{\frac13[\frac12x^2-\frac1{4!}x^4+o(x^4)]\\
+&+\frac{\frac13(\frac13-1)}{2!}[\frac12x^2+o(x^2)]^2+o[(1-\cos x)^2]\})\\
+=&\lim\limits_{x\rightarrow0}\frac1{x^4}\{x^2-\frac13x^4+o(x^4)-\frac12x^4+o(x^4)-6[\frac16x^2-\frac1{3\cdot4!}x^4+o(x^4)-\frac19\frac14x^4\\
+&+o(x^4)+o(x^4)]\}\\
+&=\lim\limits_{x\rightarrow0}\frac1{x^4}[-\frac13x^4-\frac12x^4-6(-\frac1{3\cdot4!}x^4-\frac19\frac14x^4)+o(x^4)]\\
+=&-\frac7{12}.
+\end{split}\]
+\item设$f(x)$在$[a,b]$上二阶可导，证明：$\exists x_0\in(a,b)$，使得
+\[
+f(b)-2f(\frac{a+b}2)+f(a)=\frac{(b-a)^2}4f''(x_0).
+\]
+
+证明：$\because f(x)$在$[a,b]$上二阶可导
+
+$\therefore f(x)=f(\frac{a+b}2)+f'(\frac{a+b}2)(x-\frac{a+b}2)+\frac{f''(\xi)}{2!}(x-\frac{a+b}2)^2,\xi$介于$x$和$\frac{a+b}2$之间
+
+$\therefore f(a)=f(\frac{a+b}2)+f'(\frac{a+b}2)(a-\frac{a+b}2)+\frac{f''(\xi_1)}{2!}(a-\frac{a+b}2)^2\\
+=f(\frac{a+b}2)+f'(\frac{a+b}2)\frac{a-b}2+\frac{f''(\xi_1)}{2!}(\frac{a-b}2)^2,\xi_1\in(a,\frac{a+b}2)$
+
+$f(b)=f(\frac{a+b}2)+f'(\frac{a+b}2)(b-\frac{a+b}2)+\frac{f''(\xi_2)}{2!}(b-\frac{a+b}2)^2\\
+=f(\frac{a+b}2)+f'(\frac{a+b}2)\frac{b-a}2+\frac{f''(\xi_2)}{2!}(\frac{b-a}2)^2,\xi_2\in(\frac{a+b}2,b)$
+
+以上两式相加得$f(a)+f(b)=2f(\frac{a+b}2)+\frac12[f''(\xi_1)+f''(\xi_2)]\frac{(a-b)^2}4$
+
+$\because\min\{f''(\xi_1),f''(\xi_2)\}\leq\frac12[f''(\xi_1)+f''(\xi_2)]\leq\max\{f''(\xi_1),f''(\xi_2)\}$
+
+$\therefore\exists x_0\in[\xi_1,\xi_2]\subset(a,b),s.t.f''(x_0)=\frac12[f''(\xi_1)+f''(\xi_2)]$
+
+即$f(b)-2f(\frac{a+b}2)+f(a)=\frac{(b-a)^2}4f''(x_0)$.
+
+\item设$f(x)$在区间$[a,b]$上一阶可导，在$(a,b)$内二阶可导，且$f'(a)=f'(b)=0$，试证$\exists x_0\in(a,b)$，使得
+\[
+|f''(x_0)|\geq\frac4{(b-a)^2}|f(b)-f(a)|.
+\]
+
+证明：{\bf（该题似乎应加上$f(x)$在$a,b$两点的一阶导数连续的条件）}
+
+$f(x)=f(a)+f'(a)(x-a)+\frac12f''(\xi_1)(x-a)^2=f(a)+\frac12f''(\xi_1)(x-a)^2,\xi_1\in(a,x)$
+
+$f(x)=f(b)+f'(b)(x-b)+\frac12f''(\xi_2)(x-b)^2=f(b)+\frac12f''(\xi_2)(x-b)^2,\xi_2\in(x,b)$
+
+$f(\frac{a+b}2)=f(a)+\frac12f''(\xi_1)(\frac{a+b}2-a)^2=f(a)+\frac12f''(\xi_1)(\frac{a-b}2)^2$
+
+$f(\frac{a+b}2)=f(b)+\frac12f''(\xi_2)(\frac{a+b}2-b)^2=f(b)+\frac12f''(\xi_2)(\frac{a-b}2)^2$
+
+以上两式相减得$f(b)-f(a)=\frac12[f''(\xi_1)-f''(\xi_2)]\frac{(a-b)^2}4$
+
+$\therefore|f(b)-f(a)|=\frac12|f''(\xi_1)-f''(\xi_2)|\frac{(a-b)^2}4\leq\frac12[|f''(\xi_1)|+|f''(\xi_2)|]\frac{(a-b)^2}4$
+
+记$|f''(\xi)|=\max\{|f''(\xi_1)|,|f''(\xi_2)|\}$
+
+则$|f(b)-f(a)|\leq |f''(\xi)|\frac{(a-b)^2}4$
+
+即$|f''(x_0)|\geq\frac4{(b-a)^2}|f(b)-f(a)|$.
+
+\item设$f(x)\in C^2[a,b],f(a)=f(b)=0$，试证：
+\newline
+(1)$\max\limits_{a\leq x\leq b}|f(x)|\leq\frac18(b-a)^2\max\limits_{a\leq x\leq b}|f''(x)|$；
+\newline
+(2)$\max\limits_{a\leq x\leq b}|f'(x)|\leq\frac12(b-a)\max\limits_{a\leq x\leq b}|f''(x)|$.
+
+证明：(1)设$|f(x_0)=\max\limits_{a\leq x\leq b}|f(x)|$
+
+$\because f(a)=f(b)=0$
+
+$\therefore x_0\in(a,b),|f(x_0)|\geq0$且$x_0$是$f(x)$的极值点
+
+$\therefore f'(x_0)=0$
+
+$f(x)$在$x_0$处的一阶泰勒多项式为$f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac12f''(\xi)(x-x_0)^2=f(x_0)+\frac12f''(\xi)(x-x_0)^2,\xi$介于$x_0$和$x$之间
+
+$\therefore f(a)=f(x_0)+\frac12f''(\xi_1)(a-x_0)^2=0(*)\\
+f(b)=f(x_0)+\frac12f''(\xi_2)(b-x_0)^2=0(**)$
+
+i)当$x_0\in(a,\frac{a+b}2]$时，由$(*)$式知$\max\limits_{a\leq x\leq b}|f(x)|=|f(x_0)|=\frac12(a-x_0)^2|f''(\xi_1)|\leq\frac12(a-\frac{a+b}2)|f''(\xi_1)|=\frac18(a-b)^2|f''(\xi_1)|\leq\frac18(b-a)^2\max\limits_{a\leq x\leq b}|f''(x)|$
+
+ii)当$x_0\in(\frac{a+b}2,b)$时，由$(**)$式知$\max\limits_{a\leq x\leq b}|f(x)|=|f(x_0)|=\frac12(b-x_0)^2|f''(\xi_1)|<\frac12(b-\frac{a+b}2)|f''(\xi_1)|=\frac18(a-b)^2|f''(\xi_1)|\leq\frac18(b-a)^2\max\limits_{a\leq x\leq b}|f''(x)|$
+
+综上所述，$\max\limits_{a\leq x\leq b}|f(x)|\leq\frac18(b-a)^2\max\limits_{a\leq x\leq b}|f''(x)|$.
+
+(2)设$|f'(x_0)|=\max\limits_{a\leq x\leq b}|f'(x)|$
+
+$f(x)$在$x_0$处的一阶泰勒多项式为$f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac12f''(\xi)(x-x_0)^2,\xi$介于$x_0$和$x$之间
+
+$\because f(a)=f(b)=0$
+
+$\therefore f(a)=f(x_0)+f'(x_0)(a-x_0)+\frac12f''(\xi_1)(a-x_0)^2=0\\
+f(b)=f(x_0)+f'(x_0)(b-x_0)+\frac12f''(\xi_2)(b-x_0)^2=0$
+
+以上两式相减得$f'(x_0)(a-b)+\frac12[f''(\xi_1)(a-x_0)^2-f''(\xi_2)(b-x_0)^2]=0$
+
+所以
+\[\begin{split}
+|f'(x_0)|(b-a)&=\frac12|f''(\xi_1)(a-x_0)^2-f''(\xi_2)(b-x_0)^2|\\
+&\leq\frac12[(a-x_0)^2+(b-x_0)^2]\max\limits_{a\leq x\leq b}|f''(x)|\\
+&=\frac12(a^2-2ax_0+x_0^2+b^2-2bx_0+x_0^2)\max\limits_{a\leq x\leq b}|f''(x)|\\
+&=\frac12[2(x_0-\frac{a+b}2)+\frac{(a-b)^2}2]\max\limits_{a\leq x\leq b}|f''(x)|\\
+&\leq\frac12[2(a-\frac{a+b}2)^2+\frac{(a-b)^2}2]\max\limits_{a\leq x\leq b}|f''(x)|\\
+&=\frac12(b-a)^2\max\limits_{a\leq x\leq b}|f''(x)|
+\end{split}\]
+
+$\therefore\max\limits_{a\leq x\leq b}|f'(x)|=|f'(x_0)|\leq\frac12(b-a)\max\limits_{a\leq x\leq b}|f''(x)|$
+
+\item设$f$在$(-\infty,+\infty)$有定义，并且满足$f(x+y)=f(x)f(y)$，对所有实数$x,y$都成立，又设$f'(0)=a$. 试求$f'(x)$和$f(x)$的表达式.
+
+解：若存在$x=x_0,s.t.f(x_0)=0$，则$f(x_0+y)=f(x_0)f(y)=0,y\in\mathbb R$，即$f(x)\equiv0$
+
+若$f(x)\neq0$，则由$f(0+0)=[f(0)]^2$得$f(0)=1$
+
+所以
+\[\begin{split}
+f'(x)&=\lim\limits_{h\rightarrow0}\frac{f(x+h)-f(x)}h=\lim\limits_{h\rightarrow0}\frac{f(x)f(h)-f(x)}h=f(x)\lim\limits_{h\rightarrow0}\frac{f(h)-1}h\\
+&=f(x)\lim\limits_{h\rightarrow0}\frac{f(h)-f(0)}h=f'(0)f(x)=af(x)
+\end{split}\]
+
+$\therefore f(x)=\mathrm e^{ax}$
+
+即$f(x)=0$或$f(x)=\mathrm e^{ax}$.
+
+\item设$f(x)$在区间$[0,+\infty)$有界，处处可导. 求证存在一个单调增加趋向于$+\infty$的点列$\{x_n\}$，使得$\lim\limits_{n\rightarrow\infty}f'(x_n)=0$.
+
+证明：$\because f(x)$在区间$[0,+\infty)$有界，处处可导
+
+$\therefore\exists M>0,s.t.|f(x)|\leq M,x\in[0,+\infty)$
+
+取$a_n=2^n$，则$|f(a_n)-f(a_{n-1})|\leq|f(a_n)|+|f(a_{n-1})|\leq2M$
+
+又$\because f(a_n)-f(a_{n-1})=f'(\xi_n)(a_n-a_{n-1})=f'(\xi_n)2^{n-1},\xi_n\in(a_{n-1},a_n),n>1$
+
+$\therefore|f'(\xi_n)|\leq\frac{2M}{2^{n-1}},n>1$
+
+$\because\lim\limits_{n\rightarrow\infty}\frac{2M}{2^{n-1}}=0$
+
+$\therefore\lim\limits_{n\rightarrow\infty}f'(\xi_n)=0$
+
+可取$x_n=\xi_n$，满足$\{x_n\}$单调增加趋向于$+\infty$且使得$\lim\limits_{n\rightarrow\infty}f'(x_n)=0$.
+\end{enumerate}
+\end{document}
