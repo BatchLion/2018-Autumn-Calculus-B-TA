@@ -1,0 +1,329 @@
+\documentclass[12pt,UTF8]{ctexart}
+\usepackage{ctex,amsmath,amssymb,geometry,fancyhdr,bm,amsfonts
+,mathtools,extarrows,graphicx,url,enumerate,color} 
+% 加入中文支持
+\newcommand\Set[2]{%
+\left\{#1\ \middle\vert\ #2 \right\}}
+\geometry{a4paper,scale=0.80}
+\pagestyle{fancy}
+\rhead{习题2.1\&2.2}
+\lhead{基础习题课讲义}
+\chead{微积分B(1)}
+\begin{document}
+\setcounter{section}{1}
+\section{数列极限}
+\noindent
+\subsection{知识结构}
+\noindent第二章实数与函数
+	\begin{enumerate}
+		\item[2.1] 数列极限的概念和性质
+			\begin{enumerate}
+				\item[2.1.1]数列极限的概念
+				\item[2.1.2]数列极限的性质
+					\begin{itemize}
+						\item唯一性
+						\item有界性
+						\item保号性
+					\end{itemize}
+				\item[2.1.3]数列的子列
+				\item[2.1.4]无穷大量与无界变量
+			\end{enumerate}
+		\item[2.2] 数列极限存在的条件
+			\begin{enumerate}
+				\item[2.2.1]夹逼原理
+				\item[2.2.2]单调收敛定理
+				\item[2.2.3]柯西收敛准则
+				\item[2.2.4]数列极限的四则运算
+			\end{enumerate}
+\end{enumerate}
+\subsection{习题2.1解答}
+\begin{enumerate}
+\item 用数列极限定义证明以下各题:
+\newline
+$(1)\lim\limits_{n\rightarrow\infty}\frac{5n^3}{1+n^3}=5;$
+\newline
+$(2)\lim\limits_{n\rightarrow\infty}\frac{\sin n^2}{n}=0.$
+\newline
+证明：(1){\bf（多项式的标准过程.）}
+
+$\because|\frac{5n^3}{1+n^3}-5|=\frac{5}{1+n^3}$
+
+$\therefore\forall\varepsilon>0,\ \text{取} N>\sqrt[3]{\frac5\varepsilon-1},\ \text{则当}n>N\text{时},\ |\frac{5n^3}{1+n^3}-5|<\varepsilon$
+
+故$\lim\limits_{n\rightarrow\infty}\frac{5n^3}{1+n^3}=5$.
+\newline
+(2){\bf（常用$\sin x\leq1$.）}
+
+$\because|\frac{\sin n^2}{n}-0|\leq\frac1{n}$
+
+$\therefore\forall\varepsilon>0,\ \text{取}N>\frac1\varepsilon,\ \text{则当}n>N\text{时},\ |\frac{\sin n^2}{n}-0|<\varepsilon$
+
+故$\lim\limits_{n\rightarrow\infty}\frac{\sin n^2}{n}=0$.
+\item用极限定义证明以下各题：
+\begin{enumerate}[(1)]
+	\item若$\lim\limits_{n\rightarrow\infty}a_n=A$，则$\lim\limits_{n\rightarrow\infty}|a_n|=|A|$；
+	\item若$\lim\limits_{n\rightarrow\infty}a_n=A>0$，则$\lim\limits_{n\rightarrow\infty}\sqrt{a_n}=\sqrt{A}$；
+	\item若$\lim\limits_{n\rightarrow\infty}a_n=A$，则$\lim\limits_{n\rightarrow\infty}a_n^2=A^2$；
+	\item若$\lim\limits_{n\rightarrow\infty}a_n=A$，则$\lim\limits_{n\rightarrow\infty}\frac{a_n}n=0$.
+\end{enumerate}
+{\bf（常用结论的证明.）}
+\newline
+证明：(1)$||a_n|-|A||\leq|a_n-A|$
+
+$\because\lim\limits_{n\rightarrow\infty}a_n=A$
+
+$\therefore\forall\varepsilon>0,\exists N>0,\ \text{使}n>N$时, $||a_n|-|A||\leq|a_n-A|<\varepsilon$
+
+则$\lim\limits_{n\rightarrow\infty}|a_n|=|A|$.
+
+
+(2)$\because\lim\limits_{n\rightarrow\infty}a_n=A>0$
+
+$\therefore\exists N_1>0$，使$n>N_1$时，$a_n>0$
+
+$\therefore n>N_1$时，$|\sqrt{a_n}-\sqrt A|=\frac{|a_n-A|}{\sqrt{a_n}+\sqrt A}<\frac{|a_n-A|}{\sqrt A}$
+
+$\because\lim\limits_{n\rightarrow\infty}a_n=A$
+
+$\therefore\forall\varepsilon>0$，$\exists N_2>0$，使$n>N_2$时，$|a_n-A|<\varepsilon$
+
+取$N=\text{max}\{N_1,N_2\}$，当$n>N$时，$|\sqrt{a_n}-\sqrt A|=\frac{|a_n-A|}{\sqrt{a_n}+\sqrt A}<\frac{|a_n-A|}{\sqrt A}<\frac{\varepsilon}{\sqrt A}$
+
+故$\lim\limits_{n\rightarrow\infty}\sqrt{a_n}=\sqrt{A}$.
+
+
+(3)$|a_n^2-A^2|=|a_n-A||a_n+A|$，
+
+$\because\lim\limits_{n\rightarrow\infty}a_n=A$
+
+$\therefore\exists M>0$，使$|a_n|<M(n>0)$
+
+$\therefore|a_n+A|<|a_n|+|A|<M+|A|$
+
+$\therefore\forall\varepsilon>0,\exists N>0$，当$n>N$时，$|a_n-A|<\varepsilon$
+
+$\therefore|a_n^2-A^2|=|a_n-A||a_n+A|<\varepsilon(M+|A|)$
+
+则$\lim\limits_{n\rightarrow\infty}a_n^2=A^2$.
+
+(4)$\because\lim\limits_{n\rightarrow\infty}a_n=A$
+
+$\therefore\exists M>0$，使$|a_n|<M$
+
+$\forall\varepsilon>0$，取$N>\frac M\varepsilon$，则当$n>N$时，$|\frac{a_n}n-0|<\frac Mn<\varepsilon$.
+
+故$\lim\limits_{n\rightarrow\infty}\frac{a_n}n=0$.
+\item设$\lim\limits_{n\rightarrow\infty}a_n=A,\lim\limits_{n\rightarrow\infty}b_n=B$，且$A<B$，则存在正整数$N$，使得当$n>N$时，恒有$a_n<b_n$.
+\newline
+证明：先证明$\lim\limits_{n\rightarrow\infty}a_n-b_n=A-B$：
+
+$\because\lim\limits_{n\rightarrow\infty}a_n=A,\lim\limits_{n\rightarrow\infty}b_n=B$
+
+$\therefore\forall\varepsilon>0,\exists N_1>0$，使得$n>N_1$时$|a_n-A|<\frac12\varepsilon$，当$n>N_2$时$|b_n-B|<\varepsilon$，当$n>N_2$时$|b_n-B|<\frac12\varepsilon$
+
+取$N=$max$\{N_1,N_2\}$，则当$n>N$时$|a_n-b_n-(A-B)|<|a_n-A|+|b_n-B|<\varepsilon$
+
+$\therefore\lim\limits_{n\rightarrow\infty}a_n-b_n=A-B$.
+
+$\because A<B$
+
+$\therefore A-B<0$
+
+根据数列极限的保号性知存在正整数$N$，使得当$n>N$时，恒有$a_n<b_n$.
+\end{enumerate}
+\subsection{习题2.2}
+\begin{enumerate}
+\item用夹逼原理求下列极限
+	\begin{enumerate}[(1)]
+		\item$\lim\limits_{n\rightarrow\infty}(2+\frac1n)^{\frac1n}$；
+		\item$\lim\limits_{n\rightarrow\infty}n^{\frac1n}$；
+		\item$\lim\limits_{n\rightarrow\infty}(\frac1{n^2+1}+\frac2{n^2+2}+\cdots+\frac n{n^2+n})$；
+		\item$\lim\limits_{n\rightarrow\infty}(\frac1{n^2+1}+\frac1{n^2+2}+\cdots+\frac 1{n^2+n})$.
+	\end{enumerate}
+证明：(1)$(2+0)^{\frac1n}<(2+\frac1n)^{\frac1n}\leq(2+1)^{\frac1n}$，即$2^{\frac1n}<(2+\frac1n)^{\frac1n}\leq3^{\frac1n}$
+
+$\because\lim\limits_{n\rightarrow\infty}2^{\frac1n}=1,\lim\limits_{n\rightarrow\infty}3^{\frac1n}=1$
+
+$\therefore\lim\limits_{n\rightarrow\infty}(2+\frac1n)^{\frac1n}=1$.
+
+(2)$\because n^{\frac1n}\geq1$
+
+$\therefore a_n=n^{\frac1n}-1\geq0$
+
+$\therefore n=(1+a_n)^n=1+na_n+\frac{n(n+1)}{2!}a_n^2+\cdots>\frac{n(n+1)}{2!}a_n^2(n\geq2)$
+
+$\therefore0<a_n<\sqrt{\frac2{n+1}}(n\geq2)$
+
+$\because\lim\limits_{n\rightarrow\infty}\sqrt{\frac2{n+1}}(n\geq2)=0$
+
+$\therefore\lim\limits_{n\rightarrow\infty}a_n=0$
+
+$\therefore\lim\limits_{n\rightarrow\infty}n^{\frac1n}=1$.
+
+(3)$\frac1{n^2+n}+\frac2{n^2+n}+\cdots+\frac n{n^2+n}<\frac1{n^2+1}+\frac2{n^2+2}+\cdots+\frac n{n^2+n}<\frac1{n^2}+\frac2{n^2}+\cdots+\frac n{n^2}$
+
+即$\frac{\frac{n(n+1)}2}{n^2+n}=\frac12<\frac1{n^2+1}+\frac2{n^2+2}+\cdots+\frac n{n^2+n}<\frac{\frac{n(n+1)}2}{n^2}=\frac{n^2+n}{2n^2}$
+
+$\because\lim\limits_{n\rightarrow\infty}\frac{n^2+n}{2n^2}=\lim\limits_{n\rightarrow\infty}\frac{1+\frac1n}{2}=\frac12$
+
+$\therefore\lim\limits_{n\rightarrow\infty}(\frac1{n^2+1}+\frac2{n^2+2}+\cdots+\frac n{n^2+n})=\frac12$.
+
+(4)$\frac n{\sqrt{n^2+n}}<\frac1{\sqrt{n^2+1}}+\frac1{\sqrt{n^2+2}}+\cdots+\frac 1{\sqrt{n^2+n}}<\frac n{\sqrt{n^2}}=1$
+
+$\because\lim\limits_{n\rightarrow\infty}\frac n{\sqrt{n^2+n}}=\lim\limits_{n\rightarrow\infty}\frac 1{\sqrt{1+\frac1n}}=1$
+
+$\therefore\lim\limits_{n\rightarrow\infty}(\frac1{\sqrt{n^2+1}}+\frac1{\sqrt{n^2+2}}+\cdots+\frac 1{\sqrt{n^2+n}})=1$.
+\item用单调收敛定理求下列极限：
+	\begin{enumerate}[(1)]
+		\item设$x\neq0$，令$a_1=\sin x,a_n=\sin a_{n-1}(n=2,3,\cdots)$，求$\lim\limits_{n\rightarrow\infty}a_n$.
+		\item设$a>0,k>0,a_1=\frac12(a+\frac ka),a_n=\frac12(a_{n-1}+\frac k{a_{n-1}})(n=2,3,\cdots)$，求证：$\lim\limits_{n\rightarrow\infty}a_n=\sqrt k$.
+		\item设$x_1=a>0,y_1=b>0,x_{n+1}=\sqrt{x_ny_n},y_{n+1}=\frac12(x_n+y_n)(n=1,2,\dots)$. 求证：${x_n}$和${y_n}$收敛于同一个实数.
+	\end{enumerate}
+(1)解：$a_n-a_{n-1}=\sin a_{n-1}-a_{n-1}$，可分以下两种情况讨论：
+
+(i)当$1\geq a_1=\sin x\geq0$时，$1\geq a_2=\sin a_1\geq0,1\geq a_3=\sin a_2\geq0,\cdots,1\geq a_n=\sin a_{n-1}\geq0,\cdots$
+
+$\therefore a_n-a_{n-1}=\sin a_{n-1}-a_{n-1}\leq0(n=2,3,\cdots)$
+
+$\therefore\{a_n\}$单调非增有下界，故收敛，记$\lim\limits_{n\rightarrow\infty}a_n=A$.
+
+将$a_n=\sin a_{n-1}$两边取极限得$A=\sin A$，即$\lim\limits_{n\rightarrow\infty}a_n=A=0$.
+
+(ii)当$-1\leq a_1=\sin x<0$时，$-1\leq a_2=\sin a_1<0,-1\leq a_3=\sin a_2<0,\cdots,-1\leq a_n=\sin a_{n-1}<0,\cdots$
+
+$\therefore a_n-a_{n-1}=\sin a_{n-1}-a_{n-1}\geq0(n=2,3,\cdots)$
+
+$\therefore\{a_n\}$单调非减有上界，故收敛，记$\lim\limits_{n\rightarrow\infty}a_n=A$.
+
+将$a_n=\sin a_{n-1}$两边取极限得$A=\sin A$，即$\lim\limits_{n\rightarrow\infty}a_n=A=0$.
+
+(2)证明：$a_n-a_{n-1}=\frac12(a_{n-1}+\frac k{a_{n-1}})-a_{n-1}=\frac12(\frac k{a_{n-1}}-a_{n-1})$
+
+$\because a>0$
+
+$\therefore a_1=\frac12(a+\frac ka)>\sqrt k$，$a_2=\frac12(a_1+\frac k{a_1})>\sqrt k,a_3=\frac12(a_2+\frac k{a_2})>\sqrt k,\cdots,a_n=\frac12(a_{n-1}+\frac k{a_{n-1}})>\sqrt k,\cdots$
+
+$\therefore a_n-a_{n-1}=\frac12(\frac k{a_{n-1}}-a_{n-1})<0$
+
+$\therefore\{a_n\}$单调非增有下界，故收敛，记$\lim\limits_{n\rightarrow\infty}a_n=A$.
+
+将$a_n=\frac12(a_{n-1}+\frac k{a_{n-1}})$两边取极限得$A=\frac12(A+\frac kA)$，即$\lim\limits_{n\rightarrow\infty}a_n=A=\sqrt k$.
+
+(3)证明：$y_{n+1}-x_{n+1}=\frac12(x_n+y_n)-\sqrt{x_ny_n}$
+
+$\because a>0,b>0$
+
+$\therefore x_2=\sqrt{ab}>0,y_2=\frac12{a+b}>0,x_3=\sqrt{x_2y_2},y_3=\frac12{x_2+y_2},\cdots,x_n=\sqrt{x_{n-1}y_{n-1}}>0,y_n=\frac12(x_{n-1}+y_{n-1})>0,\cdots$
+
+$\therefore y_{n+1}-x_{n+1}=\frac12(x_n+y_n)-\sqrt{x_ny_n}\geq0(n=1,2,\cdots)$
+
+$\therefore x_n=\sqrt{x_{n-1}y_{n-1}}\geq\sqrt{x_{n-1}x_{n-1}}=x_{n-1},y_n=\frac12(x_{n-1}+y_{n-1})\leq y_{n-1}(n=3,4,\cdots)$
+
+$\therefore x_2=\sqrt{ab}\leq x_3\leq x_4\leq\cdots\leq x_n\leq\cdots,y_2=\frac12(a+b)\geq y_3\geq y_4\geq\cdots\geq y_n\geq\cdots$
+
+且$x_n\leq y_n(n=2,3,\cdots)$
+
+$\therefore\{x_n\},\{y_n\}$均单调有界，故收敛, 记$\lim\limits_{n\rightarrow\infty}x_n=A,\lim\limits_{n\rightarrow\infty}y_n=B$，则$A,B>0$.
+
+将$x_{n+1}=\sqrt{x_ny_n}$和$y_{n+1}=\frac12(x_n+y_n)$两边取极限得$A=\sqrt{AB}$和$B=\frac12(A+B)$，即$A=B$.
+\item设数列$\{a_n\}$具有这样的性质：$\forall p\in\mathbb Z^+$，有$\lim\limits_{n\rightarrow\infty}|a_{n+p}-a_n|=0$. 问$\{a_n\}$是不是柯西数列？研究下列数列是否满足上述条件？是否收敛？
+\begin{enumerate}[(1)]
+	\item$a_n=\sqrt n(n\in\mathbb Z^+)$；
+	\item$a_n=\sum_{k=1}^{n}\frac1k$.
+\end{enumerate}
+解：$\{a_n\}$不一定是柯西数列，根据柯西数列的定义可知柯西数列满足该条件，但满足该条件的数列不一定是柯西数列.如： 
+
+(1)$a_n=\sqrt n(n\in\mathbb Z^+)$，$\forall p\in\mathbb Z^+$，有$\lim\limits_{n\rightarrow\infty}|a_{n+p}-a_n|=\lim\limits_{n\rightarrow\infty}|\sqrt{n+p}-\sqrt n|=\lim\limits_{n\rightarrow\infty}\frac p{\sqrt{n+p}+\sqrt n}=\lim\limits_{n\rightarrow\infty}\frac {\frac p{\sqrt n}}{\sqrt{1+\frac p{n}}+1}=0$，但显然$\{a_n\}$不收敛（因为无界），故不是柯西数列.
+
+(2)$a_n=\sum_{k=1}^{n}\frac1k$，$\forall p\in\mathbb Z^+$，有$\lim\limits_{n\rightarrow\infty}|a_{n+p}-a_n|=\lim\limits_{n\rightarrow\infty}\sum_{k=n+1}^{n+p}\frac1k=\lim\limits_{n\rightarrow\infty}(\frac1{n+1}+\frac1{n+1}+\cdots+\frac1{n+p})=0$，但可证明$\{a_n\}$不收敛，故不是柯西数列.
+
+证明如下：
+$\because\ln(1+\frac1k)<\frac1k$
+
+$\therefore a_n=\sum_{k=1}^{n}\frac1k>\sum_{k=1}^{n}\ln(1+\frac1k)=\sum_{k=1}^{n}\ln(1+k)-\ln k=\ln(n+1)$
+
+$\because\ln(n+1)$无上界
+
+$\therefore\{a_n\}$无上界
+
+易知$\{a_n\}$单调增加，故$\{a_n\}$发散.
+\item用柯西收敛准则证明下列级数收敛：
+\begin{enumerate}[(1)]
+	\item$a_n=\sum_{k=1}^n\frac{\sin k}{2^k}(n\in\mathbb Z^+)$；
+	\item$a_n=\sum_{k=1}^{n}\frac1{k(k+1)}$
+\end{enumerate}
+证明：(1)$|a_{n+p}-a_n|=\sum_{k=n+1}^{n+p}\frac{\sin k}{2^k}<\sum_{k=n+1}^{n+p}\frac1{2^k}=\frac1{2^{n+1}}\frac{1-\frac1{2^p}}{1-\frac12}<\frac1{2^n}$
+
+$\therefore\forall\varepsilon>0$，取$N>\log_2\frac1\varepsilon$，当$n>N$时，$\forall p\in\mathbb Z^+,|a_{n+p}-a_n|<\frac1{2^n}<\varepsilon$
+
+$\therefore\{a_n\}$是柯西数列，故收敛.
+
+(2)$|a_{n+p}-a_n|=\sum_{k=n+1}^{n+p}\frac1{k(k+1)}=\frac1{n+1}-\frac1{n+p}<\frac1n$
+
+$\therefore\forall\varepsilon>0$，取$N>\frac1\varepsilon$，当$n>N$时，$\forall p\in\mathbb Z^+,|a_{n+p}-a_n|<\frac1{n}<\varepsilon$
+
+$\therefore\{a_n\}$是柯西数列，故收敛.
+\item利用四则运算法则求下列极限：
+\begin{enumerate}[(1)]
+	\item$\lim\limits_{n\rightarrow\infty}(\frac{1+2+\cdots+n}{n+2}-\frac n2)$；
+	\item$\lim\limits_{n\rightarrow\infty}(\sqrt{n^2+n}-n)$；
+	\item$\lim\limits_{n\rightarrow\infty}(\sqrt[n]1+\sqrt[n]2+\cdots+\sqrt[n]100)$.
+\end{enumerate}
+解：(1)$\lim\limits_{n\rightarrow\infty}(\frac{1+2+\cdots+n}{n+2}-\frac n2)=\lim\limits_{n\rightarrow\infty}[\frac{\frac{n(n+1)}2}{n+2}-\frac n2]=\lim\limits_{n\rightarrow\infty}[\frac{n(n+1)}{2(n+2)}-\frac n2]=\lim\limits_{n\rightarrow\infty}[\frac{-n}{2(n+2)}]=\lim\limits_{n\rightarrow\infty}[\frac{-1}{2(1+\frac2n)}]=-\frac12$.
+
+(2)$\lim\limits_{n\rightarrow\infty}(\sqrt{n^2+n}-n)=\lim\limits_{n\rightarrow\infty}\frac{n^2+n-n^2}{\sqrt{n^2+n}+n}=\lim\limits_{n\rightarrow\infty}\frac{1}{\sqrt{1+\frac1n}+1}=\frac12$.
+
+(3)$\lim\limits_{n\rightarrow\infty}(\sqrt[n]1+\sqrt[n]2+\cdots+\sqrt[n]{100})=\lim\limits_{n\rightarrow\infty}\sqrt[n]1+\lim\limits_{n\rightarrow\infty}\sqrt[n]2+\cdots+\lim\limits_{n\rightarrow\infty}\sqrt[n]{100}=1+1+\cdots+1=100$.
+
+\item设$a_n\neq0(n\in\mathbb Z^+),\lim\limits_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=q<1$，求证：$\lim\limits_{n\rightarrow\infty}{a_n}=0$.
+
+解：$\because \lim\limits_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=q$
+
+$\therefore \forall \varepsilon>0,\ \exists N>0,\ \text{使得}n>N\text{时},\ ||\frac{a_{n+1}}{a_n}|-q|<\varepsilon$
+
+$\therefore  |\frac{a_{n+1}}{a_n}|<q+\varepsilon$
+
+$\text{可知当}\varepsilon\text{足够小时}, |\frac{a_{n+1}}{a_n}|<q+\varepsilon<1(n>N), \text{即在}n>N\text{时, 数列}\{|a_n|\}\text{单调减少}$
+
+$\because a_n\neq0$
+
+$\therefore \lim\limits_{n\rightarrow\infty}|a_n|\text{存在}$
+
+$\therefore\lim\limits_{n\rightarrow\infty}|a_{n+1}|=\lim\limits_{n\rightarrow\infty}|a_{n}|$
+
+$\therefore \lim\limits_{n\rightarrow\infty}|a_{n+1}|=q\lim\limits_{n\rightarrow\infty}|a_{n}|=\lim\limits_{n\rightarrow\infty}|a_n|,\ \text{即}\lim\limits_{n\rightarrow\infty}|a_n|(1-q)=0$
+
+$\because q<1$
+
+$\therefore 1-q\neq0$
+
+$\therefore\lim\limits_{n\rightarrow\infty}|a_n|=0$
+
+$\therefore \forall \varepsilon>0,\ \exists N>0,\ \text{使得}n>N\text{时},\ |a_n|-0<\varepsilon,\ \text{即}|a_n-0|<\varepsilon$
+
+$ \therefore\lim\limits_{n\rightarrow\infty}a_n=0$.
+
+\item利用上题结论证明下列结论：
+\begin{enumerate}[(1)]
+	\item$\lim\limits_{n\rightarrow\infty}\frac{a^n}{n!}=0(a>0)$；
+	\item$\lim\limits_{n\rightarrow\infty}\frac{n^2}{a^n}=0(a>1)$;
+	\item$\lim\limits_{n\rightarrow\infty}\frac{a^n}{(n!)^2}=0(a>0)$.
+\end{enumerate}
+证明：(1)$a_n=\frac{a^n}{n!},\lim\limits_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=\lim\limits_{n\rightarrow\infty}\frac a{n+1}=0<1(a>0)$，故$\lim\limits_{n\rightarrow\infty}\frac{a^n}{n!}=0$.
+
+(2)$a_n=\frac{n^2}{a^n},\lim\limits_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=\lim\limits_{n\rightarrow\infty}\frac1a\frac{(n+1)^2}{n^2}=\frac1a<1(a>1)$，故$\lim\limits_{n\rightarrow\infty}\frac{n^2}{a^n}=0$.
+
+(3)$a_n=\frac{a^n}{(n!)^2},\lim\limits_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=\lim\limits_{n\rightarrow\infty}\frac a{(n+1)^2}=0<1(a>0)$，故$\lim\limits_{n\rightarrow\infty}\frac{a^n}{(n!)^2}=0$.
+\item求极限：
+\begin{enumerate}[(1)]
+	\item$\lim\limits_{n\rightarrow\infty}\sin^2(\pi\sqrt{n^2+1})$;
+	\item$\lim\limits_{n\rightarrow\infty}\sin^2(\pi\sqrt{n^2+n})$.
+\end{enumerate}
+解：(1)$\lim\limits_{n\rightarrow\infty}\sin^2(\pi\sqrt{n^2+1})=\lim\limits_{n\rightarrow\infty}\sin^2(\pi\sqrt{n^2+1}-\pi n)=\lim\limits_{n\rightarrow\infty}\sin^2\frac{\pi}{\sqrt{n^2+1}+n}=\sin^20=0$.
+
+(2)$\lim\limits_{n\rightarrow\infty}\sin^2(\pi\sqrt{n^2+n})=\lim\limits_{n\rightarrow\infty}\sin^2(\pi\sqrt{n^2+n}-\pi n)=\lim\limits_{n\rightarrow\infty}\sin^2\frac{\pi n}{\sqrt{n^2+n}+n}=\lim\limits_{n\rightarrow\infty}\sin^2\frac{\pi}{\sqrt{1+\frac1n}+1}=\sin^2\frac\pi2=1$.
+
+
+{\bf（这里用到了结论：若$\lim\limits_{n\rightarrow\infty}a_n=A$，则$\lim\limits_{n\rightarrow\infty}\sin^2a_n=\sin^2A$.）}
+\end{enumerate}
+\end{document}
