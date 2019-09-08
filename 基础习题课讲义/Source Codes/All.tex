@@ -1,0 +1,55 @@
+\documentclass[12pt,UTF8]{ctexart}
+\usepackage{docmute}
+\usepackage{ctex,amsmath,amssymb,geometry,fancyhdr,bm,amsfonts,mathtools,extarrows,graphicx,url,enumerate,color,float,multicol,subfig,wasysym} 
+\allowdisplaybreaks[4]
+% 加入中文支持
+\newcommand\Set[2]{\left\{#1\ \middle\vert\ #2 \right\}}
+\newcommand\Lim[0]{\lim\limits_{n\rightarrow\infty}}
+\newcommand\LIM[2]{\lim\limits_{#1\rightarrow#2}}
+\newcommand\Ser[1]{\sum_{n=#1}^\infty}
+\newcommand{\SER}[2]{\sum_{#1=#2}^\infty}
+\newcommand{\varSer}[3]{\sum_{#1=#2}^{#3}}
+\newcommand{\me}[0]{\mathrm e}
+\newcommand{\Int}[4]{\varint\nolimits_{#1}^{#2}#3\mathrm d#4}
+\newcommand{\aIInt}[1]{\iint\limits_{#1}}
+\newcommand{\IInt}[3]{\iint\limits_{#1}#2\mathrm d#3}
+\newcommand{\varIInt}[4]{\iint\limits_{#1}#2\mathrm d#3\mathrm d#4}
+\geometry{a4paper,scale=0.80}
+%\pagestyle{fancy}
+%\rhead{习题12.1\&12.2\&12.3}
+%\lhead{基础习题课讲义}
+%\chead{微积分B(2)}
+
+\pagestyle{fancy}             % 选用 fancy style
+% 其余同 plain style
+\fancyhf{}                    
+\fancyhead[L]{基础习题课讲义}
+\fancyhead[C]{\leftmark}
+\fancyhead[R]{微积分B(1)}
+\fancyfoot[C]{~\thepage~}
+\renewcommand{\headrulewidth}{0.7pt}
+\renewcommand{\footrulewidth}{0pt}
+\begin{document}
+\input{1/1.tex} 
+\input{2/2.tex} 
+\input{3/3.tex} 
+\input{4/4.tex}
+\input{5/5.tex}
+\input{6/6.tex} 
+\input{7/7.tex} 
+\input{8/8.tex}
+\input{8CExtra/8CExtra.tex}
+\def\thesection{9}
+\input{9/9.tex}
+\input{9CExtra/9CExtra.tex}
+\def\thesection{10}
+\input{10/10.tex}
+\def\thesection{11}
+\input{11/11.tex} 
+\input{11CExtra/11CExtra.tex}
+\def\thesection{12}
+\input{12/12.tex} 
+\def\thesection{13}
+\input{13/13.tex} 
+\input{13CExtra/13CExtra.tex}
+\end{document}
