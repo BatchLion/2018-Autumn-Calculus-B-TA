@@ -1,0 +1,613 @@
+\documentclass[12pt,UTF8]{ctexart}
+\usepackage{ctex,amsmath,amssymb,geometry,fancyhdr,bm,amsfonts
+,mathtools,extarrows,graphicx,url,enumerate,color} 
+% 加入中文支持
+\newcommand\Set[2]{%
+\left\{#1\ \middle\vert\ #2 \right\}}
+\geometry{a4paper,scale=0.80}
+\pagestyle{fancy}
+\rhead{习题4.1\&4.2\&4.3}
+\lhead{基础习题课讲义}
+\chead{微积分B(1)}
+\begin{document}
+\setcounter{section}{4}
+\section{导数的概念、运算法则与若干特殊函数的求导方法}
+\noindent
+\subsection{知识结构}
+\noindent第4章导数与微分
+	\begin{enumerate}
+		\item[4.1] 导数的概念
+			\begin{enumerate}
+				\item[4.1.1]导数
+					\begin{itemize}
+						\item运动物体的瞬时速度
+						\item曲线的切线问题
+							\begin{itemize}
+								\item 切线
+								\item 法线
+							\end{itemize}
+					\end{itemize}
+				\item[4.1.2]基本初等函数的导数
+					\begin{itemize}
+						\item常数函数
+						\item三角函数
+						\item对数函数
+						\item指数函数
+					\end{itemize}
+			\end{enumerate}
+		\item[4.2]导数的运算法则
+			\begin{enumerate}
+				\item[4.2.1]导数的四则运算
+					\begin{itemize}
+						\item导数的四则运算法则
+						\item复合函数求导法则
+					\end{itemize}
+				\item[4.2.2]反函数求导法则
+			\end{enumerate}
+		\item[4.3]若干特殊的求导方法
+			\begin{enumerate}
+				\item[4.3.1]对数求导法
+				\item[4.3.2]参数式函数求导法
+				\item[4.3.3]隐函数求导法
+			\end{enumerate}
+\end{enumerate}
+\subsection{习题4.1解答}
+\begin{enumerate}
+\item 当物体温度高于室内温度时，物体就会逐渐冷却. 设物体温度$T$与时间$t$的关系为$T=T(t)$，试求物体在时刻$t$的冷却速率.
+
+解：物体在时刻$t$的冷却速率为$T'(t)$.
+
+\item 求等边三角形的面积关于其边长的变化率.
+
+解：等边三角形的面积$S(a)=\frac12a^2\sin60^\circ$关于其边长$a$的变化率为$S'(a)=\frac{\sqrt3}2a$.
+
+
+\item 求球体体积关于其半径的变化率. 并问：该变化率与这个球的表面积是什么关系？
+
+解：球体体积$V(R)=\frac43\pi R^3$关于其半径$R$的变化率$V'(R)=4\pi R^2$，等于球的表面积.
+
+\item 利用导数的定义求函数在指定点的导数：
+\newline
+(1)$f(x)=-5,x_0=2$；
+\newline
+(2)$f(x)=-2x+1,x_0=1$；
+\newline
+(3)$f(x)=\frac1x,x_0=-2$；
+\newline
+(4)$y=\cos x,x_1=0,x_2=\frac\pi2$；
+\newline
+(5)$f(x)=\sqrt x,x_0=4$；
+\newline
+(6)$f(x)=\begin{cases}
+x^{\frac12},&x>1\\
+\frac x2+\frac12,&x\leq1
+\end{cases},x_0=1$.
+
+解：(1)$f'(x_0)=\lim\limits_{x\rightarrow x_0}\frac{f(x)-f(x_0)}{x-x_0}=0$.
+
+(2)$f'(x_0)=\lim\limits_{x\rightarrow x_0}\frac{f(x)-f(x_0)}{x-x_0}=-2$.
+
+(3)$f'(x_0)=\lim\limits_{x\rightarrow x_0}\frac{f(x)-f(x_0)}{x-x_0}=\lim\limits_{x\rightarrow x_0}\frac{\frac1x-\frac1{x_0}}{x-x_0}=-\frac1{x_0^2}=-\frac14$.
+
+(4)$y'(x_1)=\lim\limits_{x\rightarrow x_1}\frac{y(x)-y(x_1)}{x-x_1}=\lim\limits_{x\rightarrow x_1}\frac{\cos x-\cos x_1}{x-x_1}=\lim\limits_{x\rightarrow x_1}\frac{-2\sin{\frac{x+x_1}2}\sin{\frac{x-x_1}2}}{x-x_1}=-\sin x_1=0$;$y'(x_2)=-\sin x_2=-1$.
+
+(5)$f'(x_0)=\lim\limits_{x\rightarrow x_0}\frac{f(x)-f(x_0)}{x-x_0}=\lim\limits_{x\rightarrow x_0}\frac{\sqrt x-\sqrt{x_0}}{x-x_0}=\frac1{2\sqrt{x_0}}=\frac14$.
+
+(6)$f'_-(x_0)=\lim\limits_{x\rightarrow x_0-}\frac{f(x)-f(x_0)}{x-x_0}=\frac12,f'_+(x_0)=\lim\limits_{x\rightarrow x_0+}\frac{f(x)-f(x_0)}{x-x_0}=\frac1{2\sqrt{x_0}}=\frac12=f'_-(x_0)$，故$f'(x_0)=\frac12$.
+
+\item 证明下列函数在其定义域内每一点处都可导，并求其导数：
+\newline
+(1)$f(x)=ax+b(a,b\text{为常数})$；
+\newline
+(2)$f(x)=\sqrt{x^3}$；
+\newline
+(3)$f(x)=\frac1{2x}$；
+\newline
+(4)$f(x)=\sin3x$；
+\newline
+(5)$f(x)=x^{\frac1n}(x\neq0,n\text{为正整数})$.
+
+证明：(1)$f'(x)=\lim\limits_{\Delta x\rightarrow 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}=a,x\in(-\infty,+\infty)$.
+
+(2)$f'(x)=\lim\limits_{\Delta x\rightarrow 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}=\lim\limits_{\Delta x\rightarrow 0}\frac{\sqrt{(x+\Delta x)^3}-\sqrt{x^3}}{\Delta x}=\lim\limits_{\Delta x\rightarrow 0}\frac{(x+\Delta x)^3-x^3}{\Delta x[\sqrt{(x+\Delta x)^3}+\sqrt{x^3}]}=\frac32\sqrt x,x>0,f'_+(0)=\lim\limits_{\Delta x\rightarrow 0+}\frac{f(\Delta x)-f(0)}{\Delta x}=\lim\limits_{\Delta x\rightarrow 0+}\frac{\sqrt{\Delta x^3}-0}{\Delta x}=0$.
+
+(3)$f'(x)=\lim\limits_{\Delta x\rightarrow 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}=\lim\limits_{\Delta x\rightarrow 0}\frac{\frac1{2(x+\Delta x)}-\frac1{2x}}{\Delta x}=\frac1{2x},x\neq0$.
+
+(4)$f'(x)=\lim\limits_{\Delta x\rightarrow 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}=\lim\limits_{\Delta x\rightarrow 0}\frac{\sin3(x+\Delta x)-\sin 3x}{\Delta x}=\lim\limits_{\Delta x\rightarrow 0}\frac{2\cos\frac{6x+3\Delta x}2\sin\frac{3\Delta x}2}{\Delta x}=3\cos3x,x\in(-\infty,+\infty)$.
+
+(5)当$n=1$时，$f'(x)=\lim\limits_{\Delta x\rightarrow 0}\frac{(x+\Delta x)-x}{\Delta x}=1,x\neq0$
+
+当$n\geq2$时，$f'(x)=\lim\limits_{\Delta x\rightarrow 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}=\lim\limits_{\Delta x\rightarrow 0}\frac{(x+\Delta x)^{\frac1n}-x^{\frac1n}}{\Delta x}
+\\=\lim\limits_{\Delta x\rightarrow 0}\frac{(x+\Delta x)-x}{\Delta x[(x+\Delta x)^{\frac{n-1}n}+(x+\Delta x)^{\frac{n-2}n}x^{\frac1n}+\cdots+x^{\frac{n-1}n}]}=\lim\limits_{\Delta x\rightarrow 0}\frac{1}{(x+\Delta x)^{\frac{n-1}n}+(x+\Delta x)^{\frac{n-2}n}x^{\frac1n}+\cdots+x^{\frac{n-1}n}}
+\\=\frac{1}{(x)^{\frac{n-1}n}+(x)^{\frac{n-2}n}x^{\frac1n}+\cdots+x^{\frac{n-1}n}}=\frac1{nx^{\frac{n-1}n}}=\frac1nx^{\frac1n-1}$
+
+当$n$为奇数时，$x\neq0$，导函数与原函数的定义域相同，当$n$为偶数时，$x>0$，导函数与原函数的定义域也相同，故函数$f(x)$在其定义域内每一点处都可导.
+
+两种情况合并可得$f'(x)=\frac1nx^{\frac1n-1}$，当$n$为奇数时，$x\neq0$，当$n$为偶数时，$x>0$.
+\item研究下列分段函数在分段点处的可导性，若可导，求出导数值：
+\newline
+(1)$y=|x-3|$，在点$x=3$；
+\newline
+(2)$y=\begin{cases}
+x,&x<0\\
+\ln(1+x),&x\geq0
+\end{cases}$，在点$x=0$；
+\newline
+(3)$f(x)=|x|+2x$，在点$x=0$；
+\newline
+(4)$g(x)=\begin{cases}
+3x^2+4x,&x<0\\
+x^2-1,&x\geq0
+\end{cases}$，在点$x=0$；
+\newline
+(5)$y(x)=\begin{cases}
+x\sin\frac1x,&x\neq0\\
+0,&x=0
+\end{cases}$，在点$x=0$；
+\newline
+(6)$y(x)=\begin{cases}
+\frac1{1+e^{1/x}},&x\neq0\\
+0,&x=0
+\end{cases}$，在点$x=0$.
+
+解：(1)$y'_+(3)=\lim\limits_{\Delta x\rightarrow0+}\frac{y(3+\Delta x)-y(3)}{\Delta x}=\lim\limits_{\Delta x\rightarrow0+}\frac{\Delta x-0}{\Delta x}=1,y'_-(3)=\lim\limits_{\Delta x\rightarrow0-}\frac{y(3+\Delta x)-y(3)}{\Delta x}=\lim\limits_{\Delta x\rightarrow0-}\frac{-\Delta x-0}{\Delta x}=-1\neq y'_+(3)$，故原函数在点$x=3$处不可导.
+
+(2)$y'_+(0)=\lim\limits_{\Delta x\rightarrow0+}\frac{y(0+\Delta x)-y(0)}{\Delta x}=\lim\limits_{\Delta x\rightarrow0+}\frac{\ln(1+\Delta x)-0}{\Delta x}=1,y'_-(0)=\lim\limits_{\Delta x\rightarrow0-}\frac{y(0+\Delta x)-y(0)}{\Delta x}=\lim\limits_{\Delta x\rightarrow0-}\frac{\Delta x-0}{\Delta x}=1=y'_+(0)$，故原函数在点$x=0$处可导，导数为1.
+
+(3)$f'_+(0)=\lim\limits_{\Delta x\rightarrow0+}\frac{f(0+\Delta x)-f(0)}{\Delta x}=\lim\limits_{\Delta x\rightarrow0+}\frac{\Delta x+2\Delta x-0}{\Delta x}=3,f'_-(0)=\lim\limits_{\Delta x\rightarrow0-}\frac{f(0+\Delta x)-f(0)}{\Delta x}=\lim\limits_{\Delta x\rightarrow0-}\frac{-\Delta x+2\Delta x-0}{\Delta x}=1\neq f'_+(0)$，故原函数在$x=0$处不可导.
+
+(4)$g(0+0)=\lim\limits_{\Delta x\rightarrow0+}g(x)=-1,g(0-0)=\lim\limits_{\Delta x\rightarrow0-}g(x)=0\neq g(0+0)$，原函数在$x=0$处不连续，故不可导.
+
+(5)$\lim\limits_{\Delta x\rightarrow0}\frac{y(0+\Delta x)-y(0)}{\Delta x}=\lim\limits_{\Delta x\rightarrow0}\sin\frac1{\Delta x}$，该极限不存在，故原函数在$x=0$处不可导.
+
+(6)$y(0+0)=\lim\limits_{\Delta x\rightarrow0+}\frac1{1+e^{1/x}}=0,y(0-0)=\lim\limits_{\Delta x\rightarrow0-}\frac1{1+e^{1/x}}=1\neq y(0+0)$，原函数在$x=0$处不连续，故不可导.
+\item设函数$f(x)$在点$x_0$处可导，求$\lim\limits_{n\rightarrow\infty}n[f(x_0+\frac1n)-f(x_0)]$.
+
+解：$\because f(x)$在点$x_0$处可导
+
+$\therefore f'(x_0)=\lim\limits_{\Delta x\rightarrow0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$
+
+记$g(t)=\frac{f(x_0+t)-f(x_0)}{t}$，则$\lim\limits_{t\rightarrow0}g(t)=f'(x_0)$
+
+$\because$数列$a_n=\frac1n,n=1,2,\cdots$满足$\lim\limits_{n\rightarrow\infty}a_n=0$，且$a_n\neq0$
+
+$\therefore\lim\limits_{n\rightarrow\infty}n[f(x_0+\frac1n)-f(x_0)]=\lim\limits_{n\rightarrow\infty}g(a_n)=f'(x_0)$.
+
+\item设函数$f(x)$在点$x_0$处可导，则
+\[
+\lim\limits_{h\rightarrow0}\frac{f(x_0+h)-f(x_0-h)}{2h}=f'(x_0).
+\]
+反之，若此极限存在，问：$f(x)$在点$x_0$处是否可导？
+
+解：若$f(x)$在点$x_0$处可导，则$\lim\limits_{h\rightarrow0}\frac{f(x_0+h)-f(x_0-h)}{2h}=\lim\limits_{h\rightarrow0}\frac12[\frac{f(x_0+h)-f(x_0)}h+\frac{f(x_0)-f(x_0-h)}h]=\frac12[2f'(x_0)]=f'(x_0)$.
+
+可能不正确的做法：若$f(x)$在点$x_0$处可导，则$f'(x_0)=\lim\limits_{\Delta x\rightarrow0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}\xlongequal{t=x_0+\frac{\Delta x}2}\lim\limits_{\Delta x\rightarrow0}\frac{f(t+\frac{\Delta x}2)-f(t-\frac{\Delta x}2)}{2\frac{\Delta x}2}=\lim\limits_{h\rightarrow0}\frac{f(t+h)-f(t-h)}{2h}\neq\lim\limits_{h\rightarrow0}\frac{f(x_0+h)-f(x_0-h)}{2h}$.
+
+反之，若此极限存在，则函数$f(x)$在点$x_0$处不一定可导. 如取$f(x)=|x|$，在$x_0=0$处，$\lim\limits_{h\rightarrow0}\frac{f(x_0+h)-f(x_0-h)}{2h}=\lim\limits_{h\rightarrow0}\frac{|0+h|-|0-h|}{2h}=0$，但$f(x)$在$x=0$处的导数不存在.
+
+\item假设$f'(a)$存在，试求：$\lim\limits_{h\rightarrow0}\frac{f(a-h)-f(a)}{h}$.
+
+解：$\lim\limits_{h\rightarrow0}\frac{f(a-h)-f(a)}{h}=-\lim\limits_{h\rightarrow0}\frac{f(a-h)-f(a)}{-h}=-\lim\limits_{\Delta x\rightarrow0}\frac{f(a+\Delta x)-f(a)}{\Delta x}=-f'(a)$.
+
+\item假设$f(x)$在点$a$处可导，并令
+\[
+g(x)=\begin{cases}
+\frac{f(x)-f(a)}{x-a},&x\neq a\\
+f'(a),&x=a
+\end{cases}
+\]
+试证：$g(x)$在$a$处连续.
+
+证明：$\lim\limits_{x\rightarrow a}g(x)=\lim\limits_{x\rightarrow a}\frac{f(x)-f(a)}{x-a}=f'(a)=g(a)$，故$g(x)$在$a$处连续.
+
+\item设$f(x)=\begin{cases}
+x^2,&x\leq x_0\\
+ax+b,&x>x_0
+\end{cases}$，为了使函数$f(x)$在点$x_0$处可导，应当如何选取系数$a$和$b$？
+
+解：$\because f(x)$在点$x_0$处可导
+
+$\therefore f(x)$在点$x_0$处连续
+
+$\therefore f(x_0+0)=\lim\limits_{x\rightarrow x_0+}f(x)=ax_0+b=f(x_0-0)=x_0^2$
+
+$f'_-(x_0)=\lim\limits_{x\rightarrow x_0-}\frac{f(x)-f(x_0)}{x-x_0}=\lim\limits_{x\rightarrow x_0-}\frac{x^2-x_0^2}{x-x_0}=2x_0,f'_+(x_0)=\lim\limits_{x\rightarrow x_0+}\frac{f(x)-f(x_0)}{x-x_0}=\lim\limits_{x\rightarrow x_0+}\frac{ax+b-x_0^2}{x-x_0}=\lim\limits_{x\rightarrow x_0+}\frac{ax+b-ax+b}{x-x_0}=a$
+
+由$f(x)$在点$x_0$处可导又可知$f'_-(x_0)=f'_+(x_0)$，故$a=2x_0,b=x_0^2-ax_0=-x_0^2$.
+
+\item证明：
+\newline
+(1)可导偶函数的导函数为奇函数；
+\newline
+(2)可导奇函数的导函数为偶函数；
+\newline
+(3)可导周期函数，其导函数为具有相同周期的周期函数.
+
+证明：(1)记$f(x)$为可导偶函数，则$f(x)=f(-x)$
+
+$f'(x)=\lim\limits_{\Delta x\rightarrow0}\frac{f(x+\Delta x)-f(x)}{\Delta x}=-\lim\limits_{\Delta x\rightarrow0}\frac{f(-x-\Delta x)-f(-x)}{-\Delta x}=-f'(-x)$，故导函数$f'(x)$为奇函数.
+
+(2)记$f(x)$为可导奇函数，则$f(x)=-f(-x)$
+
+$f'(x)=\lim\limits_{\Delta x\rightarrow0}\frac{f(x+\Delta x)-f(x)}{\Delta x}=-\lim\limits_{\Delta x\rightarrow0}\frac{-f(-x-\Delta x)+f(-x)}{-\Delta x}=\lim\limits_{\Delta x\rightarrow0}\frac{f(-x-\Delta x)-f(-x)}{-\Delta x}=f'(-x)$，故导函数$f'(x)$为偶函数.
+
+(3)记$f(x)$为可导周期函数，$T$为其周期，则$f(x+T)=f(x)$
+
+$f'(x+T)=\lim\limits_{\Delta x\rightarrow0}\frac{f(x+T+\Delta x)-f(x+T)}{\Delta x}=\lim\limits_{\Delta x\rightarrow0}\frac{f(x+\Delta x)-f(x)}{\Delta x}=f'(x)$，故导函数$f'(x)$为具有相同周期的周期函数.
+\end{enumerate}
+\subsection{习题4.2解答}
+\begin{enumerate}
+\item求下列各函数的导数：
+\newline
+(1)$f(x)=x^3-4x+5$；
+\newline
+(2)$y=2x^4-3x^3+x-\frac1{3x^2}+\frac7{x^3}$；
+\newline
+(3)$y=\frac x3+\frac3x+2\sqrt x$；
+\newline
+(4)$f(x)=7x^2+\cos x-\ln x$；
+\newline
+(5)$f(x)=\sqrt x\cos x$；
+\newline
+(6)$g(x)=e^x\sin x$；
+\newline
+(7)$y=\sqrt{x^2+1}\cot x$；
+\newline
+(8)$f(t)=(t+t^2)^2$；
+\newline
+(9)$y=\frac{\tan x}x$；
+\newline
+(10)$y=\frac x{1-\cos x}$；
+\newline
+(11)$y=\frac{1+\ln x}{1-\ln x}$；
+\newline
+(12)$y=\frac{x}{\sin^2x}$；
+\newline
+(13)$g(x)=\frac{\arcsin x}{\sqrt x}$；
+\newline
+(14)$y=\frac{\ln x}{\cos x}$；
+\newline
+(15)$f(x)=\sqrt x\sec x$；
+\newline
+(16)$y=\sec x\tan x$；
+\newline
+(17)$y=(\sqrt x+1)\arctan x$；
+\newline
+(18)$g(z)=\frac{\csc z}{z^2}$；
+\newline
+(19)$y=\frac1x+\frac1{\sqrt x}-\frac1{\sqrt[3]x}$；
+\newline
+(20)$y=\frac{\sin x-x\cos x}{\cos x+x\cos x}$.
+
+解：(1)$f'(x)=3x^2-4$.
+
+(2)$y'=8x^3-9x^2+1+\frac2{3x^3}-\frac{21}{x^4}$.
+
+(3)$y'=\frac13-\frac3{x^2}+\frac1{\sqrt x}$.
+
+(4)$f'(x)=14x-\sin x-\frac1x$.
+
+(5)$f'(x)=\frac1{2\sqrt x}\cos x-\sqrt x\sin x$.
+
+(6)$g'(x)=e^x\sin x+e^x\cos x$.
+
+(7)$y'=\frac{2x}{2\sqrt{x^2+1}}\cot x-\sqrt{x^2+1}\csc^2x=\frac{x\cot x-(x^2+1)\csc^2x}{\sqrt{x^2+1}}$.
+
+(8)$f'(t)=2(t+t^2)(1+2t)$.
+
+(9)$y'=\frac{x\sec^2x-\tan x}{x^2}$.
+
+(10)$y'=\frac{1-\cos x-x\sin x}{(1-\cos x)^2}$.
+
+(11)$y'=\frac{\frac1x(1-\ln x)+(1+\ln x)\frac1x}{(1-\ln x)^2}=\frac2{x(1-\ln x)^2}$.
+
+(12)$y'=\frac{\sin^2x-x2\sin x\cos x}{\sin^4x}=\frac{\sin x-2x\cos x}{\sin^3x}$.
+
+(13)$g'(x)=\frac{\frac1{\sqrt{1-x^2}}\sqrt x-\frac1{2\sqrt x}\arcsin x}{x}=\frac1{\sqrt x\sqrt{1-x^2}}-\frac1{2x\sqrt x}\arcsin x$.
+
+(14)$y'=\frac{\frac1x\cos x+\ln x\sin x}{\cos^2x}=\frac{\cos x+x\ln x\sin x}{x\cos^2x}$.
+
+(15)$f'(x)=\frac1{2\sqrt x}\sec x+\sqrt x\sec x\tan x$
+
+(16)$y'=\sec x\tan^2x+\sec^3x$.
+
+(17)$y'=\frac1{2\sqrt x}\arctan x+\frac{\sqrt x+1}{1+x^2}$.
+
+(18)$g'(z)=\frac{-z^2\csc z\cot z-2z\csc z}{z^4}=\frac{-z\csc z\cot z-2\csc z}{z^3}$.
+
+(19)$y'=-\frac1{x^2}-\frac1{2\sqrt{x^3}}+\frac1{3\sqrt[3]{x^4}}$.
+
+(20)$y'=\frac{(\cos x-\cos x+x\sin x)(\cos x+x\sin x)-(\sin x-x\cos x)(-\sin x+\sin x+x\cos x)}{(\cos x+x\sin x)^2}
+\\=\frac{x\sin x(\cos x+x\sin x)-(\sin x-x\cos x)x\cos x}{(\cos x+x\sin x)^2}=\frac{x^2}{(\cos x+x\sin x)^2}$.
+
+\item设$y=2+x-x^2$，求$y'(0),y'(\frac12),y'(1),y'(-10)$.
+
+解：$\because y'(x)=1-2x$
+
+$\therefore y'(0)=1,y'(\frac12)=0,y'(1)=-1,y'(-10)=21$.
+
+\item求出下列各题中的$a$值：
+\newline
+(1)$f(x)=-2x^2,f'(a)=f(4)$；
+\newline
+(2)$f(x)=\frac1x,f'(a)=-\frac19$；
+\newline
+(3)$f(x)=\sin x,f'(a)=\frac{\sqrt3}2$.
+
+解：(1)$f'(x)=-4x,f'(a)=f(4)\Rightarrow -4a=-32$，故$a=8$.
+
+(2)$f'(x)=-\frac1{x^2},f'(a)=-\frac19\Rightarrow -\frac1{a^2}=-\frac19$，故$a=\pm3$.
+
+(3)$f'(x)=\cos x,f'(a)=\frac{\sqrt3}2\Rightarrow\cos a=\frac{\sqrt3}2$，故$a=2k\pi\pm\frac\pi6,k\in\mathbb Z$.
+
+\item求下列函数的导数：
+\newline
+(1)$y=2\sin3x$；
+\newline
+(2)$y=xe^{-x^2}$；
+\newline
+(3)$y=\ln(1-2t)$；
+\newline
+(4)$y=\ln\ln x$；
+\newline
+(5)$y=\sqrt{1+2\tan x}$；
+\newline
+(6)$y=\ln(\cos x)$；
+\newline
+(7)$y=\arcsin\frac1x$；
+\newline
+(8)$y=\arccos\frac{2x-1}{\sqrt3}$；
+\newline
+(9)$y=2^{\ln\frac1x}$；
+\newline
+(10)$y=x\sqrt{1-x^2}$；
+\newline
+(11)$y=\sqrt{2-x}\sqrt[3]{3+x}$；
+\newline
+(12)$y=\frac{x}{\sqrt{a^2-x^2}}$；
+\newline
+(13)$y=\sqrt[3]{\frac{1-x}{1+x}}$；
+\newline
+(14)$y=\ln(x+\sqrt{1+x^2})$；
+\newline
+(15)$y=\sqrt{x-\sqrt x}$；
+\newline
+(16)$y=\frac{\sin^2x}{\sin(x^2)}$；
+\newline
+(17)$y=e^{-3x}\sin2x$；
+\newline
+(18)$y=\lg^3x^2$；
+\newline
+(19)$y=\frac x2\sqrt{x^2+a^2}+\frac{a^2}2\ln(x+\sqrt{x^2+a^2})$；
+\newline
+(20)$y=\ln\tan(\frac x2+\frac\pi4)$；
+\newline
+(21)$y=\arcsin(\sin^2x)$；
+\newline
+(22)$y=\arccos\sqrt{1-x^2}$；
+\newline
+(23)$y=\arccos\frac1{\sqrt x}$；
+\newline
+(24)$y=\frac x2\sqrt{a^2-x^2}+\frac{a^2}2\arcsin\frac xa$；
+\newline
+(25)$y=\ln(\sqrt{1+x}-\sqrt x)$.
+
+解：(1)$y'=6\cos3x$.
+
+(2)$y'=e^{-x^2}+xe^{-x^2}(-2x)=e^{-x^2}(1-2x^2)$.
+
+(3)$y'=\frac1{1-2t}(-2)=\frac2{2t-1}$.
+
+(4)$y'=\frac1{\ln x}\frac1x=\frac1{x\ln x}$.
+
+(5)$y'=\frac{2\sec^2x}{2\sqrt{1+\tan x}}=\frac{\sec^2x}{\sqrt{1+\tan x}}$.
+
+(6)$y'=\frac{-\sin x}{\cos x}=-\tan x$.
+
+(7)$y'=\frac1{\sqrt{1-\frac1{x^2}}}\frac{-1}{x^2}=\frac{-1}{\sqrt{x^4-x^2}}$.
+
+(8)$y'=\frac{-1}{\sqrt{1-(\frac{2x-1}{\sqrt3})^2}}\frac2{\sqrt3}=\frac{-2}{\sqrt{2+4x-4x^2}}$.
+
+(9)$y'=2^{\ln\frac1x}\ln2\cdot\frac1{\frac1x}\frac{-1}{x^2}=-2^{\ln \frac1x}\frac{\ln2}{x}$.
+
+(10)$y'=\sqrt{1-x^2}+x\frac{-2x}{2\sqrt{1-x^2}}=\frac{1-2x^2}{\sqrt{1-x^2}}$.
+
+(11)$y'=\frac{-1}{2\sqrt{2-x}}\sqrt[3]{3+x}+\sqrt{2-x}\frac1{3\sqrt{(3+x)^2}}=\frac{-\sqrt[3]{3+x}}{2\sqrt{2-x}}+\frac{\sqrt{2-x}}{3\sqrt{(3+x)^2}}$.
+
+(12)$y'=\frac{\sqrt{a^2-x^2}-x\frac{-2x}{2\sqrt{a^2-x^2}}}{a^2-x^2}=\frac{a^2}{(a^2-x^2)^\frac32}$.
+
+(13)$y'=\frac13\sqrt[3]{(\frac{1+x}{1-x})^2}\frac{-(1+x)-(1-x)}{(1+x)^2}=-\frac23\frac1{(1+x)^2}\sqrt[3]{(\frac{1+x}{1-x})^2}$.
+
+(14)$y'=\frac1{x+\sqrt{1+x^2}}(1+\frac{2x}{2\sqrt{1+x^2}})=\frac1{\sqrt{1+x^2}}$.
+
+(15)$y'=\frac1{2\sqrt{x-\sqrt x}}(1+\frac{-1}{2\sqrt x})=\frac{2\sqrt x-1}{4\sqrt{x^2-x\sqrt{x}}}$.
+
+(16)$y'=\frac{2\sin x\cos x\sin(x^2)-2x\sin^2x\cos(x^2)}{\sin^2(x^2)}=\frac{\sin2x\sin(x^2)-2x\sin^2x\cos(x^2)}{\sin^2(x^2)}$.
+
+(17)$y'=-3e^{-3x}\sin2x+2e^{-3x}\cos2x=e^{-3x}(-3\sin2x+2\cos2x)$.
+
+(18)$y'=(3\lg^2x^2)\frac1{x^2\ln10}2x=6\frac{\lg^2x^2}{x\ln10}$.
+
+(19)$y'=\frac12\sqrt{x^2+a^2}+\frac x2\frac{2x}{2\sqrt{x^2+a^2}}+\frac{a^2}2\frac{1+\frac{2x}{2\sqrt{x^2+a^2}}}{x+\sqrt{x^2+a^2}}=\sqrt{x^2+a^2}$.
+
+(20)$y'=\frac12\frac1{\tan(\frac x2+\frac\pi4)}\sec^2(\frac x2+\frac\pi4)=\frac{\sec^2(\frac x2+\frac\pi4)}{2\tan(\frac x2+\frac\pi4)}=\sec x$.
+
+(21)$y'=\frac{2\sin x\cos x}{\sqrt{1-\sin^4x}}=\frac{\sin2x}{\sqrt{1-\sin^4x}}$.
+
+(22)$y'=\frac{-1}{\sqrt{1-1+x^2}}\frac{-2x}{2\sqrt{1-x^2}}=\frac x{|x|\sqrt{1-x^2}}$.
+
+(23)$y'=\frac{-1}{\sqrt{1-\frac1x}}\frac{-1}{2x\sqrt x}=\frac1{2x\sqrt{x-1}}$.
+
+(24)$y'=\frac12\sqrt{a^2-x^2}+\frac x2\frac{-2x}{2\sqrt{a^2-x^2}}+\frac{a^2}2\frac1{a\sqrt{1-\frac{x^2}{a^2}}}=\frac{a^2-2x^2}{2\sqrt{a^2-x^2}}+\frac a{2\sqrt{1-\frac{x^2}{a^2}}}$.
+
+(25)$y'=\frac{\frac1{2\sqrt{1+x}}-\frac1{2\sqrt x}}{\sqrt{1+x}-\sqrt x}=-\frac1{2\sqrt{1+x}\sqrt x}$.
+
+\item设$f$为可导函数，求下列各函数的导数：
+\newline
+(1)$f(\sqrt{1-x^2})$；
+\newline
+(2)$f(\frac1x)$；
+\newline
+(3)$f(\ln x)$；
+\newline
+(4)$f(e^x)e^{f(x)}$；
+\newline
+(5)$f(f(f(x)))$；
+\newline
+(6)$\sqrt{f^2(x)}$.
+
+解：(1)$(f(\sqrt{1-x^2}))'=f'(\sqrt{1-x^2})\frac{-2x}{2\sqrt{1-x^2}}=f'(\sqrt{1-x^2})\frac{-x}{\sqrt{1-x^2}}$.
+
+(2)$(f(\frac1x))'=\frac{-1}{x^2}f'(\frac1x)$.
+
+(3)$(f(\ln x))'=f'(\ln x)\frac1x$.
+
+(4)$(f(e^x)e^{f(x)})'=f'(e^x)e^xe^{f(x)}+f(e^x)e^{f(x)}f'(x)=e^{f(x)}(f'(e^x)e^x+f(e^x)f'(x))$.
+
+(5)$(f(f(f(x))))'=f'(f(f(x)))f'(f(x))f'(x)$.
+
+(6)$(\sqrt{f^2(x)})'=\frac1{2\sqrt{f^2(x)}}2f(x)f'(x)=\frac{f(x)f'(x)}{\sqrt{f^2(x)}}$.
+\end{enumerate}
+\subsection{习题4.3解答}
+\begin{enumerate}
+\item 利用对数求导法求下列函数的导数：
+\newline
+(1)$y=\frac{x^2}{1-x}\sqrt[3]{\frac{x+1}{1+x+x^2}}$；
+\newline
+(2)$y=(x-a_1)^{a_1}(x-a_2)^{a_2}\cdots(x-a_n)^{a_n}$；
+\newline
+(3)$y=x^{\sin x}$；
+\newline
+(4)$y=(1+\frac1x)^{\frac1x}$；
+\newline
+(5)$y=\sqrt[x]x(x>0)$；
+\newline
+(6)$y=x+x^x+x^{x^x}(x>0)$.
+
+解：(1)$(\ln y)'=[2\ln x-\ln(1-x)+\frac13\ln(1+x)-\frac13\ln(1+x+x^2)]'=\frac2x+\frac1{1-x}+\frac13\frac1{1+x}-\frac13\frac{1+2x}{1+x+x^2}$
+
+$y'=y(\ln y)'=\frac{x^2}{1-x}\sqrt[3]{\frac{x+1}{1+x+x^2}}[\frac2x+\frac1{1-x}+\frac13\frac1{1+x}-\frac13\frac{1+2x}{1+x+x^2}]$.
+
+(2)$(\ln y)'=[a_1\ln(x-a_1)+a_2\ln(x-a_2)+\cdots+a_n\ln(x-a_n)]'=\frac{a_1}{x-a_1}+\frac{a_2}{x-a_2}+\cdots+\frac{a_n}{x-a_n}$
+
+$y'=y(\ln y)'=(x-a_1)^{a_1}(x-a_2)^{a_2}\cdots(x-a_n)^{a_n}(\frac{a_1}{x-a_1}+\frac{a_2}{x-a_2}+\cdots+\frac{a_n}{x-a_n})$.
+
+(3)$(\ln y)'=(\sin x\ln x)'=\cos x\ln x+\frac{\sin x}x$
+
+$y'=y(\ln y)'=y=x^{\sin x}(\cos x\ln x+\frac{\sin x}x)$.
+
+(4)$(\ln y)'=[x\ln(1+\frac1x)]'=\ln(1+\frac1x)+\frac{x}{1+\frac1x}\frac{-1}{x^2}=\ln(1+\frac1x)-\frac1{1+x}$
+
+$y'=y(\ln y)'=(1+\frac1x)^{\frac1x}[\ln(1+\frac1x)-\frac1{1+x}]$.
+
+(5)$(\ln y)'=(\frac1x\ln x)'=\frac{-1}{x^2}\ln x+\frac1{x^2}=\frac1{x^2}(1-\ln x)$
+
+$y'=y(\ln y)'=\frac{\sqrt[x]x}{x^2}(1-\ln x)$.
+
+(6)记$y_1=x,y_2=x^x,y_3=x^{x^x}$
+
+$y_1'=1$
+
+$y_2'=y_2(\ln y_2)'=x^x(\ln x+1)$
+
+$y_3'=y_3(\ln y_3)'$
+
+$\because (\ln y_3)'=(\ln y_3)[\ln(\ln y_3)]'=(x^x\ln x)[x\ln x+\ln(\ln x)]'=(x^x\ln x)[\ln x+1+\frac1{\ln x}\frac1x]=(\ln x+1)(x^x\ln x)+x^{x-1}$
+
+$\therefore y_3'=y_3(\ln y_3)'=x^{x^x}[(\ln x+1)x^x\ln x+x^{x-1}]$
+
+$\therefore y'=y_1'+y_2'+y_3'=1+x^x(\ln x+1)+x^{x^x}[(\ln x+1)x^x\ln x+x^{x-1}]$.
+
+\item求导数$\frac{\mathrm d y}{\mathrm d x}$：
+\newline
+(1)$\begin{cases}
+x=\sin^2t\\
+y=\cos^2t
+\end{cases}$；
+\newline
+(2)$\begin{cases}
+x=a\cos t\\
+y=b\sin t
+\end{cases}$；
+\newline
+(3)$\begin{cases}
+x=a(t-\sin t)\\
+y=a(1-\cos t)
+\end{cases}$；
+\newline
+(4)$\begin{cases}
+x=e^{2t}\cos^2t\\
+y=e^{2t}\sin^2t
+\end{cases}$；
+\newline
+(5)$\begin{cases}
+x=\frac{3at}{1+t^3}\\
+y=\frac{3at^3}{1+t^3}
+\end{cases}$；
+\newline
+(6)$\begin{cases}
+x=3t^2+2t\\
+e^y\sin t-y+1=0
+\end{cases}$.
+
+解：(1)$\frac{\mathrm dy}{\mathrm dx}=\frac{\frac{\mathrm dy}{\mathrm dt}}{\frac{\mathrm dx}{\mathrm dt}}=\frac{-2\cos t\sin t}{2\sin t\cos t}=-1$.
+
+(2)$\frac{\mathrm dy}{\mathrm dx}=\frac{\frac{\mathrm dy}{\mathrm dt}}{\frac{\mathrm dx}{\mathrm dt}}=\frac{b\cos t}{-a\sin t}=-\frac ba\cot t$.
+
+(3)$\frac{\mathrm dy}{\mathrm dx}=\frac{\frac{\mathrm dy}{\mathrm dt}}{\frac{\mathrm dx}{\mathrm dt}}=\frac{a\sin t}{a(1-\cos t)}=\frac{\sin t}{1-\cos t}$.
+
+(4)$\frac{\mathrm dy}{\mathrm dx}=\frac{\frac{\mathrm dy}{\mathrm dt}}{\frac{\mathrm dx}{\mathrm dt}}=\frac{2e^{2t}\sin^2t+e^{2t}2\sin t\cos t}{2e^{2t}\cos^2t-e^{2t}2\cos t\sin t}=\frac{\sin^2t+\sin t\cos t}{\cos^2t-\cos t\sin t}=\frac{\sin t+\cos t}{\cos t-\sin t}\tan t$.
+
+(5)$\frac{\mathrm dy}{\mathrm dx}=\frac{\frac{\mathrm dy}{\mathrm dt}}{\frac{\mathrm dx}{\mathrm dt}}=\frac{\frac{9at^2(1+t^3)-3at^3(3t^2)}{(1+t^3)^2}}{\frac{3a(1+t^3)-3at(3t^2)}{(1+t^3)^2}}=\frac{3t^2(1+t^3)-t^3(3t^2)}{(1+t^3)-t(3t^2)}=\frac{3t^2}{1-2t^3}$.
+
+(6)将$e^y\sin t-y+1=0$两边求关于$t$的导数$e^y\frac{\mathrm dy}{\mathrm dt}\sin t+e^y\cos t-\frac{\mathrm dy}{\mathrm dt}=0$得
+
+$\frac{\mathrm dy}{\mathrm dt}=\frac{e^y\cos t}{1-e^y\sin t}$
+
+$\frac{\mathrm dy}{\mathrm dx}=\frac{\frac{\mathrm dy}{\mathrm dt}}{\frac{\mathrm dx}{\mathrm dt}}=\frac{\frac{e^y\cos t}{1-e^y\sin t}}{6t+2}=\frac{e^y\cos t}{(6t+2)(1-e^y\sin t)}$.
+
+\item求星形线$x=a\cos^3t,y=a\sin^3t$在$t=\frac34\pi$处的切线与$Ox$轴的夹角.
+
+解：$\frac{\mathrm dy}{\mathrm dx}=\frac{\frac{\mathrm dy}{\mathrm dt}}{\frac{\mathrm dx}{\mathrm dt}}=\frac{3a\sin^2t\cos t}{-3a\cos^2t\sin t}=-\tan t$
+
+$\frac{\mathrm dy}{\mathrm dx}|_{t=\frac34\pi}=1$
+
+故星形线在$t=\frac34\pi$处的切线与$Ox$轴的夹角为$\frac\pi4$.
+
+\item求下列隐函数的导数$y'(x)$：
+\newline
+(1)$x^2+x^2y^2+y^2=3$；
+\newline
+(2)$x^2=\frac{x-y}{x+y}$；
+\newline
+(3)$x^{\frac23}+y^{\frac23}=a^{\frac23}$；
+\newline
+(4)$\arctan\frac yx=\ln\sqrt{x^2+y^2}$.
+
+解：(1)对$x^2+x^2y^2+y^2=3$两边求关于$x$的导数得$2x+2xy^2+x^22yy'+2yy'=0$，故$y'=-\frac{x+xy^2}{x^2y+y}$.
+
+(2)对$x^2=\frac{x-y}{x+y}$两边求关于$x$的导数得$2x=\frac{(1-y')(x+y)-(x-y)(1+y')}{(x+y)^2}$，故$y'=\frac{y-x(x+y)^2}x$.
+
+方法2：对$x^2(x+y)=x-y$两边求关于$x$的导数得$2x(x+y)+x^2(1+y')=1-y'$，故$y'=\frac{1-3x^2-2xy}{1+x^2}$.
+
+可以证明两种方法得到的结果是等价的：
+
+$\because 1+x^2=\frac{x-y}{x+y}+1=\frac{2x}{x+y}$
+
+$\therefore y'=\frac{y-x(x+y)^2}x=\frac{y-x(x+y)^2}{\frac{(x+y)(1+x^2)}2}=\frac{2y-2x(x+y)^2}{(x+y)(1+x^2)}=\frac{2y+2x-2x-2x(x+y)^2}{(x+y)(1+x^2)}=\frac2{1+x^2}-\frac{1+x^2}{1+x^2}-\frac{2x(x+y)}{1+x^2}=\frac{2-1-x^2-2x^2-2xy}{1+x^2}=\frac{1-3x^2-2xy}{1+x^2}$.
+
+(3)对$x^{\frac23}+y^{\frac23}=a^{\frac23}$两边求关于$x$的导数得$\frac23x^{-\frac13}+\frac23y^{-\frac13}y'=0$，故$y'=-\sqrt[3]{\frac yx}$.
+
+(4)对$\arctan\frac yx=\ln\sqrt{x^2+y^2}$两边求关于$x$的导数得$\frac{\frac{y'x-y}{x^2}}{1+(\frac yx)^2}=\frac1{\sqrt{x^2+y^2}}\frac1{2\sqrt{x^2+y^2}}(2x+2yy')=\frac{x+yy'}{x^2+y^2}$，故$y'=\frac{x+y}{x-y}$.
+
+\item设由方程$e^{x+y}=xy$确定了函数$x=x(y)$，求$\frac{\mathrm dx}{\mathrm dy}$.
+
+解：将$e^{x+y}=xy$两边求关于$y$的导数得$e^{x+y}(x'+1)=x'y+x$，故$\frac{\mathrm dx}{\mathrm dy}=x'=\frac{x-e^{x+y}}{e^{x+y}-y}$.
+
+\item设函数$y=y(x)$由方程$\cos(xy)-\ln\frac{x+y}y=1$确定，求$\frac{\mathrm dy}{\mathrm dx}|_{x=0}$.
+
+解：将$\cos(xy)-\ln\frac{x+y}y=1$两边求关于$x$的导数得$-\sin(xy)(y+xy')-\frac y{x+1}\frac{y-(x+1)y'}{y^2}=0$，令其中的$x=0$得$-\frac{y(0)-y'(0)}{y(0)}=0$
+
+将$x=0$代入$\cos(xy)-\ln\frac{x+y}y=1$得$y(0)=1$，代入$-\frac{y(0)-y'(0)}{y(0)}=0$得$\frac{\mathrm dy}{\mathrm dx}|_{x=0}=y'(0)=1$.
+\end{enumerate}
+\end{document}
