@@ -1,0 +1,569 @@
+\documentclass[12pt,UTF8]{ctexart}
+\usepackage{ctex,amsmath,amssymb,geometry,fancyhdr,bm,amsfonts,mathtools,extarrows,graphicx,url,enumerate,xcolor,float,multicol,wasysym}
+\allowdisplaybreaks[4]
+% 加入中文支持
+\newcommand\Set[2]{\left\{#1\ \middle\vert\ #2 \right\}}
+\newcommand\Lim[0]{\lim\limits_{n\rightarrow\infty}}
+\newcommand\Ser[1]{\sum_{n=#1}^\infty}
+\newcommand{\Int}[4]{\varint\nolimits_{#1}^{#2}#3\mathrm d#4}
+\geometry{a4paper,scale=0.80}
+\pagestyle{fancy}
+\rhead{习题8.1\&8.2\&8.3}
+\lhead{基础习题课讲义}
+\chead{微积分B(1)}
+\begin{document}
+\setcounter{section}{11}
+\section{数项级数}
+\noindent
+\subsection{知识结构}
+\noindent第8章级数
+	\begin{enumerate}
+		\item[8.1]数项级数的概念与性质
+			\begin{enumerate}
+				\item[8.1.1]基本概念
+				\item[8.1.2]级数的性质
+				\item[8.1.3]几何级数与$p$级数
+			\end{enumerate}
+		\item[8.2]正项级数的收敛判别法
+			\begin{enumerate}
+				\item[8.2.1]比较判别法和比阶判别法
+				\item[8.2.2]比值判别法与根值判别法
+				\item[8.2.3]积分判别法
+			\end{enumerate}
+		\item[8.3]任意项级数
+			\begin{enumerate}
+				\item[8.3.1]交错级数
+				\item[8.3.2]绝对收敛与条件收敛
+				\item[8.3.3]绝对收敛级数的性质
+			\end{enumerate}
+	\end{enumerate}
+\subsection{习题8.1解答}
+\begin{enumerate}
+\item求下列级数的和：
+\newline
+(1)$\sum_{n=1}^\infty\frac1{n(n+1)(n+2)}$；
+\newline
+(2)$\sum_{n=1}^\infty\frac1{(3n-2)(3n+1)}$；
+
+解：(1)$\sum_{k=1}^n\frac1{k(k+1)(k+2)}=\sum_{k=1}^n\frac12[\frac1{k(k+1)}-\frac1{(k+1)(k+2)}]=\frac12[\frac1{1\times2}-\frac1{2\times3}+\frac1{2\times3}-\frac1{3\times4}+\frac1{3\times4}-\frac1{4\times5}+\cdots+\frac1{n(n+1)}-\frac1{(n+1)(n+2)}]=\frac12[\frac1{1\times2}-\frac1{(n+1)(n+2)}]\rightarrow\frac14(n\rightarrow\infty)$.
+
+(2)$\sum_{k=1}^n\frac1{(3k-2)(3k+1)}=\sum_{k=1}^n\frac13(\frac1{3k-2}-\frac1{3k+1})=\frac13[1-\frac14+\frac14-\frac17+\frac17-\frac1{10}+\cdots+\frac1{3n-5}-\frac1{3n-2}+\frac1{3n-2}-\frac1{3n+1}]=\frac13[1-\frac1{3n+1}]\rightarrow\frac13(n\rightarrow\infty)$.
+
+\item利用级数的基本性质研究下列级数的收敛性：
+\newline
+\begin{tabular}{ll}
+(1)$\sum_{n=1}^\infty(\frac3{2^n}-\frac4{3^n})$；&(2)$\sum_{n=1}^\infty(\frac1{n^2}-\frac1n)$；\\
+(3)$\sum_{n=1}^\infty(\frac1n-\frac1{n+3})$；&(4)$\sum_{n=1}^\infty\frac{n-100}n$.
+\end{tabular}
+
+解：(1)$\because\sum_{n=1}^\infty\frac1{2^n}$和$\sum_{n=1}^\infty\frac1{3^n}$均收敛
+
+$\therefore\sum_{n=1}^\infty(\frac3{2^n}-\frac4{3^n})=2\sum_{n=1}^\infty\frac1{2^n}-3\sum_{n=1}^\infty\frac1{3^n}$收敛.
+
+(2)假设$\sum_{n=1}^\infty(\frac1{n^2}-\frac1n)=\sum_{n=1}^\infty(a_n-b_n)$收敛，则$\sum_{n=1}^\infty b_n=\sum_{n=1}^\infty[a_n-(a_n-b_n)]=\sum_{n=1}^\infty a_n-\sum_{n=1}^\infty(a_n-b_n)$收敛，这与$\sum_{n=1}^\infty\frac1n$发散矛盾
+
+故$\sum_{n=1}^\infty(\frac1{n^2}-\frac1n)$发散.
+
+(3)$\sum_{k=1}^n(\frac1k-\frac1{k+3})=1-\frac14+\frac12-\frac15+\frac13-\frac16+\frac14-\frac17+\cdots+\frac1{n-4}-\frac1{n-1}+\frac1{n-3}-\frac1{n+1}+\frac1{n-2}-\frac1{n+2}+\frac1{n-3}-\frac1{n+3}=1+\frac12+\frac13-\frac1{n+1}-\frac1{n+2}-\frac1{n+3}\rightarrow1+\frac12+\frac13=\frac{11}6(n\rightarrow\infty)$
+
+$\therefore\sum_{n=1}^\infty(\frac1n-\frac1{n+3})$收敛.
+
+(4)$\because\lim\limits_{n\rightarrow\infty}\frac{n-100}n=1\neq0$
+
+$\therefore\sum_{n=1}^\infty\frac{n-100}n$发散.
+\end{enumerate}
+\subsection{习题8.2解答}
+\begin{enumerate}
+\item用比阶判别法判断下列级数的收敛性：
+\newline
+\begin{tabular}{ll}
+(1)$\sum_{n=1}^\infty\frac1{\sqrt[3]{n^4+4n-3}}$；&(2)$\sum_{n=1}^\infty\frac{\sqrt{n+2}-\sqrt{n-1}}{n^\alpha}$；\\
+(3)$\sum_{n=1}^\infty(1-\cos\frac1n)$；&(4)$\sum_{n=2}^\infty n\ln(1-\frac1{n^p})$；\\
+(5)$\sum_{n=1}^\infty\frac{n^2}{2^n}$；&(6)$\sum_{n=2}^\infty\frac1{(2n-1)^p}$.
+\end{tabular}
+
+解：(1)$\because\lim\limits_{n\rightarrow\infty}n^{\frac43}\cdot\frac1{\sqrt[3]{n^4+4n-3}}=1$
+
+$\therefore\sum_{n=1}^\infty\frac1{\sqrt[3]{n^4+4n-3}}$收敛.
+
+(2)$\frac{\sqrt{n+2}-\sqrt{n-1}}{n^\alpha}=\frac{(n+2)-(n-1)}{n^\alpha\cdot(\sqrt{n+2}+\sqrt{n-1})}=\frac3{n^\alpha\cdot(\sqrt{n+2}+\sqrt{n-1})}$
+
+$\lim\limits_{n\rightarrow\infty}n^{\alpha+\frac12}\cdot\frac{\sqrt{n+2}-\sqrt{n-1}}{n^\alpha}=\lim\limits_{n\rightarrow\infty}n^{\alpha+\frac12}\cdot\frac3{n^\alpha\cdot(\sqrt{n+2}+\sqrt{n-1})}=\lim\limits_{n\rightarrow\infty}\frac3{(\sqrt{1+\frac2n}+\sqrt{1-\frac1n})}=\frac32$
+
+$\therefore$当$\alpha+\frac12>1$即$\alpha>\frac12$时，级数收敛；当$\alpha+\frac12\leq1$即$\alpha\leq\frac12$时，级数发散.
+
+(3)$\because\lim\limits_{n\rightarrow\infty}n^2\cdot(1-\cos\frac1n)=\lim\limits_{n\rightarrow\infty}n^2\cdot2\sin^2\frac1{2n}=\lim\limits_{n\rightarrow\infty}n^2\cdot2(\frac1{2n})^2=\frac12$
+
+$\therefore$级数$\sum_{n=1}^\infty(1-\cos\frac1n)$收敛.
+
+(4)由$\ln(1-\frac1{n^p}),n=2,3,\cdots$知$p<0$
+
+$\because\lim\limits_{n\rightarrow\infty}n^{p-1}\cdot|n\ln(1-\frac1{n^p})|=-\lim\limits_{n\rightarrow\infty}n^p\cdot\ln(1-\frac1{n^p})=1$
+
+$\therefore$当$p-1>1$即$p>2$时，级数收敛；当$p-1\leq1$即$p\leq2$时，级数发散.
+
+(5)$\because\lim\limits_{n\rightarrow\infty}n^2\cdot\frac{n^2}{2^n}=0$
+
+$\therefore$级数收敛.
+
+(6)$\because\Lim n^p\cdot\frac1{(2n-1)^p}=\Lim\frac1{2^p}$
+
+$\therefore$当$p>1$时级数收敛，当$p\leq1$时级数发散.
+\item利用比值或根值判别法判断下列级数的收敛性：
+\newline
+\begin{tabular}{ll}
+(1)$\sum_{n=1}^\infty\frac{n^p}{a^n}(a>0)$；&(2)$\sum_{n=1}^\infty\frac{a^n}{n!}(a>0)$；\\
+(3)$\sum_{n=1}^\infty\frac{(2n-1)!!}{3^n\cdot n!}$；&(4)$\Ser{1}\frac{2^n+3^n}{n^p}(p>0)$；\\
+(5)$\Ser{1}\frac{2n-1}{2^n+2^{-n}}$；&(6)$\Ser{1}\frac{a^n}{1+a^{2n}}(a>0)$；\\
+(7)$\Ser{2}(\frac{1+\ln n}{1+\sqrt n})^n$；&(8)$\Ser{1}\frac1{3^n}(\frac{n+1}n)^{n^2}$.
+\end{tabular}
+
+解：(1)$\because\Lim\frac{u_{n+1}}{u_n}=\Lim\frac{(n+1)^p}{a^{n+1}}\frac{a^n}{n^p}=\Lim\frac1a(1+\frac1n)^p=\frac1a$
+
+$\therefore$当$\frac1a<1$即$a>1$时，级数收敛；当$\frac1a>1$即$a<1$时级数发散；
+
+当$a=1$时$\Ser{1}\frac{n^p}{a^n}=\Ser{1}n^p$，此时当$p>1$时级数收敛，当$p\leq1$时级数发散.
+
+(2)$\Lim\frac{u_{n+1}}{u_n}=\Lim\frac{a^{n+1}}{(n+1)!}\frac{n!}{a^n}=\Lim\frac a{n+1}=0<1$，级数收敛.
+
+(3)$\Lim\frac{u_{n+1}}{u_n}=\Lim\frac{(2n+1)!!}{3^{n+1}\cdot(n+1)!}\frac{3^n\cdot n!}{(2n-1)!!}=\Lim\frac{2n+1}{3(n+1)}=\frac23<1$，级数收敛.
+
+(4)$\Lim\frac{u_{n+1}}{u_n}=\Lim\frac{2^{n+1}+3^{n+1}}{(n+1)^p}\frac{n^p}{2^n+3^n}=\Lim\frac{2(\frac23)^n+3}{(\frac23)^n+1}(\frac n{n+1})^p=3>1$，级数发散.
+
+(5)$\Lim\frac{u_{n+1}}{u_n}=\Lim\frac{2n+3}{2^{n+1}+2^{-n-1}}\frac{2^n+2^{-n}}{2n-1}=\Lim\frac{2n+3}{2n-1}\frac{1+2^{-2n}}{2+2^{-2n-1}}=\frac12<1$，级数收敛.
+
+(6)$\Lim\frac{u_{n+1}}{u_n}=\Lim\frac{a^{n+1}}{1+a^{2n+2}}\frac{1+a^{2n}}{a^n}=a\Lim\frac{a^{-2n}+1}{a^{-2n}+a^2}=\begin{cases}
+a<1,&a<1\\
+1,&a=1\\
+\frac1a<1,&a>1
+\end{cases}$
+
+当$a=1$时$\Ser{1}\frac{a^n}{1+a^{2n}}=\Ser{1}\frac12$发散
+
+故当$a\neq1$时级数收敛.
+
+(7)$\Lim\sqrt[n]{(\frac{1+\ln n}{1+\sqrt n})^n}=\Lim\frac{1+\ln n}{1+\sqrt n}=\Lim\frac{\frac1{\sqrt n}+\frac{\ln n}{\sqrt n}}{\frac1{\sqrt n}+1}=0<1$，级数收敛.
+
+(8)$\Lim\sqrt[n]{\frac1{3^n}(\frac{n+1}n)^{n^2}}=\Lim\frac13(1+\frac1n)^n=\frac{\mathrm e}3<1$，级数收敛.
+\item设$p>0$，研究级数
+\[
+\frac1{1^p}-\frac1{2^p}+\frac1{3^p}-\frac1{4^p}+\cdots+\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}+\cdots
+\]
+的收敛性.
+%
+%{\bf【注意：此题不能直接通过$\lim\limits_{n\rightarrow\infty}n^p[\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}]=\frac1{2^p}$说明当$p>1$时级数收敛，当$p\leq1$时级数发散. 这相当于是在判断级数$\sum_{n=1}^\infty[\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}]$的收敛性. 该级数相当于是将原级数加了括号，由加括号后的级数收敛得不到原来的级数收敛.
+%
+%比如$\sum_{n=1}^\infty(-1)^{n-1}=1-1+1-1+1-1+\cdots$发散，但加括号后$\sum_{n=1}^\infty(1-1)=(1-1)+(1-1)+(1-1)+\cdots=0$收敛.
+%
+%下面是这类题目常用的处理办法.】}
+
+解：该级数的前$2n$项和$S_{2n}=\frac1{1^p}-\frac1{2^p}+\frac1{3^p}-\frac1{4^p}+\cdots+\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}$，$S_{2n}$可视为正项级数$\sum_{n=1}^\infty[\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}]$的前$n$项和
+
+$\because\lim\limits_{n\rightarrow\infty}n^p[\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}]=\lim\limits_{n\rightarrow\infty}[\frac{n^p}{(2n-1)^p}-\frac{n^p}{(2n)^{2p}}]=\frac1{2^p}$
+
+$\therefore$i)当$p>1$时级数$\sum_{n=1}^\infty[\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}]$收敛，即$\lim\limits_{n\rightarrow\infty}S_{2n}$存在
+
+又$\because\lim\limits_{n\rightarrow\infty}\frac1{(2n+1)^p}=0$
+
+$\therefore\lim\limits_{n\rightarrow\infty}S_{2n+1}=\lim\limits_{n\rightarrow\infty}[S_{2n}+\frac1{(2n+1)^p}]=\lim\limits_{n\rightarrow\infty}S_{2n}$
+
+故$\lim\limits_{n\rightarrow\infty}S_n=\lim\limits_{n\rightarrow\infty}S_{2n}=\lim\limits_{n\rightarrow\infty}S_{2n+1}$存在，级数收敛；
+
+ii)当$p\leq1$时级数$\sum_{n=1}^\infty[\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}]$发散，即$\lim\limits_{n\rightarrow\infty}S_{2n}=+\infty$
+
+又$\because\lim\limits_{n\rightarrow\infty}\frac1{(2n+1)^p}=0$
+
+$\therefore\lim\limits_{n\rightarrow\infty}S_{2n+1}=\lim\limits_{n\rightarrow\infty}[S_{2n}+\frac1{(2n+1)^p}]=+\infty$
+
+故$\lim\limits_{n\rightarrow\infty}S_n=+\infty$，级数发散；
+
+综上所述，当$p>1$时级数收敛，当$p\leq1$时级数发散.
+\item设$a_n>0,\Lim a_n>1$，求证$\Ser{1}\frac1{n^{a_n}}$收敛.
+
+证明：$\because\Lim a_n=A>1$
+
+$\therefore\exists N>0,s.t.a_n>\frac{1+A}2=q>1(n>N)$
+
+$\therefore$当$n>N$时$0<\frac1{n^{a_n}}<\frac1{n^q}$
+
+$\because\Ser{N}\frac1{n^q}$收敛，故$\Ser{N}\frac1{n^{a_n}}$收敛，故$\Ser{1}\frac1{n^{a_n}}$收敛.
+\item判定下列级数是否收敛：
+\newline
+\begin{tabular}{ll}
+(1)$\Ser{1}\frac{n!a^n}{n^n}(a>0)$；&(2)$\Ser{2}\frac{n^{\ln n}}{(\ln n)^n}$；\\
+(3)$\Ser{2}\frac{\ln^qn}{n^p}(p>0,q>0)$；&(4)$\Ser{1}(\frac1{n^\alpha}-\sin\frac1{n^\alpha})(a>0)$.
+\end{tabular}
+
+解：(1)$\Lim\frac{u_{n+1}}{u_n}=\Lim\frac{(n+1)!a^{n+1}}{(n+1)^{n+1}}\frac{n^n}{n!a^n}=\Lim a\frac1{(1+\frac1n)^n}=\frac a{\mathrm e}$
+
+$\therefore$当$a<\mathrm e$时级数收敛，当$a>\mathrm e$时级数发散；
+
+当$a=\mathrm e$时，由函数$f(x)=(1+\frac1x)^x$在$x\geq1$时单调增加(见教材P160例5.1.3)且$\Lim(1+\frac1x)^x=\mathrm e$可知$(1+\frac1n)^n<\mathrm e$
+
+$\therefore\frac{u_{n+1}}{u_n}=\mathrm e\frac1{(1+\frac1n)^n}>1$
+
+$\therefore u_{n+1}>u_n>\cdots>u_2>u_1=\mathrm e,\Lim u_n=\Lim\frac{n!a^n}{n^n}\neq0$，级数发散.
+
+(2)$\Lim\sqrt[n]{\frac{n^{\ln n}}{(\ln n)^n}}=\Lim\frac{n^{\frac{\ln n}n}}{\ln n}=\Lim\frac{\mathrm e^{\frac{\ln^2n}n}}{\ln n}=\Lim\frac{\mathrm e^{(\frac{\ln n}{\sqrt n})^2}}{\ln n}=0<1$，级数收敛.
+
+(3)$\Lim n^{\frac{p+1}2}\cdot\frac{\ln^qn}{n^p}=\Lim n^{\frac{1-p}2}\ln^qn=\begin{cases}
+0,&p>1\\
++\infty,&p\leq1
+\end{cases}$
+
+故当$p>1$时级数收敛，否则发散.
+
+(4)$\Lim n^{3\alpha}\cdot(\frac1{n^\alpha}-\sin\frac1{n^\alpha})=\Lim n^\alpha\cdot[\frac1{n^\alpha}-\frac1{n^\alpha}+\frac1{3!}\frac1{(n^\alpha)^3}+o(\frac1{n^{3\alpha}})]=\Lim[\frac1{3!}+\frac{o(\frac1{n^{3\alpha}})}{\frac1{n^{3\alpha}}}]=\frac1{3!}$
+
+$\therefore$当$3\alpha>1$即$\alpha>\frac13$时，级数收敛；当$3\alpha\leq1$即$\alpha\leq\frac13$时，级数发散.
+\end{enumerate}
+\subsection{习题8.3解答}
+\begin{enumerate}
+\item判断下列级数的收敛性，对收敛的级数指出绝对收敛，还是条件收敛：
+\newline
+\begin{tabular}{ll}
+(1)$\sum_{n=1}^\infty\frac{(-1)^{n-1}}{\ln(n+1)}$；&(2)$\sum_{n=1}^\infty\frac{\sin n\omega}{2^n}$($\omega$为常数)；\\
+(3)$\sum_{n=1}^\infty\frac{(-1)^n\ln(n+1)}n$；&(4)$\sum_{n=1}^\infty\frac{(-1)^n}{n-\ln n}$；\\
+\multicolumn{2}{l}{(5)$1-\ln2+\frac12-\ln\frac32+\cdots+\frac1n-\ln\frac{n+1}n+\cdots$；}\\
+(6)$\sum_{n=2}^\infty\frac{(-1)^n}{\sqrt n+(-1)^n}$；&(7)$\sum_{n=2}^\infty\frac{(-1)^n}{\sqrt{n+(-1)^n}}$.
+\end{tabular}
+
+解：(1)$\because\ln(n)>\ln(n+1)$且$\Lim\frac1{\ln(n+1)}=0$，故$\Ser{1}\frac{(-1)^{n-1}}{\ln(n+1)}$是莱布尼茨型交错级数，故收敛
+
+$\because\Lim n\cdot|\frac{(-1)^{n-1}}{\ln(n+1)}|=\Lim\frac n{\ln(n+1)}=+\infty$，故级数条件收敛.
+
+(2)$\because|\frac{\sin n\omega}{2^n}|\leq\frac1{2^n}$且$\Ser{1}\frac1{2^n}$收敛
+
+$\therefore\Ser{1}\frac{\sin n\omega}{2^n}$绝对收敛.
+
+(3)令$f(x)=\frac{\ln(x+1)}x,\ f'(x)=\frac{\frac1{x+1}x-\ln(x+1)}{x^2}=\frac{x[1-\ln(x+1)]-\ln(x+1)}{x^2(x+1)}<0,x\geq3$
+
+$\therefore u_n=\frac{\ln(n+1)}n>u_{n+1}=\frac{\ln(n+2)}{n+1}(n\geq3)$且$\Lim\frac{\ln(n+1)}n=\Lim\frac{\ln n(\frac{n+1}n)}n=\Lim\frac{\ln n+\ln(\frac{n+1}n)}n\\
+=0$
+
+故$\Ser{3}\frac{(-1)^n\ln(n+1)}n$是莱布尼茨型交错级数，故收敛，则$\Ser{1}\frac{(-1)^n\ln(n+1)}n$收敛
+
+$\because\Lim n\cdot|\frac{(-1)^n\ln(n+1)}n|=\Lim\ln(n+1)=+\infty$，故级数条件收敛.
+
+(4)令$f(x)=x-\ln x,\ f'(x)=1-\frac1x=\frac{x-1}x>0(x>1)$，则$f(x)$在$[1,+\infty)$上单调增加，且$f(x)\geq f(1)=1>0$
+
+$\therefore u_n=\frac1{n-\ln n}>u_{n+1}=\frac1{n+1-\ln(n+1)}$且$\Lim\frac1{n-\ln n}=\Lim\frac{\frac1n}{1-\frac{\ln n}n}=0$，故$\sum_{n=1}^\infty\frac{(-1)^n}{n-\ln n}$是莱布尼茨型交错级数，故收敛
+
+$\because\Lim n\cdot|\frac{(-1)^n}{n-\ln n}|=\Lim\frac1{1-\frac{\ln n}n}=1$，故级数条件收敛.
+
+(5)方法1：原级数的前$2n$项和$S_{2n}=1-\ln2+\frac12-\ln\frac32+\cdots+\frac1n-\ln\frac{n+1}n$，$S_{2n}$相当于是正项级数$\sum_{n=1}^\infty(\frac1n-\ln\frac{n+1}n)$的前$n$项和
+
+$\because\lim\limits_{n\rightarrow\infty}n^2(\frac1n-\ln\frac{n+1}n)=\lim\limits_{n\rightarrow\infty}n^2[\frac1n-(\frac1n-\frac1{2n^2}+o(\frac1{n^2}))]=\frac12$
+
+$\therefore\sum_{n=1}^\infty(\frac1n-\ln\frac{n+1}n)$收敛，$\lim\limits_{n\rightarrow\infty}S_{2n}=S$存在
+
+又$\because\lim\limits_{n\rightarrow\infty}S_{2n+1}=\lim\limits_{n\rightarrow\infty}(S_{2n}+\frac1{n+1})=S$
+
+$\therefore\lim\limits_{n\rightarrow\infty}S_n=S$存在
+
+故原级数收敛.
+
+原级数每项加绝对值得到$\sum_{n=1}^\infty|u_n|=1+\ln2+\frac12+\ln\frac32+\cdots+\frac1n+\ln\frac{n+1}n+\cdots$，其前$2n$项和
+\[\begin{split}
+\bar{S}_{2n}&=1+\ln2+\frac12+\ln\frac32+\cdots+\frac1n+\ln\frac{n+1}n=\sum_{k=1}^n\frac1k+\sum_{k=1}^n\ln\frac{k+1}k\\
+&=\sum_{k=1}^n\frac1k+\sum_{k=1}^n[\ln(k+1)-\ln k]\\
+&=\sum_{k=1}^n\frac1k+\ln(k+1)\rightarrow+\infty(n\rightarrow\infty)
+\end{split}\]
+
+%$\because\bar{S}_{2n+1}=\bar{S}_{2n}+\frac1{n+1}\rightarrow+\infty(n\rightarrow\infty)$
+
+$\therefore\bar{S}_n\rightarrow+\infty$
+
+故原级数条件收敛.
+
+方法2：$\because$函数$f(x)=\ln(1+x)-x$在$x>0$时单调减少（$f'(x)=\frac{-x}{1+x}<0(x>0)$），函数$g(x)=\ln(1+x)-\frac x{1+x}$在$x>0$时单调增加（$g'(x)=\frac x{(1+x)^2}>0(x>0)$）
+
+$\therefore\frac1n>\ln\frac{n+1}n>\frac1{n+1}(n\geq1)$
+
+又$\because\lim\limits_{n\rightarrow\infty}\frac1n=0=\lim\limits_{n\rightarrow\infty}\ln\frac{1+n}n$
+
+$\therefore$原级数是莱布尼茨型交错级数，故收敛.
+
+$\sum_{n=1}^\infty|u_n|=1+\ln2+\frac12+\ln\frac32+\cdots+\frac1n+\ln\frac{n+1}n+\cdots$，其前$2n$项和
+\[\begin{split}
+\bar{S}_{2n}&=1+\ln2+\frac12+\ln\frac32+\cdots+\frac1n+\ln\frac{n+1}n=\sum_{k=1}^n\frac1k+\sum_{k=1}^n\ln\frac{k+1}k\rightarrow+\infty(n\rightarrow\infty)
+\end{split}\]
+
+这里因为$\sum_{n=1}^\infty\frac1n$与$\sum_{n=1}^\infty\ln\frac{n+1}n$均发散，故$\lim\limits_{n\rightarrow\infty}\sum_{k=1}^n\frac1k=+\infty,\lim\limits_{n\rightarrow\infty}\sum_{k=1}^n\ln\frac{k+1}k=+\infty$
+
+%$\because\bar{S}_{2n+1}=\bar{S}_{2n}+\frac1{n+1}\rightarrow+\infty(n\rightarrow\infty)$
+
+$\therefore\bar{S}_n\rightarrow+\infty$
+
+故原级数条件收敛.
+
+方法3：$\because\int_1^n\frac1x\mathrm dx=\ln n$
+
+$\therefore\ln\frac{1+n}n=\ln(1+n)-\ln n=\int_1^{1+n}\frac1x\mathrm dx-\int_1^n\frac1x\mathrm dx=\int_n^{n+1}\frac1x\mathrm dx$
+
+$\because\frac1n=\frac1n(n+1-n)>\int_n^{n+1}\frac1x\mathrm dx>\frac1{n+1}(n+1-n)=\frac1{n+1}$
+
+$\therefore\frac1n>\ln\frac{n+1}n>\frac1{n+1}(n\geq1)$
+
+又$\because\lim\limits_{n\rightarrow\infty}\frac1n=0=\lim\limits_{n\rightarrow\infty}\ln\frac{1+n}n$
+
+$\therefore$原级数是莱布尼茨型交错级数，故收敛.
+
+$\because\sum_{n=1}^\infty\frac1n$发散
+
+$\therefore$正项级数$1+\ln2+\frac12+\ln\frac32+\cdots+\frac1n+\ln\frac{n+1}n+\cdots$发散
+
+故原级数条件收敛.
+
+(6)方法1：原级数的前$2n$项和$S_{2n}=\sum_{k=2}^{2n+1}\frac{(-1)^k}{\sqrt k+(-1)^k}=\sum_{m=1}^n(\frac1{\sqrt{2m}+1}-\frac1{\sqrt{2m+1}-1})$，相当于是负项级数$\sum_{n=1}^\infty(\frac1{\sqrt{2n}+1}-\frac1{\sqrt{2n+1}-1})$的前$n$项和
+
+$\because$
+\[\begin{split}
+&\frac1{\sqrt{2n}+1}-\frac1{\sqrt{2n+1}-1}=\frac{\sqrt{2n+1}-\sqrt{2n}-2}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}=\frac{\sqrt{2n}(\sqrt{\frac{2n+1}{2n}}-1)-2}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}\\
+=&\frac{\sqrt{2n}(\sqrt{1+\frac1{2n}}-1)-2}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}=\frac{\sqrt{2n}[1+\frac12\frac1{2n}+\frac{\frac12(\frac12-1)}{2!}\frac1{(2n)^2}+o(\frac1{n^2})-1]-2}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}\\
+=&\frac{-2+\frac12\frac1{\sqrt{2n}}+o(\frac1{n^{\frac12}})}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}
+\end{split}\]
+
+$\therefore\lim\limits_{n\rightarrow\infty}n\cdot[-(\frac1{\sqrt{2n}+1}-\frac1{\sqrt{2n+1}-1})]=\lim\limits_{n\rightarrow\infty}n\cdot\frac{2-\frac12\frac1{\sqrt{2n}}+o(\frac1{n^{\frac12}})}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}=1$
+
+$\therefore$负项级数$\sum_{n=1}^\infty(\frac1{\sqrt{2n}+1}-\frac1{\sqrt{2n+1}-1})$发散
+
+$\therefore\lim\limits_{n\rightarrow\infty}S_{2n}=-\infty$
+%
+%$\therefore\lim\limits_{n\rightarrow\infty}S_{2n+1}=\lim\limits_{n\rightarrow\infty}(S_{2n}+\frac1{\sqrt{2n}+1})=-\infty$
+%
+%$\therefore\lim\limits_{n\rightarrow\infty}S_n=-\infty$
+
+$\therefore$原级数发散.
+
+方法2：假设级数$\sum_{n=2}^\infty\frac{(-1)^n}{\sqrt n+(-1)^n}$收敛
+
+$\because$级数$\sum_{n=2}^\infty\frac{(-1)^n}{\sqrt n}$收敛
+
+$\therefore$级数$\sum_{n=2}^\infty[\frac{(-1)^n}{\sqrt n}-\frac{(-1)^n}{\sqrt n+(-1)^n}]$收敛
+
+$\because$
+\[\begin{aligned}
+\sum_{n=2}^\infty[\frac{(-1)^n}{\sqrt n}-\frac{(-1)^n}{\sqrt n+(-1)^n}]&=\sum_{n=2}^\infty\frac{(-1)^n\sqrt n+1-(-1)^n\sqrt n}{n+(-1)^n\sqrt n}\\
+&=\sum_{n=2}^\infty\frac{1}{n+(-1)^n\sqrt n}
+\end{aligned}\]
+
+
+且$\lim\limits_{n\rightarrow\infty}n\cdot\frac{1}{n+(-1)^n\sqrt n}=1\neq0$，与$\sum_{n=2}^\infty[\frac{(-1)^n}{\sqrt n}-\frac{(-1)^n}{\sqrt n+(-1)^n}]$收敛矛盾
+
+$\therefore$原级数发散.
+
+(7)原级数的前$2n$项和$S_{2n}=\sum_{k=2}^{2n+1}\frac{(-1)^k}{\sqrt{k+(-1)^k}}=\sum_{m=1}^n(\frac1{\sqrt{2m+1}}-\frac1{\sqrt{2m}})$，相当于是负项级数$\sum_{n=1}^\infty(\frac1{\sqrt{2n+1}}-\frac1{\sqrt{2n}})$的前$n$项和
+
+$\because\frac1{\sqrt{2n+1}}-\frac1{\sqrt{2n}}=\frac{\sqrt{2n}-\sqrt{2n+1}}{\sqrt{2n}\sqrt{2n+1}(\sqrt{2n}+\sqrt{2n+1})}=\frac{2n-(2n+1)}{\sqrt{2n}\sqrt{2n+1}(\sqrt{2n}+\sqrt{2n+1})}=\frac{-1}{\sqrt{2n}\sqrt{2n+1}(\sqrt{2n}+\sqrt{2n+1})}$
+
+又$\because\Lim n^{\frac32}\cdot[-(\frac1{\sqrt{2n+1}}-\frac1{\sqrt{2n}})]=\Lim n^{\frac32}\cdot\frac1{\sqrt{2n}\sqrt{2n+1}(\sqrt{2n}+\sqrt{2n+1})}=\Lim\frac1{\sqrt{2}\sqrt{2+\frac1n}(\sqrt{2}+\sqrt{2+\frac1n})}\\
+=\frac1{4\sqrt2}$
+
+$\therefore\sum_{n=1}^\infty(\frac1{\sqrt{2n+1}}-\frac1{\sqrt{2n}})$收敛，故$\Lim S_{2n}=S$存在
+
+$\therefore\Lim S_{2n+1}=\Lim[S_{2n}+\frac1{\sqrt{2n+1}}]=S$
+
+$\therefore\Lim S_n=S$存在，级数收敛
+
+$\sum_{n=2}^\infty|\frac{(-1)^n}{\sqrt{n+(-1)^n}}|$的前$2n$项和$S_{2n}=\sum_{k=2}^{2n+1}\frac1{\sqrt{k+(-1)^k}}=\sum_{m=1}^n(\frac1{\sqrt{2m+1}}+\frac1{\sqrt{2m}})=\sum_{m=1}^n\frac1{\sqrt{2m+1}}+\sum_{m=1}^n\frac1{\sqrt{2m}}$
+
+$\because\Lim n^{\frac12}\cdot\frac1{\sqrt{2n+1}}=\frac1{\sqrt2}$，故级数$\sum_{n=1}^\infty\frac1{\sqrt{2n+1}}$发散，$\Lim\sum_{m=1}^n\frac1{\sqrt{2m+1}}=+\infty$，同理\\
+$\Lim\sum_{m=1}^n\frac1{\sqrt{2m}}=+\infty$
+
+故$\Lim S_{2n}=+\infty$
+
+$\therefore\Lim S_n$不存在，级数条件收敛.
+\item(1)已知级数$\Ser{1}u_n$收敛，能否断定$\Ser{1}u_n^2$收敛？
+\newline
+(2)已知级数$\Ser{1}u_n$收敛，$\Lim\frac{v_n}{u_n}=1$，能否断定$\Ser{1}v_n$收敛？
+\newline
+(3)已知级数$\Ser{1}u_n$收敛，$\Lim\frac{v_n}{u_n}=0$，能否断定$\Ser{1}v_n$收敛？
+
+解：(1)不能. 如$\Ser{1}u_n=\Ser{1}\frac{(-1)^{n-1}}{\sqrt n}$收敛，但$\Ser{1}u_n^2=\Ser{1}\frac1n$发散.
+
+(2)不能. 如$\Ser{1}u_n=\Ser{1}\frac{(-1)^{n-1}}{\sqrt n},\Ser{1}v_n=\Ser{1}[\frac{(-1)^{n-1}}{\sqrt n}+\frac1n]$，满足$\Ser{1}u_n$收敛且$\Lim\frac{v_n}{u_n}=1$，但$\Ser{1}v_n$发散.
+
+(3)不能. 如$\Ser{1}u_n=\Ser{1}\frac{(-1)^{n-1}}{\sqrt n},\Ser{1}v_n=\Ser{1}\frac1n$，满足$\Ser{1}u_n$收敛且$\Lim\frac{v_n}{u_n}=0$，但$\Ser{1}v_n$发散.
+\item设$a_n=\int_{(n-1)\pi}^{n\pi}\frac{\sin x}{x^p}\mathrm dx$(其中$p>0$). 研究$\sum_{n=1}^\infty a_n$的收敛性.
+
+解：\textcolor{red}{\bf错误做法}：(1)$a_1=\int_0^\pi\frac{\sin x}{x^p}\mathrm dx$是一个瑕积分，$x=0$为瑕点
+
+$\because\lim\limits_{x\rightarrow0^+}x^{\frac{1+p}2}\frac{\sin x}{x^p}=\lim\limits_{x\rightarrow0^+}x^{\frac{1-p}2}\sin x\bm{\textcolor{red}{=\begin{cases}
+0,&p<1\\
++\infty,&p>1
+\end{cases}}}$
+
+{\bf【注意：这里当$p<1$时，$x^{\frac{1-p}2}\rightarrow0(x\rightarrow0^+),\sin x\rightarrow0(x\rightarrow0^+)$，$x^{\frac{1-p}2}\sin x\rightarrow0$. 但当$p>1$时，虽然$x^{\frac{1-p}2}\rightarrow+\infty(x\rightarrow0^+)$，但是$\sin x\rightarrow0(x\rightarrow0^+)$，故$x^{\frac{1-p}2}\sin x$不一定趋于$+\infty$.\\
+比如当$p=\frac32>1$时
+\[x^{\frac{1-p}2}\sin x=x^{-\frac14}[x-\frac{x^3}{3!}+o(x^3)]=x^{\frac34}-\frac{x^{\frac{11}4}}{3!}+o(x^{\frac{11}4})\rightarrow0(\not\rightarrow+\infty)(x\rightarrow0^+)\]
+所以这里是错误的.】}
+
+$\therefore$当$p<1$时，$a_1=\int_0^\pi\frac{\sin x}{x^p}\mathrm dx$收敛，\textcolor{red}{\bf当$p>1$时，$a_1=\int_0^\pi\frac{\sin x}{x^p}\mathrm dx$发散}
+
+当$p=1$时,$\lim\limits_{x\rightarrow0^+}x^{\frac12}\frac{\sin x}x=\lim\limits_{x\rightarrow0^+}x^{\frac12}\frac{x-\frac{x^3}{3!}+o(x^3)}x=\lim\limits_{x\rightarrow0^+}x^{\frac12}[1-\frac{x^2}{3!}+o(x^2)]=0$，$a_1=\int_0^\pi\frac{\sin x}{x^p}\mathrm dx$收敛
+
+\textcolor{red}{\bf故$p\leq1$}.
+
+(2)$\because|a_{n+1}|=|\int_{n\pi}^{(n+1)\pi}\frac{\sin x}{x^p}\mathrm dx|=\int_{n\pi}^{(n+1)\pi}\frac{|\sin x|}{x^p}\mathrm dx\xlongequal{t=x-\pi}\int_{(n-1)\pi}^{n\pi}\frac{|\sin(t+\pi)|}{(t+\pi)^p}\mathrm dt\\
+<\int_{(n-1)\pi}^{n\pi}\frac{|\sin t|}{t^p}\mathrm dt=|a_n|$
+
+且$\lim\limits_{n\rightarrow\infty}|a_n|=\lim\limits_{n\rightarrow\infty}\int_{(n-1)\pi}^{n\pi}\frac{|\sin x|}{x^{p}}\mathrm dx=\lim\limits_{n\rightarrow\infty}\frac{|\sin\xi_n|}{\xi_n^p}[n\pi-(n-1)\pi]=\lim\limits_{n\rightarrow\infty}\frac{|\sin\xi_n|}{\xi_n^p}\pi=0,\xi_n\in((n-1)\pi,n\pi)$
+
+又$\because a_{n+1}$与$a_n$异号
+
+$\therefore\sum_{n=1}^\infty a_n$是莱布尼茨型交错级数，故收敛.
+
+(3)$\because|a_n|=\int_{(n-1)\pi}^{n\pi}\frac{|\sin x|}{x^p}\mathrm dx>\int_{(n-1)\pi}^{n\pi}\frac{|\sin x|}{(n\pi)^p}\mathrm dx=\frac1{(n\pi)^p}\int_{(n-1)\pi}^{n\pi}|\sin x|\mathrm dx=\frac1{(n\pi)^p}|\int_{(n-1)\pi}^{n\pi}\sin x\mathrm dx|\\
+=\frac1{(n\pi)^p}|-\cos x\Big|_{(n-1)\pi}^{n\pi}|=\frac2{\pi^p}\frac1{n^p}$
+
+$\because\lim\limits_{n\rightarrow\infty}n^p\cdot\frac2{\pi^p}\frac1{n^p}=\frac2{\pi^p}$且$p\leq1$
+
+$\therefore\sum_{n=1}^\infty\frac2{\pi^p}\frac1{n^p}$发散
+
+$\therefore\sum_{n=1}^\infty|a_n|$发散
+
+\textcolor{red}{\bf$\therefore\sum_{n=1}^\infty a_n$条件收敛}.
+
+\textcolor{blue}{\bf正确做法：}(1)$a_1=\int_0^\pi\frac{\sin x}{x^p}\mathrm dx$是一个瑕积分，$x=0$为瑕点
+
+\textcolor{blue}{$\bm{\because\lim\limits_{x\rightarrow0^+}x^{p-1}\frac{\sin x}{x^p}=\lim\limits_{x\rightarrow0^+}x^{-1}[x-\frac{x^3}{3!}+o(x^3)]=\lim\limits_{x\rightarrow0^+}[1-\frac{x^2}{3!}+x^2\frac{o(x^2)}{x^2}]=1}$}
+
+【{\bf或者：}\textcolor{red}{$\bm{\because\lim\limits_{x\rightarrow0^+}x^{p-1}\frac{\sin x}{x^p}=1}$}】
+
+$\therefore$当$p-1\geq1$，即$p\geq2$时，$a_1=\int_0^\pi\frac{\sin x}{x^p}\mathrm dx$发散，当$p-1<1$，即$p<2$时，$a_1=\int_0^\pi\frac{\sin x}{x^p}\mathrm dx$收敛
+
+\textcolor{blue}{\bf故$\bm{p<2}$}.
+
+(2)$\because|a_{n+1}|=|\int_{n\pi}^{(n+1)\pi}\frac{\sin x}{x^p}\mathrm dx|=\int_{n\pi}^{(n+1)\pi}\frac{|\sin x|}{x^p}\mathrm dx\xlongequal{t=x-\pi}\int_{(n-1)\pi}^{n\pi}\frac{|\sin(t+\pi)|}{(t+\pi)^p}\mathrm dt\\
+<\int_{(n-1)\pi}^{n\pi}\frac{|\sin t|}{t^p}\mathrm dt=|a_n|$
+
+且$\lim\limits_{n\rightarrow\infty}|a_n|=\lim\limits_{n\rightarrow\infty}\int_{(n-1)\pi}^{n\pi}\frac{|\sin x|}{x^{p}}\mathrm dx=\lim\limits_{n\rightarrow\infty}\frac{|\sin\xi_n|}{\xi_n^p}[n\pi-(n-1)\pi]=\lim\limits_{n\rightarrow\infty}\frac{|\sin\xi_n|}{\xi_n^p}\pi=0,\xi_n\in((n-1)\pi,n\pi)$
+
+又$\because a_{n+1}$与$a_n$异号
+
+$\therefore\sum_{n=1}^\infty a_n$是莱布尼茨型交错级数，故收敛.
+
+(3)
+
+i)当$0<p\leq1$时，$|a_n|=\int_{(n-1)\pi}^{n\pi}\frac{|\sin x|}{x^p}\mathrm dx>\int_{(n-1)\pi}^{n\pi}\frac{|\sin x|}{(n\pi)^p}\mathrm dx=\frac1{(n\pi)^p}\int_{(n-1)\pi}^{n\pi}|\sin x|\mathrm dx\\
+=\frac1{(n\pi)^p}|\int_{(n-1)\pi}^{n\pi}\sin x\mathrm dx|=\frac1{(n\pi)^p}|-\cos x\Big|_{(n-1)\pi}^{n\pi}|=\frac2{\pi^p}\frac1{n^p}$
+
+$\because\lim\limits_{n\rightarrow\infty}n^p\cdot\frac2{\pi^p}\frac1{n^p}=\frac2{\pi^p}$
+
+$\therefore$当$0<p\leq1$时$\sum_{n=1}^\infty\frac2{\pi^p}\frac1{n^p}$发散
+
+$\therefore\sum_{n=1}^\infty|a_n|$发散，$\sum_{n=1}^\infty a_n$条件收敛
+
+ii)当$1<p<2$时，$|a_n|=\int_{(n-1)\pi}^{n\pi}\frac{|\sin x|}{x^p}\mathrm dx<\int_{(n-1)\pi}^{n\pi}\frac{|\sin x|}{[(n-1)\pi]^p}\mathrm dx=\frac1{[(n-1)\pi]^p}\int_{(n-1)\pi}^{n\pi}|\sin x|\mathrm dx\\
+=\frac1{[(n-1)\pi]^p}|\int_{(n-1)\pi}^{n\pi}\sin x\mathrm dx|=\frac1{[(n-1)\pi]^p}|-\cos x\Big|_{(n-1)\pi}^{n\pi}|=\frac2{\pi^p}\frac1{(n-1)^p}$
+
+$\because\lim\limits_{n\rightarrow\infty}n^p\cdot\frac2{\pi^p}\frac1{(n-1)^p}=\frac2{\pi^p}$
+
+$\therefore$当$p>1$时$\sum_{n=1}^\infty\frac2{\pi^p}\frac1{(n-1)^p}$收敛
+
+$\therefore\sum_{n=1}^\infty|a_n|$收敛，$\sum_{n=1}^\infty a_n$绝对收敛
+
+\textcolor{blue}{\bf综上所述，当$\bf{0<p\leq1}$时$\bf{\sum_{n=1}^{+\infty}a_n}$条件收敛；当$\bf{1<p<2}$时$\bf{\sum_{n=1}^{+\infty}a_n}$绝对收敛}.
+
+{\bf另一种解法：}(1)$a_1=\int_0^\pi\frac{\sin x}{x^p}\mathrm dx$是一个瑕积分$\frac{\sin x}{x^p}\geq0$，$x=0$为瑕点
+
+$\because\lim\limits_{x\rightarrow0^+}x^{p-1}\frac{\sin x}{x^p}=1$
+
+$\therefore$当$p-1\geq1$，即$p\geq2$时，$a_1=\int_0^\pi\frac{\sin x}{x^p}\mathrm dx$发散，当$p-1<1$，即$p<2$时，$a_1=\int_0^\pi\frac{\sin x}{x^p}\mathrm dx$收敛，故$p<2$
+
+(2)$\Ser1a_n=\Int\pi{+\infty}{\frac{\sin x}{x^p}}x$是一个无穷积分
+
+$\because0\leq|\frac{\sin x}{x^p}|\leq\frac1{x^p}$且当$p>1$时$\Int1{+\infty}{\frac1{x^p}}x$收敛
+
+$\therefore$当$p>1$时$\Int\pi\infty{\frac{\sin x}{x^p}}x$绝对收敛
+
+当$0<p\leq1$时
+\[\Int\pi{+\infty}{\frac{\sin x}{x^p}}x=-\frac{\cos x}{x^p}\big|_\pi^{+\infty}-p\Int\pi{+\infty}{\frac{\cos x}{x^{p+1}}}x=-\frac1{\pi^p}-p\Int\pi{+\infty}{\frac{\cos x}{x^{p+1}}}x\]且$\Int\pi{+\infty}{\frac{\cos x}{x^{p+1}}}x$绝对收敛(与$\Int\pi{+\infty}{\frac{\sin x}{x^{p+1}}}x,p+1>1$绝对收敛的证法相同)
+
+$\therefore\Int\pi{+\infty}{\frac{\sin x}{x^p}}x$收敛
+
+$\because$
+\[\Int\pi{+\infty}{\frac{\sin^2x}{x^p}}x=\frac12\Int\pi{+\infty}{\frac{1-\cos2x}{x^p}}x\]
+且$\Int\pi{+\infty}{\frac1{x^p}}x$发散，$\Int\pi{+\infty}{\frac{\cos2x}{x^p}}x$收敛(与$\Int\pi{+\infty}{\frac{\sin x}{x^p}}x$收敛的证法相同)
+
+$\therefore\Int\pi{+\infty}{|\frac{\sin^2x}{x^p}|}x$发散
+
+$\therefore$当$0<p\leq1$时$\Int\pi{+\infty}{\frac{\sin^2x}{x^p}}x$条件收敛
+
+综上所述，当$0<p\leq1$时$\sum_{n=1}^{+\infty}a_n$条件收敛；当$1<p<2$时$\sum_{n=1}^{+\infty}a_n$绝对收敛.
+\end{enumerate}
+\subsection{附录：级数加括号判断收敛性的方法}
+因为加括号后收敛的级数不一定收敛，所以由加括号后的级数收敛，不能直接得出原级数收敛的结论.
+\newline
+\indent对于一个交错级数而言，如果正负项加括号后得到的新级数收敛，说明级数的偶数项部分和数列$\{S_{2n}\}$收敛，此时若$\lim\limits_{n\rightarrow\infty}u_n=0$，则级数的奇数项部分和$S_{2n+1}$也收敛，且$\lim\limits_{n\rightarrow\infty}S_{2n+1}=\lim\limits_{n\rightarrow\infty}S_{2n}=\lim\limits_{n\rightarrow\infty}S_n$，故级数收敛. 
+\newline
+\indent若$\lim\limits_{n\rightarrow\infty}S_{2n}=\infty$，因为$S_{2n}$是$S_n$的一个子列，则$S_n$发散，可直接得出级数发散的结论.
+\newline
+\indent对于正项级数（或者每一项加了绝对值的级数）而言，如果$\lim\limits_{n\rightarrow\infty}S_{2n}=+\infty$，则必有$\lim\limits_{n\rightarrow\infty}S_n=+\infty$，级数发散.
+\begin{enumerate}
+\item设$p>0$，研究级数
+\[
+\frac1{1^p}-\frac1{2^p}+\frac1{3^p}-\frac1{4^p}+\cdots+\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}+\cdots
+\]
+的收敛性.
+
+{\bf【注意：此题不能直接通过$\lim\limits_{n\rightarrow\infty}n^p[\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}]=\frac1{2^p}$说明当$p>1$时级数收敛，当$p\leq1$时级数发散. 这相当于是在判断级数$\sum_{n=1}^\infty[\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}]$的收敛性. 该级数相当于是将原级数加了括号，由加括号后的级数收敛得不到原来的级数收敛.
+
+比如$\sum_{n=1}^\infty(-1)^{n-1}=1-1+1-1+1-1+\cdots$发散，但加括号后$\sum_{n=1}^\infty(1-1)=(1-1)+(1-1)+(1-1)+\cdots=0$收敛.
+
+下面是这类题目常用的处理办法.】}
+
+解：该级数的前$2n$项和$S_{2n}=\frac1{1^p}-\frac1{2^p}+\frac1{3^p}-\frac1{4^p}+\cdots+\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}$，$S_{2n}$可视为正项级数$\sum_{n=1}^\infty[\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}]$的前$n$项和
+
+$\because\lim\limits_{n\rightarrow\infty}n^p[\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}]=\lim\limits_{n\rightarrow\infty}[\frac{n^p}{(2n-1)^p}-\frac{n^p}{(2n)^{2p}}]=\frac1{2^p}$
+
+$\therefore$i)当$p>1$时级数$\sum_{n=1}^\infty[\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}]$收敛，即$\lim\limits_{n\rightarrow\infty}S_{2n}$存在
+
+又$\because\lim\limits_{n\rightarrow\infty}\frac1{(2n+1)^p}=0$
+
+$\therefore\lim\limits_{n\rightarrow\infty}S_{2n+1}=\lim\limits_{n\rightarrow\infty}[S_{2n}+\frac1{(2n+1)^p}]=\lim\limits_{n\rightarrow\infty}S_{2n}$
+
+故$\lim\limits_{n\rightarrow\infty}S_n=\lim\limits_{n\rightarrow\infty}S_{2n}=\lim\limits_{n\rightarrow\infty}S_{2n+1}$存在，级数收敛；
+
+ii)当$p\leq1$时级数$\sum_{n=1}^\infty[\frac1{(2n-1)^p}-\frac1{(2n)^{2p}}]$发散，即$\lim\limits_{n\rightarrow\infty}S_{2n}=+\infty$
+%
+%又$\because\lim\limits_{n\rightarrow\infty}\frac1{(2n+1)^p}=0$
+%
+%$\therefore\lim\limits_{n\rightarrow\infty}S_{2n+1}=\lim\limits_{n\rightarrow\infty}[S_{2n}+\frac1{(2n+1)^p}]=+\infty$
+%
+%故$\lim\limits_{n\rightarrow\infty}S_n=+\infty$，级数发散；
+
+故$\lim\limits_{n\rightarrow\infty}S_n$不存在，级数发散；
+
+综上所述，当$p>1$时级数收敛，当$0<p\leq1$时级数发散.
+\item判断下列级数的收敛性，对收敛的级数指出绝对收敛，还是条件收敛：
+\newline
+\begin{tabular}{ll}
+(6)$\sum_{n=2}^\infty\frac{(-1)^n}{\sqrt n+(-1)^n}$；
+\end{tabular}
+
+解：(6)原级数的前$2n$项和$S_{2n}=\sum_{k=2}^{2n+1}\frac{(-1)^k}{\sqrt k+(-1)^k}=\sum_{m=1}^n(\frac1{\sqrt{2m}+1}-\frac1{\sqrt{2m+1}-1})$，相当于是级数$\sum_{n=1}^\infty(\frac1{\sqrt{2n}+1}-\frac1{\sqrt{2n+1}-1})$的前$n$项和
+
+$\because\frac1{\sqrt{2n}+1}-\frac1{\sqrt{2n+1}-1}=\frac{\sqrt{2n+1}-\sqrt{2n}-2}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}=\frac{1-2(\sqrt{2n+1}+\sqrt{2n})}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)(\sqrt{2n+1}+\sqrt{2n})}<0$
+
+$\therefore$该级数是负项级数
+
+$\because\frac1{\sqrt{2n}+1}-\frac1{\sqrt{2n+1}-1}=\frac{\sqrt{2n+1}-\sqrt{2n}-2}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}=\frac{\sqrt{2n}(\sqrt{\frac{2n+1}{2n}}-1)-2}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}=\frac{\sqrt{2n}(\sqrt{1+\frac1{2n}}-1)-2}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}\\
+=\frac{\sqrt{2n}[1+\frac12\frac1{2n}+\frac{\frac12(\frac12-1)}{2!}\frac1{(2n)^2}+o(\frac1{n^2})-1]-2}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}=\frac{-2+\frac12\frac1{\sqrt{2n}}+o(\frac1{\sqrt n})}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}$
+
+%\[\begin{split}
+%\because&\frac1{\sqrt{2n}+1}-\frac1{\sqrt{2n+1}-1}=\frac{\sqrt{2n+1}-\sqrt{2n}-2}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}=\frac{\sqrt{2n}(\sqrt{\frac{2n+1}{2n}}-1)-2}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}\\
+%=&\frac{\sqrt{2n}(\sqrt{1+\frac1{2n}}-1)-2}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}=\frac{\sqrt{2n}[1+\frac12\frac1{2n}+\frac{\frac12(\frac12-1)}{2!}\frac1{(2n)^2}+o(\frac1{n^2})-1]-2}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}\\
+%=&\frac{-2+\frac12\frac1{\sqrt{2n}}+o(\frac1{n^{\frac12}})}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}
+%\end{split}\]
+
+$\therefore\lim\limits_{n\rightarrow\infty}n\cdot[-(\frac1{\sqrt{2n}+1}-\frac1{\sqrt{2n+1}-1})]=\lim\limits_{n\rightarrow\infty}n\cdot\frac{2-\frac12\frac1{\sqrt{2n}}+o(\frac1{\sqrt n})}{(\sqrt{2n}+1)(\sqrt{2n+1}-1)}=1$
+
+$\therefore$负项级数$\sum_{n=1}^\infty(\frac1{\sqrt{2n}+1}-\frac1{\sqrt{2n+1}-1})$发散
+
+$\therefore\lim\limits_{n\rightarrow\infty}S_{2n}=-\infty$
+
+$\therefore\lim\limits_{n\rightarrow\infty}S_n$不存在，原级数发散.
+\end{enumerate}
+\end{document}
