@@ -1,0 +1,442 @@
+\documentclass[12pt,UTF8]{ctexart}
+\usepackage{ctex,amsmath,amssymb,geometry,fancyhdr,bm,amsfonts
+,mathtools,extarrows,graphicx,url,enumerate,color} 
+% 加入中文支持
+\newcommand\Set[2]{%
+\left\{#1\ \middle\vert\ #2 \right\}}
+\geometry{a4paper,scale=0.80}
+\pagestyle{fancy}
+\rhead{习题5.1\&5.2}
+\lhead{基础习题课讲义}
+\chead{微积分B(1)}
+\begin{document}
+\setcounter{section}{6}
+\section{中值定理与洛必达法则}
+\noindent
+\subsection{知识结构}
+\noindent第5章用导数研究函数
+	\begin{enumerate}
+		\item[5.1] 微分中值定理
+			\begin{itemize}
+				\item 极大值极小值的定义
+				\item 费马定理
+				\item 罗尔定理
+				\item 拉格朗日中值定理（微分中值定理）
+				\item 柯西中值定理
+			\end{itemize}
+		\item[5.2] 洛必达法则
+			\begin{itemize}
+				\item $\frac00$型不定式的洛必达法则
+				\item $\frac\infty\infty$型不定式的洛必达法则
+			\end{itemize}
+	\end{enumerate}
+\subsection{习题5.1解答}
+\begin{enumerate}
+\item 证明：
+\newline
+(1)方程$x^3-3x+c=0$在$[0,1]$中至多有一个根；
+\newline
+(2)方程$x^n+px+q=0$（$n$为自然数）在$n$为偶数时，最多有两个不同实根，在$n$为奇数时，最多有三个不同实根.
+
+(1)证明：假设方程$x^3-3x+c=0$在$[0,1]$中有两个或两个以上的实根$x_1,x_2,\cdots,x_1<x_2<\cdots$
+
+则$\exists\xi\in(x_1,x_2)\subseteq(0,1),s.t.f'(\xi)=3\xi^2-3=0$
+
+此时$\xi=-1$或$1$均不属于$(0,1)$，矛盾，故方程$x^3-3x+c=0$在$[0,1]$中至多有一个根.
+
+(2)证明：i)当$n=0$或$1$时，方程$x^n+px+q=0$至多有$1$个实根，显然成立。
+
+ii)当$n\geq2$且$n$为偶数时，假设方程$x^n+px+q=0$有三个或三个以上的实根$x_1,x_2,x_3,\cdots$且满足$x_1<x_2<x_3<\cdots$
+
+令$f(x)=x^n+px+q$，根据罗尔定理$\exists\xi_1,\xi_2,\ s.t.x_1<\xi_1<x_2<\xi_2<x_3,\ f'(\xi_1)=n\xi_1^{n-1}+p=0,f'(\xi_2)=n\xi_2^{n-1}+p=0$
+
+但当$n\geq2$且$n$为偶数时，方程$nx^{n-1}+p=0$有且只有一个实根，矛盾，故假设不成立。
+
+又因为当$n=2$时，二次方程$x^n+px+q=0$可以有两个不同实根。故在$n$为偶数时，最多有两个不同实根。
+
+iii)当$n\geq2$且$n$为奇数时，假设方程$x^n+px+q=0$有四个或四个以上的实根$x_1,x_2,x_3,x_4,\cdots$且满足$x_1<x_2<x_3<x_4<\cdots$
+
+令$f(x)=x^n+px+q$，根据罗尔定理$\exists\xi_1,\xi_2,\xi_3,\ s.t.x_1<\xi_1<x_2<\xi_2<x_3<\xi_3<x_4,\ f'(\xi_1)=n\xi_1^{n-1}+p=0,f'(\xi_2)=n\xi_2^{n-1}+p=0,f'(\xi_3)=n\xi_3^{n-1}+p=0$
+
+但当$n\geq2$且$n$为奇数时，方程$nx^{n-1}+p=0$最多只有两个实根，矛盾，故假设不成立。
+
+又因为当$n=3$时，三次方程$x^n+px+q=0$可以有三个不同实根（比如方程$x^3-2x+1=0$有三个实根$1,\frac12(-1-\sqrt5),\frac12(-1+\sqrt5)$）。故在$n$为奇数时，最多有三个不同实根。
+
+\item设$f$在$(a,b)$内二阶可导，$a<x_1<x_2<x_3<b$，且$f(x_1)=f(x_2)=f(x_3)$，求证$\exists\xi\in(a,b)$，使得$f''(\xi)=0$.
+
+证明：$\because f$在$(a,b)$二阶可导
+
+$\therefore f(x)$和$f'(x)$均在$(a,b)$上连续可导
+
+又$\because f(x_1)=f(x_2)=f(x_3)$
+
+$\therefore\exists\xi_1\in(x_1,x_2),\xi_2\in(x_2,x_3),s.t.f'(\xi_1)=f'(\xi_2)=0$
+
+$\therefore\exists\xi\in(\xi_1,\xi_2)\subseteq(a,b),s.t.f''(\xi)=0$
+
+\item设$f$在$(-\infty,+\infty)$上有$n$阶导数，$p(x)=a_0x^n+a_1x^{n-1}+\cdots+a_{n-1}x+a_n$为$n$次多项式，如果存在$n+1$个相异的点$x_1,x_2,\cdots,x_{n+1}$使得$f(x_i)=p(x_i)(i=1,2,\cdots,n+1)$，则$\exists\xi$，使得$a_0=\frac{f^{(n)}(\xi)}{n!}$.
+
+证明：令$g(x)=f(x)-p(x)$，不妨设$x_1<x_2<\cdots<x_{n+1}$则$g(x_i)=0,i=1,2,\cdots,n+1$
+
+$\therefore$根据罗尔定理$\exists x_{1,1},x_{1,2},\cdots,x_{1,n},s.t.x_1<x_{1,1}<x_2<x_{1,2}<x_3<\cdots<x_{1,n}<x_{n+1},g'(x_{1,i})=0,i=1,2,\cdot,n$
+
+$\therefore\exists x_{2,1},x_{2,2},\cdots,x_{2,n-1},s.t.x_{1,1}<x_{2,1}<x_{1,2}<x_{2,2}<x_{1,3}<\cdots<x_{2,n-1}<x_{1,n},g''(x_{2,i})=0,i=1,2,\cdot,n-1$
+
+$\vdots$
+
+$\therefore\exists\xi=x_{n,1},s.t.x_{n-1,1}<x_{n,1}<x_{n-1,2},g^{(n)}(\xi)=0$，即$f^{(n)}-p^{(n)}=f^{(n)}-n!a_0=0$
+
+即$a_0=\frac{f^{(n)}(\xi)}{n!}$.
+\item证明下列不等式：
+\newline
+(1)$|\sin x-\sin y|\leq|x-y|,x,y\in\mathbb R$；
+\newline
+(2)$py^{p-1}(x-y)\leq x^p-y^p\leq px^{p-1}(x-y)$，其中$0<y<x,p>1$；
+\newline
+(3)$|\arctan a-\arctan b|\leq|a-b|$，其中$a,b\in\mathbb R$；
+\newline
+(4)$\frac{a-b}a<\ln\frac ab<\frac{a-b}b$，其中$0<b<a$.
+
+证明：(1)$\because$函数$f(x)=\sin x$在$(-\infty,+\infty)$上连续可导
+
+$\therefore\exists\xi\in(x,y),s.t.|\frac{f(x)-f(y)}{x-y}|=|\frac{\sin x-\sin y}{x-y}|=|f'(\xi)|=|\cos\xi|\leq1$（这里不妨设$x<y$）
+
+$\therefore|\sin x-\sin y|\leq|x-y|$.
+
+(2)$\because$当$p>1$时，$f(x)$在$[y,x]$上连续，且$f(x)$在$(y,x)$内可导
+
+$\therefore\exists\xi\in(y,x),s.t.f'(\xi)=p\xi^{p-1}=\frac{x^p-y^p}{x-y}$
+
+$\because p>1$时$py^{p-1}\leq p\xi^{p-1}\leq px^{p-1}$
+
+$\therefore py^{p-1}\leq\frac{x^p-y^p}{x-y}\leq px^{p-1}$
+
+$\therefore py^{p-1}(x-y)\leq x^p-y^p\leq px^{p-1}(x-y)$.
+
+(3)当$a=b$时，显然成立。
+
+当$a\neq b$时，不妨设$a<b$
+
+则由$f(x)=\arctan x$在$(-\infty,+\infty)$上连续可导可知
+
+$\exists\xi\in(a,b),s.t.|\frac{f(a)-f(b)}{a-b}|=|\frac{\arctan a-\arctan b}{a-b}|=|f'(\xi)|=\frac1{1+\xi^2}\leq1$
+
+$\therefore|\arctan a-\arctan b|\leq|a-b|$.
+
+(4)$\because$函数$f(x)=\ln x$在$(0,+\infty)$上连续可导
+
+$\therefore\exists\xi\in(b,a),s.t.\frac{f(a)-f(b)}{a-b}=\frac{\ln a-\ln b}{a-b}=f'(\xi)=\frac1\xi\in(\frac1a,\frac1b)$
+
+$\therefore\frac{a-b}a<\ln\frac ab<\frac{a-b}b$.
+
+\item证明：
+\newline
+(1)$2\arctan x+\arcsin\frac{2x}{1+x^2}=\pi\text{sgn}(x)$，其中$|x|\geq1$；
+
+证明：令$f(x)=2\arctan x+\arcsin\frac{2x}{1+x^2}$
+
+$f'(x)=\frac2{1+x^2}+\frac1{\sqrt{1-(\frac{2x}{1+x^2})^2}}\frac{2(1+x^2)-2x\cdot2x}{(1+x^2)^2}=\frac2{1+x^2}+\frac1{\sqrt{(1-x^2)^2}}\frac{2-2x^2}{1+x^2}=\frac2{1+x^2}+\frac1{x^2-1}\frac{2-2x^2}{1+x^2}=0,|x|\geq1$
+
+$\therefore f(x)$在$(-\infty,-1]\cup[1,+\infty)$上为常数
+
+当$x\geq1$时，$f(x)=2\arctan1+\arcsin\frac2{1+1}=\pi=\pi\text{sgn}(x)$
+
+当$x\leq-1$时，$f(x)=2\arctan(-1)+\arcsin(-\frac2{1+1})=-\pi=\pi\text{sgn}(x)$
+
+综上所述，$2\arctan x+\arcsin\frac{2x}{1+x^2}=\pi\text{sgn}(x),|x|\geq1$.
+
+\item证明下列不等式：
+\newline
+(1)$x-\frac12x^2<\ln(1+x),x>0$；
+\newline
+(2)$x-\frac{x^3}6<\sin x,x>0$；
+\newline
+(3)$\tan x>x+\frac{x^3}3,0<x<\frac\pi2$；
+\newline
+(4)$\sin x+\tan x>2x,0<x<\frac\pi2$.
+
+证明：(1)令$f(x)=x-\frac12x^2-\ln(1+x)$
+
+$f'(x)=1-x-\frac1{1+x}=\frac{x-x-x^2}{1+x}=\frac{-x^2}{1+x}<0,x>0$
+
+$\therefore f(x)<f(0)=0$
+
+$\therefore x-\frac12x^2<\ln(1+x)$.
+
+(2)令$f(x)=x-\frac{x^3}6-\sin x$
+
+$f'(x)=1-\frac{x^2}2-\cos x=2\sin^2\frac x2-\frac{x^2}2=2(\sin\frac x2-\frac x2)(\sin\frac x2+\frac x2)<0,x>0$
+
+$\therefore f(x)<f(0)=0$
+
+$\therefore x-\frac{x^3}6<\sin x$.
+
+(3)令$f(x)=\tan x-x-\frac{x^3}3$
+
+$f'(x)=\sec^2x-1-x^2=\tan^2x-x^2=(\tan x-x)(\tan x+x)>0$
+
+$\therefore f(x)>f(0)=0$
+
+$\therefore \tan x>x+\frac{x^3}3$.
+
+(4)令$f(x)=\sin x+\tan x-2x$
+
+$f'(x)=\cos x+\sec^2x-2>2\sqrt{\cos x\sec^x}-2>0,0<x<\frac\pi2$
+
+$\therefore f(x)>f(0)=0$
+
+$\therefore \sin x+\tan x>2x$.
+
+方法2：令$f(x)=\sin x+\tan x-2x$
+
+$f'(x)=\cos x+\sec^2x-2$
+
+$f''(x)=-\sin x+2\sec x\sec x\tan x=\sin x(\sec^3x-1)>0,0<x<\frac\pi2$
+
+$\therefore f'(x)>f'(0)=0$
+
+$\therefore f(x)>f(0)=0$
+
+$\therefore \sin x+\tan x>2x$.
+
+\item研究下列函数的单调性：
+\newline
+(1)$f(x)=\arctan x-x,x\in\mathbb R$；
+\newline
+(2)$f(x)=(1+\frac1x)^x,0<x<1$；
+\newline
+(3)$f(x)=2x^3-3x^2-12x+1$；
+\newline
+(4)$f(x)=x^ne^{-x},n>0,x\geq0$.
+
+解：(1)$\because f'(x)=\frac1{1+x^2}-1=\frac{-x^2}{1+x^2}\leq0$且$f'(x)$仅在$x=0$处等于0
+
+$\therefore f(x)$在$(-\infty,+\infty)$上单调增加.
+
+(2)令$g(x)=\ln f(x)=\ln(1+\frac1x)^x=x\ln(1+\frac1x)=x[\ln(1+x)-\ln x]$
+
+$g'(x)=\ln(1+x)-\ln x+x[\frac1{1+x}-\frac1x]=\ln(1+x)-\ln x-\frac1{1+x}$
+
+$\because h(x)=\ln x,0<x<1$在$[x,1+x]$上连续，在$(x,1+x)$上可导
+
+$\therefore\exists\xi\in(x,1+x),s.t.\frac{\ln(1+x)-\ln x}{1+x-x}=\ln(1+x)-\ln x=h'(\xi)=\frac1\xi$
+
+$\therefore g'(x)=\frac1\xi-\frac1{1+x}>0$
+
+$\therefore g(x)$在$(0,1)$上单调增加
+
+$\therefore f(x)$在$(0,1)$上单调增加.
+
+(3)$f'(x)=6x^2-6x-12=6(x-2)(x+1)$
+
+当$x<-1$时，$f'(x)>0$，$f(x)$单调增加；
+
+当$-1<x<1$时，$f'(x)<0$，$f(x)$单调减少；
+
+当$x>1$时，$f'(x)>0$，$f(x)$单调增加.
+
+(4)$f'(x)=nx^{n-1}e^{-x}-x^ne^{-x}=e^{-x}x^{n-1}(n-x)$
+
+当$0<x<n$时，$f'(x)>0$，$f(x)$单调增加；
+
+当$x>n$时，$f'(x)<0$，$f(x)$单调减少.
+\item证明下列不等式：
+\newline
+(1)$\ln(1+x)>\frac{\arctan x}{1+x},x>0$；
+\newline
+(2)$\frac1{2^{p-1}}\leq(x^p+(1-x)^p)\leq1,x\in[0,1],p>1$.
+
+证明：(1)令$f(x)=(1+x)\ln(1+x)-\arctan x$
+
+$f'(x)=\ln(1+x)+1-\frac1{1+x^2}=\ln(1+x)+\frac{x^2}{1+x^2}>0,x>0$
+
+$\therefore f(x)>f(0)=0$即$\ln(1+x)>\frac{\arctan x}{1+x}$.
+
+(2)令$f(x)=x^p+(1-x)^p$
+
+$f'(x)=px^{p-1}-px^{p-1}=p[x^{p-1}-(1-x)^{p-1}]$
+
+$\because p>1$
+
+$\therefore$当$0\leq x<\frac12$时，$x<1-x,f'(x)<0$，当$\frac12<x\leq1$时，$x>1-x,f'(x)>0$
+
+又$\because f(\frac12)=\frac1{2^p}+\frac1{2^p}=\frac1{2^{p-1}},f(0)=1=f(1)$
+$\therefore\frac1{2^{p-1}}\leq f(x)\leq1$
+
+即$\frac1{2^{p-1}}\leq(x^p+(1-x)^p)\leq1$.
+
+\item设$f(0)=0,f'(x)$单调增加，证明$\frac{f(x)}x$在$(0,+\infty)$上单调增加.
+
+证明：令$g(x)=\frac{f(x)}x$
+
+$g'(x)=\frac{f'(x)x-f(x)}{x^2}=\frac{f'(x)x-[f(x)-f(0)]}{x^2}=\frac{f'(x)x-f'(\xi)(x-0)}{x^2}=\frac{f'(x)-f'(\xi)}x,\xi\in(0,x)$
+
+$\because f'(x)$单调增加
+
+$\therefore f'(x)>f'(\xi),g'(x)>0$
+
+$\therefore g(x)=\frac{f(x)}x$在$(0,+\infty)$上单调增加.
+
+\end{enumerate}
+\subsection{习题5.2解答}
+\begin{enumerate}
+\item求下列不定式极限：
+\newline
+(1)$\lim\limits_{x\rightarrow0}\frac{e^x-1}{\sin x}$；
+\newline
+(2)$\lim\limits_{x\rightarrow\frac\pi6}\frac{1-2\sin x}{\cos3x}$；
+\newline
+(3)$\lim\limits_{x\rightarrow0}\frac{\ln(1+x)-x}{\cos x-1}$；
+\newline
+(4)$\lim\limits_{x\rightarrow0}\frac{\tan x-x}{x-\sin x}$；
+\newline
+(5)$\lim\limits_{x\rightarrow\frac\pi2}\frac{\tan x-6}{\sec x+5}$；
+\newline
+(6)$\lim\limits_{x\rightarrow0}(\frac1x-\frac1{e^x-1})$；
+\newline
+(7)$\lim\limits_{x\rightarrow0^+}(\tan x)^{\sin x}$；
+\newline
+(8)$\lim\limits_{x\rightarrow0^+}\sin x\ln x$；
+\newline
+(9)$\lim\limits_{x\rightarrow1}\frac{\ln[\cos(x-1)]}{1-\sin\frac{\pi x}2}$；
+\newline
+(10)$\lim\limits_{x\rightarrow+\infty}(\pi-2\arctan x)\ln x$；
+\newline
+(11)$\lim\limits_{x\rightarrow0^+}x^{\sin x}$；
+\newline
+(12)$\lim\limits_{x\rightarrow\frac\pi4}(\tan x)^{\tan2x}$；
+\newline
+(13)$\lim\limits_{x\rightarrow0}(\frac{\ln(1+x)}{x^2}-\frac1x)$；
+\newline
+(14)$\lim\limits_{x\rightarrow0}(\cot x-\frac1x)$.
+
+解：(1)$\lim\limits_{x\rightarrow0}\frac{e^x-1}{\sin x}=\lim\limits_{x\rightarrow0}\frac{e^x}{\cos x}=1$.
+
+(2)$\lim\limits_{x\rightarrow\frac\pi6}\frac{1-2\sin x}{\cos3x}=\lim\limits_{x\rightarrow\frac\pi6}\frac{-2\cos x}{-3\sin3x}=\frac{\sqrt3}3$.
+
+(3)$\lim\limits_{x\rightarrow0}\frac{\ln(1+x)-x}{\cos x-1}=\lim\limits_{x\rightarrow0}\frac{\frac1{1+x}-1}{-\sin x}=\lim\limits_{x\rightarrow0}\frac x{(1+x)\sin x}=1$.
+
+(4)$\lim\limits_{x\rightarrow0}\frac{\tan x-x}{x-\sin x}=\lim\limits_{x\rightarrow0}\frac{\sec^2x-1}{1-\cos x}=\lim\limits_{x\rightarrow0}\frac{1+\cos x}{\cos^2x}=2$.
+
+(5)$\lim\limits_{x\rightarrow\frac\pi2}\frac{\tan x-6}{\sec x+5}=\lim\limits_{x\rightarrow\frac\pi2}\frac{\sec^2x}{\sec x\tan x}=\lim\limits_{x\rightarrow\frac\pi2}\frac1{\sin x}=1$.
+
+(6)$\lim\limits_{x\rightarrow0}(\frac1x-\frac1{e^x-1})=\lim\limits_{x\rightarrow0}\frac{e^x-1-x}{x(e^x-1)}=\lim\limits_{x\rightarrow0}\frac{e^x-1}{e^x-1+xe^x}=\lim\limits_{x\rightarrow0}\frac1{1+\frac{xe^x}{e^x-1}}=\frac12$.
+
+(7)$\lim\limits_{x\rightarrow0^+}(\tan x)^{\sin x}=\lim\limits_{x\rightarrow0^+}e^{\sin x\ln\tan x}=\lim\limits_{x\rightarrow0^+}e^{\frac{\ln\tan x}{\csc x}}=\lim\limits_{x\rightarrow0^+}e^{\frac{\frac1{\tan x}\sec^2x}{-\csc x\cot x}}=\lim\limits_{x\rightarrow0^+}e^{\frac{\sin^2x}{-\sin x\cos^2x}}=1$.
+
+(8)$\lim\limits_{x\rightarrow0^+}\sin x\ln x=\lim\limits_{x\rightarrow0^+}\frac{\ln x}{\csc x}=\lim\limits_{x\rightarrow0^+}\frac{\frac1x}{-\csc x\cot x}=\lim\limits_{x\rightarrow0^+}\frac{\sin^2x}{-x\cos x}=\lim\limits_{x\rightarrow0^+}\frac{\sin x\tan x}{-x}=0$
+
+(9)$\lim\limits_{x\rightarrow1}\frac{\ln[\cos(x-1)]}{1-\sin\frac{\pi x}2}=\lim\limits_{x\rightarrow1}\frac{\frac{-\sin(x-1)}{\cos(x-1)}}{-\frac\pi2\cos\frac{\pi x}2}=\lim\limits_{x\rightarrow1}\frac{\tan(x-1)}{\frac\pi2\cos\frac{\pi x}2}=\lim\limits_{x\rightarrow1}\frac{\sec^2(x-1)}{-(\frac\pi2)^2\sin\frac{\pi x}2}=-\frac4{\pi^2}$.
+
+(10)方法1：$\lim\limits_{x\rightarrow+\infty}(\pi-2\arctan x)\ln x=\lim\limits_{x\rightarrow+\infty}\frac{\pi-2\arctan x}{\frac1{\ln x}}=\lim\limits_{x\rightarrow+\infty}\frac{\frac{-2}{1+x^2}}{\frac{-1}{(\ln x)^2\frac1x}}=\lim\limits_{x\rightarrow+\infty}\frac{2(\ln x)^2}{x(1+x^2)}=\lim\limits_{x\rightarrow+\infty}\frac{4(\ln x)\frac1x}{1+x^2+2x^2}=\lim\limits_{x\rightarrow+\infty}\frac{4\ln x}{x+3x^3}=\lim\limits_{x\rightarrow+\infty}\frac{\frac4x}{1+9x^2}=0$.
+
+方法2：$\lim\limits_{x\rightarrow+\infty}(\pi-2\arctan x)\ln x\xlongequal[x=\tan\frac{\pi-t}2=\cot\frac t2]{t=\pi-2\arctan x}\lim\limits_{t\rightarrow0^+}t\ln\cot\frac t2=\lim\limits_{t\rightarrow0^+}\frac{\ln\cot\frac t2}{\frac1t}=\lim\limits_{t\rightarrow0^+}\frac{\frac{-\frac12\csc^2\frac t2}{\cot\frac t2}}{\frac{-1}{t^2}}=\lim\limits_{t\rightarrow0^+}\frac{t^2}{2\sin\frac t2\cos\frac t2}=\lim\limits_{t\rightarrow0^+}\frac{t^2}{\sin t}=0$.
+
+(11)$\lim\limits_{x\rightarrow0^+}x^{\sin x}=\lim\limits_{x\rightarrow0^+}e^{\sin x\ln x}=\lim\limits_{x\rightarrow0^+}e^{\frac{\ln x}{\csc x}}=\lim\limits_{x\rightarrow0^+}e^{\frac{\frac1x}{-\csc x\cot x}}=\lim\limits_{x\rightarrow0^+}e^{\frac{\sin^2x}{-x\cos x}}=1$.
+
+(12)$\lim\limits_{x\rightarrow\frac\pi4}(\tan x)^{\tan2x}=\lim\limits_{x\rightarrow\frac\pi4}e^{\tan2x\ln\tan x}=\lim\limits_{x\rightarrow\frac\pi4}e^{\frac{\ln\tan x}{\cot2x}}=\lim\limits_{x\rightarrow\frac\pi4}e^{\frac{\frac1{\tan x}\sec^2x}{-2\csc^22x}}=\lim\limits_{x\rightarrow\frac\pi4}e^{\frac{\sin^22x}{-2\sin x\cos x}}=\lim\limits_{x\rightarrow\frac\pi4}e^{\frac{\sin^22x}{-\sin2x}}=\frac1e$.
+
+(13)$\lim\limits_{x\rightarrow0}(\frac{\ln(1+x)}{x^2}-\frac1x)=\lim\limits_{x\rightarrow0}\frac{\ln(1+x)-x}{x^2}=\lim\limits_{x\rightarrow0}\frac{\frac1{1+x}-1}{2x}=\lim\limits_{x\rightarrow0}\frac{-1}{2(1+x)}=-\frac12$.
+
+(14)$\lim\limits_{x\rightarrow0}(\cot x-\frac1x)=\lim\limits_{x\rightarrow0}\frac{x\cos x-\sin x}{x\sin x}=\lim\limits_{x\rightarrow0}\frac{\cos x-\cos x-x\sin x}{\sin x+x\cos x}=\lim\limits_{x\rightarrow0}\frac{-\sin x}{\frac{\sin x}x+\cos x}=0$.
+\item求下列极限：
+\newline
+(1)$\lim\limits_{x\rightarrow0}\frac{\ln(\sec x+\tan x)}{\sin x}$；
+\newline
+(2)$\lim\limits_{x\rightarrow0}(\frac1x-\frac{\tan x}{x^2})$；
+\newline
+(3)$\lim\limits_{x\rightarrow0^+}\frac{e^{-\frac1x}}{x^3}$；
+\newline
+(4)$\lim\limits_{x\rightarrow\frac\pi2}\frac{\ln(\sin x)}{\pi-2x}$；
+\newline
+(5)$\lim\limits_{x\rightarrow a}\frac{a^x-x^a}{x-a},(a>0)$；
+\newline
+(6)$\lim\limits_{x\rightarrow1}(2-x)^{\tan\frac{\pi x}2}$；
+\newline
+(7)$\lim\limits_{x\rightarrow0^+}(\frac{\sin x}x)^{\frac1x}$；
+\newline
+(8)$\lim\limits_{x\rightarrow0^+}(\cos\sqrt x)^{\frac1x}$；
+\newline
+(9)$\lim\limits_{x\rightarrow+\infty}(\frac2\pi\arctan x)^x$；
+\newline
+(10)$\lim\limits_{x\rightarrow a}(2-\frac xa)^{\tan\frac{\pi x}{2a}}$；
+\newline
+(11)$\lim\limits_{x\rightarrow1}(\frac x{x-1}-\frac1{\ln x})$；
+\newline
+(12)$\lim\limits_{n\rightarrow\infty}n[(\frac{n+1}n)^n-e]$.
+
+解：(1)$\lim\limits_{x\rightarrow0}\frac{\ln(\sec x+\tan x)}{\sin x}=\lim\limits_{x\rightarrow0}\frac{\ln(1+\sin x)-\ln(\cos x)}{\sin x}=\lim\limits_{x\rightarrow0}\frac{\frac1{1+\sin x}\cos x+\frac1{\cos x}\sin x}{\cos x}=1$.
+
+(2)$\lim\limits_{x\rightarrow0}(\frac1x-\frac{\tan x}{x^2})=\lim\limits_{x\rightarrow0}\frac{x-\tan x}{x^2}=\lim\limits_{x\rightarrow0}\frac{1-\sec^2x}{2x}=\lim\limits_{x\rightarrow0}\frac{-2\sec x\sec x\tan x}{2}=0$.
+
+(3)$\lim\limits_{x\rightarrow0^+}\frac{e^{-\frac1x}}{x^3}\xlongequal{t=\frac1x}\lim\limits_{t\rightarrow+\infty}t^3e^{-t}=\lim\limits_{t\rightarrow+\infty}\frac{t^3}{e^t}=\lim\limits_{t\rightarrow+\infty}\frac{3t^2}{e^t}=\lim\limits_{t\rightarrow+\infty}\frac{6t}{e^t}=\lim\limits_{t\rightarrow+\infty}\frac6{e^t}=0$.
+
+(4)$\lim\limits_{x\rightarrow\frac\pi2}\frac{\ln(\sin x)}{\pi-2x}=\lim\limits_{x\rightarrow\frac\pi2}\frac{\frac1{\sin x}\cos x}{-2}=0$.
+
+(5)$\lim\limits_{x\rightarrow a}\frac{a^x-x^a}{x-a}=\lim\limits_{x\rightarrow a}\frac{a^x\ln a-ax^{a-1}}{1}=a^a(\ln a-1)$.
+
+(6)$\lim\limits_{x\rightarrow1}(2-x)^{\tan\frac{\pi x}2}=\lim\limits_{x\rightarrow1}[(1+1-x)^{\frac1{1-x}}]^{(1-x)\tan\frac{\pi x}2}=\lim\limits_{x\rightarrow1}[(1+1-x)^{\frac1{1-x}}]^{\frac{1-x}{\cot\frac{\pi x}2}}=\lim\limits_{x\rightarrow1}[(1+1-x)^{\frac1{1-x}}]^{\frac{-1}{-\frac\pi2\csc^2\frac{\pi x}2}}=e^{\frac2\pi}$.
+
+(7)$\lim\limits_{x\rightarrow0^+}(\frac{\sin x}x)^{\frac1x}=\lim\limits_{x\rightarrow0^+}[(1+\frac{\sin x-x}x)^{\frac x{\sin x-x}}]^{\frac{\sin x-x}{x^2}}=\lim\limits_{x\rightarrow0^+}[(1+\frac{\sin x-x}x)^{\frac x{\sin x-x}}]^{\frac{\cos x-1}{2x}}=\lim\limits_{x\rightarrow0^+}[(1+\frac{\sin x-x}x)^{\frac x{\sin x-x}}]^{\frac{-\sin x}{2}}=1$.
+
+(8)$\lim\limits_{x\rightarrow0^+}(\cos\sqrt x)^{\frac1x}=\lim\limits_{x\rightarrow0^+}e^{\frac{\ln(\cos\sqrt x)}x}=\lim\limits_{x\rightarrow0^+}e^{\frac{\frac{-\sin\sqrt x}{\cos\sqrt x}\frac1{2\sqrt x}}1}=e^{-\frac12}$
+
+(9)$\lim\limits_{x\rightarrow+\infty}(\frac2\pi\arctan x)^x=\lim\limits_{x\rightarrow+\infty}e^{x\ln(\frac2\pi\arctan x)}\xlongequal[x=\tan\frac\pi2t]{t=\frac2\pi\arctan x}\lim\limits_{x\rightarrow1^-}e^{\tan\frac\pi2t\ln t}=\lim\limits_{x\rightarrow1^-}e^{\frac{\ln t}{\cot\frac\pi2t}}=\lim\limits_{x\rightarrow1^-}e^{\frac{\frac1t}{-\frac\pi2\csc^2\frac\pi2t}}=e^{-\frac2\pi}$.
+
+(10)$\lim\limits_{x\rightarrow a}(2-\frac xa)^{\tan\frac{\pi x}{2a}}\xlongequal{t=\frac xa}\lim\limits_{t\rightarrow 1}(2-t)^{\tan\frac{\pi t}2}=e^{\frac2\pi}$（这里利用了(6)的结果）.
+
+(11)$\lim\limits_{x\rightarrow1}(\frac x{x-1}-\frac1{\ln x})=\lim\limits_{x\rightarrow1}\frac{x\ln x-(x-1)}{(x-1)\ln x}=\lim\limits_{x\rightarrow1}\frac{\ln x}{\ln x+\frac{x-1}x}=\lim\limits_{x\rightarrow1}\frac{\frac1x}{\frac1x+\frac1{x^2}}=\frac12$.
+
+(12)方法1：$\lim\limits_{n\rightarrow\infty}n[(\frac{n+1}n)^n-e]=\lim\limits_{x\rightarrow\infty}x[(\frac{x+1}x)^x-e]=\lim\limits_{x\rightarrow\infty}\frac{(\frac{x+1}x)^x-e}{\frac1x}\xlongequal{t=\frac1x}=\lim\limits_{t\rightarrow0}\frac{(1+t)^{\frac1t}-e}{t}=\lim\limits_{t\rightarrow0}\frac{e^{\frac1t\ln(1+t)}-e}{t}=\lim\limits_{t\rightarrow0}e\frac{e^{\frac1t\ln(1+t)-1}-1}{t}=e\lim\limits_{t\rightarrow0}\frac{\frac1t\ln(1+t)-1}{t}=e\lim\limits_{t\rightarrow0}\frac{\ln(1+t)-t}{t^2}=e\lim\limits_{t\rightarrow0}\frac{\frac1{1+t}-1}{2t}=e\lim\limits_{t\rightarrow0}\frac{-1}{2(1+t)}=-\frac12e$.
+
+方法2：$\lim\limits_{n\rightarrow\infty}n[(\frac{n+1}n)^n-e]=\lim\limits_{x\rightarrow\infty}x[(\frac{x+1}x)^x-e]=\lim\limits_{x\rightarrow\infty}\frac{(\frac{x+1}x)^x-e}{\frac1x}=\lim\limits_{x\rightarrow\infty}\frac{(\frac{x+1}x)^x[\ln(1+\frac1x)-\frac1{1+x}]}{-\frac1{x^2}}\\{\bf(\text{\bf这里用了对数求导法}[(\frac{1+x}x)^x]'=(\frac{1+x}x)^x[\ln(1+\frac1x)-\frac1{1+x}])}=\lim\limits_{x\rightarrow\infty}(\frac{1+x}x)^x\lim\limits_{x\rightarrow\infty}\frac{\ln(1+\frac1x)-\frac1{1+x}}{\frac{-1}{x^2}}=e\lim\limits_{x\rightarrow\infty}\frac{\frac1{1+\frac1x}\frac{-1}{x^2}-\frac{-1}{(1+x)^2}}{\frac{2}{x^3}}=e\lim\limits_{x\rightarrow\infty}\frac{\frac{-1}{x^2+x}-\frac{-1}{(x+1)^2}}{\frac{2}{x^3}}=-\frac e2\lim\limits_{x\rightarrow\infty}x^3\frac{(x+1)^2-(x^2+x)}{(x^2+x)(x+1)^2}=-\frac e2\lim\limits_{x\rightarrow\infty}x^2\frac{(x+1)^2-(x^2+x)}{(x+1)(x+1)^2}=-\frac e2\lim\limits_{x\rightarrow\infty}x^2\frac{x+1-x}{(x+1)^2}=-\frac e2\lim\limits_{x\rightarrow\infty}\frac{x^2}{(x+1)^2}=-\frac e2$.
+\item 设$f$二阶可导，求$\lim\limits_{h\rightarrow0}\frac{f(a+h)-2f(a)+f(a-h)}{h^2}$.
+
+解：$\lim\limits_{h\rightarrow0}\frac{f(a+h)-2f(a)+f(a-h)}{h^2}=\lim\limits_{h\rightarrow0}\frac{f'(a+h)-f'(a-h)}{2h}=\lim\limits_{h\rightarrow0}\frac{f'(a+h)-f'(a)+f'(a)-f'(a-h)}{2h}
+\\=\lim\limits_{h\rightarrow0}\frac{\frac{f'(a+h)-f'(a)}h+\frac{f'(a)-f'(a-h)}h}{2}=\lim\limits_{h\rightarrow0}\frac{\frac{f'(a+h)-f'(a)}h+\frac{f'(a-h)-f'(a)}{-h}}{2}=\frac{2f''(a)}2=f''(a)$.
+
+错误做法：$\lim\limits_{h\rightarrow0}\frac{f(a+h)-2f(a)+f(a-h)}{h^2}=\lim\limits_{h\rightarrow0}\frac{f'(a+h)-f'(a-h)}{2h}=\lim\limits_{h\rightarrow0}\frac{f''(a+h)+f''(a-h)}2\neq f''(a)$.
+
+{\bf注意：这里不能用两次洛必达法则，因为题目只说二阶导数存在，并未说明二阶导数连续，极限$\lim\limits_{h\rightarrow0}\frac{f''(a+h)+f''(a-h)}2$不一定存在，按照洛必达法则的定理条件，只有极限$\lim\limits_{h\rightarrow0}\frac{f''(a+h)+f''(a-h)}2$存在或为无穷大时才能用洛必达法则，如果极限$\lim\limits_{h\rightarrow0}\frac{f''(a+h)+f''(a-h)}2$不存在且不为无穷大，则不能用洛必达法则，这个极限是可能不存在且不为无穷大的，可以看下一题给出的例子.}
+
+%方法2：$\lim\limits_{h\rightarrow0}\frac{f(a+h)-2f(a)+f(a-h)}{h^2}=\lim\limits_{h\rightarrow0}\frac{\frac{f(a+h)-f(a)}h-\frac{f(a-h)-f(a)}{-h}}h=\lim\limits_{h\rightarrow0}\frac{\frac{f(a+h)-f(a)}h-\frac{f(a-h)-f(a)}{-h}}h$
+
+\item 设$f$有导数，并且$f(0)=f'(0)=1$，求$\lim\limits_{x\rightarrow0}\frac{f(\sin x)-1}{\ln f(x)}$.
+
+解：$\lim\limits_{x\rightarrow0}\frac{f(\sin x)-1}{\ln f(x)}=\lim\limits_{x\rightarrow0}\frac{f(\sin x)-1}{\sin x}\frac{\sin x}{\ln f(x)}=\lim\limits_{x\rightarrow0}\frac{f(\sin x)-1}{\sin x}\frac{\sin x}{\ln f(x)-\ln f(0)}=\lim\limits_{x\rightarrow0}\frac{f(\sin x)-1}{\sin x}\frac{\sin x}x\frac{1}{\frac{\ln f(x)-\ln f(0)}{x-0}}=f'(0)\cdot1\cdot\frac1{[\ln f(x)]'|_{x=0}}=f'(0)\cdot1\cdot\frac1{\frac{f'(0)}{f(0)}}=1$.
+
+错误做法：$\lim\limits_{x\rightarrow0}\frac{f(\sin x)-1}{\ln f(x)}=\lim\limits_{x\rightarrow0}\frac{f'(\sin x)\cos x}{\frac{f'(x)}{f(x)}}=\lim\limits_{x\rightarrow0}\frac{f'(\sin x)}{f'(x)}f(x)\cos x\neq1$
+
+{\bf注意：这里不能直接用洛必达法则，因为极限$\lim\limits_{x\rightarrow0}\frac{f'(\sin x)}{f'(x)}f(x)\cos x$不一定存在且不一定为无穷大. 比如可以看下面的例子：
+
+函数
+\[f(x)=\begin{cases}
+(e^x-1)^2\sin\frac1{e^x-1}+e^x,&x\neq0\\
+1,&x=0
+\end{cases},\]
+其导数\[f'(x)=\begin{cases}
+2e^x(e^x-1)\sin\frac1{e^x-1}-e^x\cos\frac1{e^x-1}+e^x,&x\neq0\\
+1,&x=0
+\end{cases},\]
+此时$f(x)$满足题目的要求，但$\lim\limits_{x\rightarrow0}\frac{f'(\sin x)}{f'(x)}f(x)\cos x$不存在且不为无穷大:
+\[
+\begin{split}
+\lim\limits_{x\rightarrow0}\frac{f'(\sin x)}{f'(x)}f(x)\cos x&=\frac{2e^{\sin x}(e^{\sin x}-1)\sin\frac1{e^{\sin x}-1}-e^{\sin x}\cos\frac1{e^{\sin x}-1}+e^{\sin x}}{2e^x(e^x-1)\sin\frac1{e^x-1}-e^x\cos\frac1{e^x-1}+e^x}f(x)\cos x
+\end{split}
+\]
+当$x\rightarrow0$时，分母$2e^x(e^x-1)\sin\frac1{e^x-1}-e^x\cos\frac1{e^x-1}+e^x$存在一系列的零点，这是因为
+\[
+\begin{split}
+&2e^x(e^x-1)\sin\frac1{e^x-1}-e^x\cos\frac1{e^x-1}+e^x\\
+=&e^x[2(e^x-1)\sin\frac1{e^x-1}-\cos\frac1{e^x-1}+1]\\
+=&e^x[2(e^x-1)2\sin\frac1{2(e^x-1)}\cos\frac1{2(e^x-1)}+2\sin^2\frac1{2(e^x-1)}]\\
+=&e^x\sin\frac1{2(e^x-1)}[2(e^x-1)2\cos\frac1{2(e^x-1)}+2\sin\frac1{2(e^x-1)}]
+\end{split}
+\]
+其中$\sin\frac1{2(e^x-1)}$在$x\rightarrow0$的过程中存在一系列的零点. 因此函数$\frac{f'(\sin x)}{f'(x)}f(x)\cos x$在$0$附近不全有定义，故极限$\lim\limits_{x\rightarrow0}\frac{f'(\sin x)}{f'(x)}f(x)\cos x$不存在且不为无穷大.
+
+如果极限$\lim\limits_{x\rightarrow0}\frac{f'(\sin x)}{f'(x)}f(x)\cos x$不存在且不为无穷大则不满足洛必达法则的条件，不能用洛必达法则。
+
+}
+\end{enumerate}
+\end{document}
