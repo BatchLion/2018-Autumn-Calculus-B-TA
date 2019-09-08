@@ -1,0 +1,608 @@
+\documentclass[12pt,UTF8]{ctexart}
+\usepackage{ctex,amsmath,amssymb,geometry,fancyhdr,bm,amsfonts
+,mathtools,extarrows,graphicx,url,enumerate,color} 
+% 加入中文支持
+\newcommand\Set[2]{%
+\left\{#1\ \middle\vert\ #2 \right\}}
+\geometry{a4paper,scale=0.80}
+\pagestyle{fancy}
+\rhead{习题2.3\&2.4\&2.5\&第2章补充题}
+\lhead{基础习题课讲义}
+\chead{微积分B(1)}
+\begin{document}
+\setcounter{section}{2}
+\section{函数极限与无穷小量}
+\noindent
+\subsection{知识结构}
+\noindent第二章极限论
+	\begin{enumerate}
+		\item[2.1] 数列极限的概念和性质
+			\begin{enumerate}
+				\item[2.1.1]数列极限的概念
+				\item[2.1.2]数列极限的性质
+					\begin{itemize}
+						\item唯一性
+						\item有界性
+						\item保号性
+					\end{itemize}
+				\item[2.1.3]数列的子列
+				\item[2.1.4]无穷大量与无界变量
+			\end{enumerate}
+		\item[2.2] 数列极限存在的条件
+			\begin{enumerate}
+				\item[2.2.1]夹逼原理
+				\item[2.2.2]单调收敛定理
+				\item[2.2.3]柯西收敛准则
+				\item[2.2.4]数列极限的四则运算
+			\end{enumerate}
+		\item[2.3] 函数极限的概念和性质
+			\begin{enumerate}
+				\item[2.3.1]函数在一点的极限
+				\item[2.3.2]单侧极限
+				\item[2.3.3]函数在无穷远处的极限
+				\item[2.3.4]函数极限的性质
+					\begin{itemize}
+						\item唯一性
+						\item有界性
+						\item保号性
+						\item函数极限与数列极限的关系
+					\end{itemize}
+			\end{enumerate}
+		\item[2.4] 函数极限的运算法则
+			\begin{enumerate}
+				\item[2.4.1]夹逼原理
+				\item[2.4.2]单调函数的极限
+				\item[2.4.3]函数极限的四则运算
+				\item[2.4.4]极限的复合运算
+			\end{enumerate}
+		\item[2.5] 无穷小量与阶的比较
+			\begin{enumerate}
+				\item[2.5.1]无穷小量与无穷大量
+				\item[2.5.2]阶的比较
+			\end{enumerate}
+\end{enumerate}
+\subsection{习题2.3解答}
+\begin{enumerate}
+\item 用定义证明以下各式：
+\newline
+$(1)\lim\limits_{x\rightarrow x_0}\sin x=\sin x_0$；
+\newline
+$(2)\lim\limits_{h\rightarrow0}\frac{(x+h)^2-x^2}h=2x$；
+\newline
+$(3)\lim\limits_{x\rightarrow2}\sqrt{x^2+5}=3$；
+\newline
+$(4)\lim\limits_{x\rightarrow3}\frac{x-3}{x^2-9}=\frac16$；
+\newline
+$(5)\lim\limits_{x\rightarrow1^+}\frac{x-1}{x^2-1}=0$；
+\newline
+$(6)\lim\limits_{x\rightarrow-\infty}(x+\sqrt{x^2-a})=0$.
+\newline
+解：(1)$|\sin x-\sin x_0|=2|\cos\frac{x+x_0}2||\sin\frac{x-x_0}2|\leq2|\sin\frac{x-x_0}2|\leq|x-x_0|$
+
+$\forall\varepsilon>0$，取$\delta=\varepsilon>0$，使$0<|x-x_0|<\delta$时，$|\sin x-\sin x_0|\leq|x-x_0|<\varepsilon$
+
+$\therefore\lim\limits_{x\rightarrow x_0}\sin x=\sin x_0$.
+
+(2)$|\frac{(x+h)^2-x^2}h-2x|=|\frac{(x+h+x)(x+h-x)}h-2x|=|h|$
+
+$\forall\varepsilon>0$，取$\delta=\varepsilon>0$，使$0<|x-x_0|<\delta$时，$|\frac{(x+h)^2-x^2}h-2x|=|h|<\varepsilon$
+
+$\therefore\lim\limits_{h\rightarrow0}\frac{(x+h)^2-x^2}h=2x$
+
+(3)$|\sqrt{x^2+5}-3|=\frac{|x-2||x+2|}{\sqrt{x^2+5}+3}<|x-2||x+2|$
+
+不妨设$|x-2|<\frac12$，则$\forall\varepsilon>0$，取$\delta={\rm min}\{\frac12,\frac29\varepsilon\}$，则当$0<|x-2|<\delta$时，$|\sqrt{x^2+5}-3|<|x-2||x+2|<\frac92|x-2|<\varepsilon$
+
+$\therefore\lim\limits_{x\rightarrow2}\sqrt{x^2+5}=3$.
+
+(4)$|\frac{x-3}{x^2-9}-\frac16|=\frac{|x^2-6x+9|}{6|x^2-9|}=\frac{|x-9|}{6|x+9|}$
+
+不妨设$|x-3|<\frac12$，即$\frac52<x<\frac72,\frac{11}2<x<\frac{13}2$，取$\delta={\rm min}\{\frac12,33\varepsilon\}$，则当$0<|x-3|<\delta$时，$|\frac{x-3}{x^2-9}-\frac16|=\frac{|x-9|}{6|x+9|}<\frac{|x-9|}{33}<\varepsilon$
+
+$\therefore\lim\limits_{x\rightarrow3}\frac{x-3}{x^2-9}=\frac16$.
+
+(5)当$x>1$时，$|\frac{x-1}{\sqrt{x^2-1}}|=|\frac{\sqrt{x-1}}{\sqrt{x+1}}|<\frac{\sqrt{x-1}}2$
+
+$\forall\varepsilon>0$，取$\delta=2\varepsilon^2$，则当$0<x-1<\delta$时，$|\frac{x-1}{\sqrt{x^2-1}}|<\frac{\sqrt{x-1}}2<\varepsilon$
+
+$\therefore\lim\limits_{x\rightarrow1^+}\frac{x-1}{x^2-1}=0$.
+
+(6)当$x<0$时，$|x+\sqrt{x^2-a}|=\frac{|a|}{-x+\sqrt{x^2-a}}<\frac{|a|}{-x}$
+
+$\forall\varepsilon>0$，取$N>\frac{|a|}\varepsilon>0$，则当$-x>N$时，$|x+\sqrt{x^2-a}|<\frac{|a|}{-x}<\varepsilon$
+
+$\therefore\lim\limits_{x\rightarrow-\infty}(x+\sqrt{x^2-a})=0$.
+
+\item讨论以下函数在点$x=0$的极限是否存在：
+\newline
+$(1)f(x)=\frac{|x|}x$；
+\newline
+$f(x)=\begin{cases}\sin\frac1x,&x>0\\
+x\sin\frac1x,&x<0
+\end{cases}$；
+\newline
+$f(x)=\frac{[x]}x$；
+\newline
+$f(x)=\begin{cases}
+2x,&x>0\\
+a\cos x+b\sin x,&x<0
+\end{cases}$.
+
+解：(1)不存在. 当$x<0$时，$f(x)=-1,\lim\limits_{x\rightarrow0^-}=-1$，当$x>0$时，$f(x)=1,\lim\limits_{x\rightarrow0^+}=1\neq\lim\limits_{x\rightarrow1^-}$，故$f(x)$在点$x=0$的极限不存在.
+
+(2)不存在. 当$x>0$时，$\lim\limits_{x\rightarrow0^+}\sin\frac1x$不存在，故$f(x)$在点$x=0$的极限不存在.
+
+(3)不存在. 当$x>0$时，$f(x)=0,\lim\limits_{x\rightarrow0^+}f(x)=0$，当$x<0$时，$f(x)=-\frac1x,\lim\limits_{x\rightarrow0^-}f(x)$不存在，故$f(x)$在点$x=0$的极限不存在.
+
+(4)当$a=0$时存在，当$a\neq0$时不存在. $\lim\limits_{x\rightarrow0+}f(x)=0,\lim\limits_{x\rightarrow0-}f(x)=a$，当$a=0$时，$\lim\limits_{x\rightarrow0+}f(x)=\lim\limits_{x\rightarrow0-}f(x)$，故$f(x)$在点$x=0$的极限存在，当$a\neq0$时，$\lim\limits_{x\rightarrow0+}f(x)\neq\lim\limits_{x\rightarrow0-}f(x)$，故$f(x)$在点$x=0$的极限不存在.
+
+\item设$\lim\limits_{x\rightarrow x_0}f(x)=A>0$，证明$\lim\limits_{x\rightarrow x_0}\sqrt{f(x)}=\sqrt A$.
+
+证明：$\because\lim\limits_{x\rightarrow x_0}f(x)=A>0$
+
+$\therefore\forall\varepsilon>0,\exists\delta_1>0$，当$0<|x-x_0|<\delta_1$时，$|f(x)-A|<\varepsilon$，$\exists\delta_2>0$，当$0<|x-x_0|<\delta_2$时，$f(x)>0$
+
+取$\delta=\text{min}\{\delta_1,\delta_2\}$，则当$0<|x-x_0|<\delta$时，$|\sqrt{f(x)}-\sqrt A|=\frac{|f(x)-A|}{\sqrt{f(x)}+\sqrt A}<\frac{|f(x)-A|}{\sqrt A}<\frac\varepsilon{\sqrt A}$
+
+$\therefore\lim\limits_{x\rightarrow x_0}\sqrt{f(x)}=\sqrt A$.
+
+\item设$f(x)$在$[0,+\infty)$上为周期函数，若$\lim\limits_{x\rightarrow+\infty}f(x)=0$，证明$f(x)\equiv0$.
+
+证明：假设存在$x_0\in[0,+\infty)$，使得$f(x_0)\neq0$
+
+$\because f(x)$在$[0,+\infty)$上是周期函数，设$T$是$f(x)$的最小正周期，则$f(x_0+nT)=f(x_0),n\in\mathbb Z^+$
+
+$\because\lim\limits_{x\rightarrow+\infty}\sqrt{f(x)}=0$
+
+$\therefore\forall\varepsilon>0,\exists N>0$，使$x>N$时，$|f(x)-A|<\varepsilon$
+
+但对于$\varepsilon=\frac12|f(x_0)|,\forall N>0,\exists x=x_0+nT\in\mathbb Z^+$，使得$x>N$时，$|f(x)-0|=|f(x_0+nT)-0|=|f(x_0)-0|>\varepsilon$，矛盾.
+
+故$f(x)\equiv0$.
+\end{enumerate}
+\subsection{习题2.4解答}
+\begin{enumerate}
+\item求下列极限：
+\newline
+$(1)\lim\limits_{x\rightarrow+\infty}\frac{1-x-4x^3}{1+x^2+2x^3}$；
+\newline
+$(2)\lim\limits_{x\rightarrow0}\frac{\sqrt{1+x}-\sqrt{1-x}}x$；
+\newline
+$(3)\lim\limits_{x\rightarrow1}\frac{x+x^2+\cdots+x^n-n}{x-1}$；
+\newline
+$(4)\lim\limits_{x\rightarrow1}\frac{x^m-1}{x^n-1},m,n\in\mathbb Z^+$；
+\newline
+$(5)\lim\limits_{x\rightarrow+\infty}(\sqrt{x+1}-\sqrt{x-1})$；
+\newline
+$(6)\lim\limits_{x\rightarrow0}\frac{\sqrt{x^2+p^2}-p}{\sqrt{x^2+q^2}-q}(p>0,q>0)$.
+
+解：(1)$\lim\limits_{x\rightarrow+\infty}\frac{1-x-4x^3}{1+x^2+2x^3}=\lim\limits_{x\rightarrow+\infty}\frac{\frac1{x^3}-\frac1{x^2}-4}{\frac1{x^3}+\frac1x+2}=-2$.
+
+(2)$\lim\limits_{x\rightarrow0}\frac{\sqrt{1+x}-\sqrt{1-x}}x=\lim\limits_{x\rightarrow0}\frac{2x}{x(\sqrt{1+x}+\sqrt{1-x})}=\lim\limits_{x\rightarrow0}\frac2{\sqrt{1+x}+\sqrt{1-x}}=1$.
+
+(3)$\lim\limits_{x\rightarrow1}\frac{x+x^2+\cdots+x^n-n}{x-1}=\lim\limits_{x\rightarrow1}\frac{(x-1)+(x^2-1)+\cdots+(x^n-1)}{x-1}=\lim\limits_{x\rightarrow1}[1+(x+1)+\cdots+(x^{n-1}+x^{n-2}+\cdots+x+1)]=1+2+\cdots+n=\frac{n(n+1)}2$.
+
+(4)$\lim\limits_{x\rightarrow1}\frac{x^m-1}{x^n-1}=\lim\limits_{x\rightarrow1}\frac{(x-1)(x^{m-1}+x^{m-2}+\cdots+x+1)}{(x-1)(x^{n-1}+x^{n-2}+\cdots+x+1)}=\lim\limits_{x\rightarrow1}\frac{x^{m-1}+x^{m-2}+\cdots+x+1}{x^{n-1}+x^{n-2}+\cdots+x+1}=\frac mn$.
+
+(5)$\lim\limits_{x\rightarrow+\infty}(\sqrt{x+1}-\sqrt{x-1})=\lim\limits_{x\rightarrow+\infty}\frac{2}{\sqrt{x+1}+\sqrt{x-1}}=0$.
+
+(6)$\lim\limits_{x\rightarrow0}\frac{\sqrt{x^2+p^2}-p}{\sqrt{x^2+q^2}-q}=\lim\limits_{x\rightarrow0}\frac{x^2+p^2-p^2}{x^2+q^2-q^2}\frac{\sqrt{x^2+q^2}+q}{\sqrt{x^2+p^2}+p}=\lim\limits_{x\rightarrow0}\frac{\sqrt{x^2+q^2}+q}{\sqrt{x^2+p^2}+p}=\frac qp$.
+
+\item求下列极限：
+\newline
+(1)$\lim\limits_{x\rightarrow0}\frac{\sin2x}{x}$；
+\newline
+(2)$\lim\limits_{x\rightarrow0}\frac{\sin x^3}{(\sin x)^3}$；
+\newline
+(3)$\lim\limits_{x\rightarrow0}\frac{\sin ax}{\sin bx}(b\neq0)$；
+\newline
+(4)$\lim\limits_{x\rightarrow\frac\pi2}\frac{\cos x}{x-\frac\pi2}$；
+\newline
+(5)$\lim\limits_{x\rightarrow0}\frac{\tan x}x$；
+\newline
+(6)$\lim\limits_{x\rightarrow0}\frac{\arctan x}x$；
+\newline
+(7)$\lim\limits_{x\rightarrow0}\frac{\tan x-\sin x}{x^3}$；
+\newline
+(8)$\lim\limits_{x\rightarrow9}\frac{\sin^2x-\sin^29}{x-9}$；
+\newline
+(9)$\lim\limits_{x\rightarrow0}\frac{\sin4x}{\sqrt{x+1}-1}$；
+\newline
+(10)$\lim\limits_{x\rightarrow0}\frac{\sin(\tan x)}{\sin x}$；
+\newline
+(11)$\lim\limits_{x\rightarrow0}(1+kx)^{\frac1x}$；
+\newline
+(12)$\lim\limits_{x\rightarrow\infty}(\frac{x+n}{x-n})^x$；
+\newline
+(13)$\lim\limits_{x\rightarrow0}\frac(1+\tan x)^{\cot x}$；
+\newline
+(14)$\lim\limits_{x\rightarrow\infty}(1-\frac kx)^{mx}$.
+
+解：(1)$\lim\limits_{x\rightarrow0}\frac{\sin2x}{x}=\lim\limits_{x\rightarrow0}\frac{\sin2x}{2x}2=2$.
+
+(2)$\lim\limits_{x\rightarrow0}\frac{\sin x^3}{(\sin x)^3}=\lim\limits_{x\rightarrow0}\frac{\sin x^3}{x^3}\frac{x^3}{(\sin x)^3}=1$.
+
+(3)$\lim\limits_{x\rightarrow0}\frac{\sin ax}{\sin bx}=\lim\limits_{x\rightarrow0}\frac{\sin ax}{ax}\frac{bx}{\sin bx}\frac ab=\frac ab$.
+
+(4)$\lim\limits_{x\rightarrow\frac\pi2}\frac{\cos x}{x-\frac\pi2}\xlongequal{t=x-\frac\pi2}\lim\limits_{t\rightarrow0}\frac{\cos(t+\frac\pi2)}t\lim\limits_{t\rightarrow0}\frac{-\sin t}t=-1$.
+
+(5)$\lim\limits_{x\rightarrow0}\frac{\tan x}x=\lim\limits_{x\rightarrow0}\frac{\sin x}x\frac1{\cos x}=1$.
+
+(6)$\lim\limits_{x\rightarrow0}\frac{\arctan x}x\xlongequal{t=\arctan x}\lim\limits_{t\rightarrow0}\frac{t}\tan t=1$.
+
+(7)$\lim\limits_{x\rightarrow0}\frac{\tan x-\sin x}{x^3}=\lim\limits_{x\rightarrow0}\frac{\sin x}{x}\frac{1-\cos x}{x^2}\frac1{\cos x}=\lim\limits_{x\rightarrow0}\frac{\tan x-\sin x}{x^3}=\lim\limits_{x\rightarrow0}\frac{\sin x}{x}\frac{1-\cos x}{x^2}\frac1{\cos x}=\lim\limits_{x\rightarrow0}\frac{\sin x}{x}\frac{\sin^2{\frac x2}}{(\frac x2)^2}\frac1{\cos x}\frac12=\frac12$.
+
+(8)$\lim\limits_{x\rightarrow9}\frac{\sin^2x-\sin^29}{x-9}=\lim\limits_{x\rightarrow9}\frac{(\sin x-\sin9)(\sin x+\sin9)}{x-9}=\lim\limits_{x\rightarrow9}\frac{(2\cos\frac{x+9}2\sin\frac{x-9}2)(\sin x+\sin9)}{x-9}=\lim\limits_{x\rightarrow9}(\cos\frac{x+9}2)(\sin x+\sin9)\frac{\sin\frac{x-9}2}{\frac{x-9}2}=2\sin9\cos9=\sin18$.
+
+(9)$\lim\limits_{x\rightarrow0}\frac{\sin4x}{\sqrt{x+1}-1}=\lim\limits_{x\rightarrow0}\frac{\sin4x}{4x}4(\sqrt{x+1}+1)=8$.
+
+(10)$\lim\limits_{x\rightarrow0}\frac{\sin(\tan x)}{\sin x}=\lim\limits_{x\rightarrow0}\frac{\sin(\tan x)}{\tan x}\frac{1}{\cos x}=1$.
+
+(11)$\lim\limits_{x\rightarrow0}(1+kx)^{\frac1x}=\lim\limits_{x\rightarrow0}[(1+kx)^{\frac1{kx}}]^k=e^k$.
+
+(12)$\lim\limits_{x\rightarrow\infty}(\frac{x+n}{x-n})^x=\lim\limits_{x\rightarrow\infty}[(1+\frac{2n}{x-n})^{\frac{x-n}{2n}}]^{2n}(1+\frac{2n}{x-n})^n=e^{2n}$.
+
+(13)$\lim\limits_{x\rightarrow0}(1+\tan x)^{\cot x}=\lim\limits_{x\rightarrow0}(1+\tan x)^{\frac1{\tan x}}=e$.
+
+(14)$\lim\limits_{x\rightarrow\infty}(1-\frac kx)^{mx}=\lim\limits_{x\rightarrow\infty}[(1-\frac kx)^{\frac xk}]^{mk}=e^{-mk}$.
+
+\item确定$a,b$，使下列各式成立：
+\newline
+(1)$\lim\limits_{x\rightarrow+\infty}(\frac{1+x^2}{1+x}-ax-b)=0$；
+\newline
+(2)$\lim\limits_{x\rightarrow-\infty}(\sqrt{x^2-x+1}-ax-b)=0$.
+
+解：(1)$\because\lim\limits_{x\rightarrow+\infty}(\frac{1+x^2}{1+x}-ax-b)=\lim\limits_{x\rightarrow+\infty}\frac{1+x^2-ax^2-(a+b)x-b}{1+x}=\lim\limits_{x\rightarrow+\infty}\frac{(1-a)x^2-(a+b)x+1-b}{1+x}\\=\lim\limits_{x\rightarrow+\infty}\frac{(1-a)x-(a+b)+\frac{1-b}x}{\frac1x+1}=0$
+
+$\therefore 1-a=0$且$a+b=0$
+
+$\therefore a=1,b=-1$.
+
+(2)$\because\lim\limits_{x\rightarrow-\infty}(\sqrt{x^2-x+1}-ax-b)=\lim\limits_{x\rightarrow-\infty}\frac{x^2-x+1-(ax+b)^2}{\sqrt{x^2-x+1}+ax+b}=\lim\limits_{x\rightarrow-\infty}\frac{(1-a^2)x^2-(1+2ab)x+1-b^2}{\sqrt{x^2-x+1}+ax+b}\\
+=\lim\limits_{x\rightarrow-\infty}\frac{-(1-a^2)x+(1+2ab)-\frac{1-b^2}{x}}{\sqrt{1-\frac1x+\frac1{x^2}}-a-\frac bx}=0$
+
+$\because$如果$1-a^2\neq0$，则极限$\lim\limits_{x\rightarrow-\infty}\frac{-(1-a^2)x+(1+2ab)-\frac{1-b^2}{x}}{\sqrt{1-\frac1x+\frac1{x^2}}-a-\frac bx}$不存在
+
+$\therefore 1-a^2=0$
+
+$\therefore \lim\limits_{x\rightarrow-\infty}\frac{-(1-a^2)x+(1+2ab)-\frac{1-b^2}{x}}{\sqrt{1-\frac1x+\frac1{x^2}}-a-\frac bx}=\frac{1+2ab}{1-a}=0$
+
+$\therefore 1+2ab=0$且$1-a\neq0$
+
+$\therefore a=-1,b=\frac12$.
+
+\item求极限：
+\newline
+(1)$\lim\limits_{x\rightarrow0}(2\sin x+\cos x)^{\frac1x}$；
+\newline
+(2)$\lim\limits_{x\rightarrow0}\frac{\sin2x}{\sqrt{x+2}-\sqrt2}$.
+
+解：(1)$\lim\limits_{x\rightarrow0}(2\sin x+\cos x)^{\frac1x}=\lim\limits_{x\rightarrow0}(\cos x)^{\frac1x}(1+2\tan x)^{\frac1x}=\lim\limits_{x\rightarrow0}(1-2\sin^2\frac{x}2)^{\frac1x}[(1+2\tan x)^{\frac1{2\tan x}}]^{\frac{2\tan x}x}=\lim\limits_{x\rightarrow0}(1-\sqrt2\sin\frac{x}2)^{\frac1x}(1+\sqrt2\sin\frac{x}2)^{\frac1x}[(1+2\tan x)^{\frac1{2\tan x}}]^{\frac{2\tan x}x}=\lim\limits_{x\rightarrow0}[(1-\sqrt2\sin\frac{x}2)^{\frac1{\sqrt2\sin\frac{x}2}}]^{\frac{\sqrt2\sin\frac{x}2}x}[(1+\sqrt2\sin\frac{x}2)^{\frac1{\sqrt2\sin\frac{x}2}}]^{\frac{\sqrt2\sin\frac{x}2}x}[(1+2\tan x)^{\frac1{2\tan x}}]^{\frac{2\tan x}x}=e^{-\frac{\sqrt2}2}e^{\frac{\sqrt2}2}e^2=e^2$.
+
+(2)$\lim\limits_{x\rightarrow0}\frac{\sin2x}{\sqrt{x+2}-\sqrt2}=\lim\limits_{x\rightarrow0}\frac{\sin2x(\sqrt{x+2}+\sqrt2)}{x}=4\sqrt2$.
+
+\item分析下面两个函数的极限，说明定理2.4.4中的条件“当$t\neq t_0$时，$g(t)\neq x_0$”是不可缺少的.
+\newline
+(1)$f(x)=\frac{\sin x}x,g(t)=t\sin\frac1t,x_0=0,t_0=0$；
+\newline
+(2)$f(x)=\begin{cases}
+\frac{\sin x}x,&x\neq0\\
+0,&x=0
+\end{cases},g(t)=t\sin\frac1t,x_0=0,t_0=0$.
+
+解：(1)$\lim\limits_{x\rightarrow0}f(x)=1,\lim\limits_{t\rightarrow0}g(t)=0$，但$\lim\limits_{t\rightarrow0}f(g(t))=\lim\limits_{t\rightarrow0}\frac{\sin(t\sin\frac1t)}{t\sin\frac1t}$不存在. 因为$\forall\varepsilon>0,\forall\delta>0$，当$0<|t-0|<\delta$时，存在无穷多个点$t=\frac1{n\pi},n>\frac1{\delta\pi},n\in\mathbb Z^+$，使得$g(t)=t\sin\frac1t=0$，从而$f(g(t))=\frac{\sin g(t)}{g(t)}$在这些点处无定义，因而极限不存在. 故虽满足$\lim\limits_{t\rightarrow t_0}g(t)=x_0,\lim\limits_{x\rightarrow x_0}f(x)=A$，但因不满足“当$t\neq t_0$时，$g(t)\neq x_0$”，可导致复合函数的极限$\lim\limits_{t\rightarrow t_0}f(g(t))$不存在.
+
+(2)$\lim\limits_{x\rightarrow0}f(x)=1,\lim\limits_{t\rightarrow0}g(t)=0$，但$\lim\limits_{t\rightarrow0}f(g(t))$不存在. $\forall\varepsilon>0,\forall\delta>0$，当$0<|t-0|<\delta$时，存在无穷多个点$t=\frac1{n\pi},n>\frac1{\delta\pi},n\in\mathbb Z^+$，使得$g(t)=t\sin\frac1t=0$，虽然此时$f(g(t))=0$有定义，但$|f(g(t))-1|<\varepsilon$不再$\forall\varepsilon>0$成立，如当$\varepsilon=0.5$时，在这些点处$|f(g(t))-1|>\varepsilon$，易知当$f(0)=1$时$\lim\limits_{t\rightarrow0}f(g(t))=1$，此时$f(0)=0$，导致$\lim\limits_{t\rightarrow0}f(g(t))$不存在. 故虽满足$\lim\limits_{t\rightarrow t_0}g(t)=x_0,\lim\limits_{x\rightarrow x_0}f(x)=A$，但因不满足“当$t\neq t_0$时，$g(t)\neq x_0$”，可导致复合函数的极限$\lim\limits_{t\rightarrow t_0}f(g(t))$不存在.
+\end{enumerate}
+\subsection{习题2.5解答}
+\begin{enumerate}
+\item设当$x\rightarrow x_0$时，$f(x)$与$g(x)$为等价无穷小，求证当$x\rightarrow x_0$时，$f(x)-g(x)=o(f(x))$.
+
+证明：$\because\lim\limits_{x\rightarrow x_0}\frac{f(x)-g(x)}{f(x)}=\lim\limits_{x\rightarrow x_0}[1-\frac{g(x)}{f(x)}]=0$
+
+$\therefore x\rightarrow x_0,f(x)-g(x)=o(f(x))$.
+
+\item将下列无穷小量（当$x\rightarrow0^+$时）按照其阶的高低排列出来：
+\[\sin x^2,\quad\sin(\tan x),\quad e^{x^3}-1,\quad\ln(1+\sqrt x)\]
+解：$\because\sin x^2\sim x^2(x\rightarrow0^+),\sin(\tan x)\sim\tan x\sim x(x\rightarrow0^+),e^{x^3}-1\sim x^3(x\rightarrow0^+),\ln(1+\sqrt x)\sim\sqrt x(x\rightarrow0^+)$
+
+$\therefore$上述高阶无穷小量的由高到低的排列顺序为
+\[e^{x^3}-1,\quad\sin x^2,\quad\sin(\tan x),\quad\ln(1+\sqrt x)\]
+
+\item将下列无穷大量（当$n\rightarrow\infty$时）按照其阶的高低排列出来：
+\[n^2,\quad e^n,\quad n!,\quad\sqrt n,\quad n^n\]
+解：记$a_n=\frac{n^2}{e^n},b_n=\frac{e^n}{n!},c_n=\frac{n!}{n^n}$
+
+$\because\frac{a_{n+1}}{a_n}=(\frac{n+1}n)^2\frac1e$
+
+$\therefore$取$N=[\frac1{\sqrt e-1}]+1$，则当$n>N$时$\frac{a_{n+1}}{a_n}<1$，且$a_n>0$，故当$n>N$时$\{a_n\}$单调减少有下界，$\lim\limits_{n\rightarrow\infty} a_n=A$存在，将$a_{n+1}=(\frac{n+1}n)^2\frac1e a_{n}$两侧取极限，得$A=\frac1eA$，故$\lim\limits_{n\rightarrow\infty}\frac{n^2}{e^n}=0$.
+
+同理，$\lim\limits_{n\rightarrow\infty}\frac{e^n}{n!}=0,\lim\limits_{n\rightarrow\infty}\frac{n!}{n^n}=0$.
+
+$\because\lim\limits_{n\rightarrow\infty}\frac{\sqrt n}{n^2}=0$
+
+故上述无穷大量（当$n\rightarrow\infty$时）按照其阶由高到低的排列顺序为：
+\[n^n,\quad n!,\quad e^n,\quad n^2,\quad\sqrt n\].
+\item利用极限的四则运算和等价无穷小量互相代换的方法求下列极限：
+\newline
+(1)$\lim\limits_{x\rightarrow0}\frac{e^{x^2}-1}{\cos x-1}$；
+\newline
+(2)$\lim\limits_{x\rightarrow\infty}n^2\sin\frac1{2n^2}$；
+\newline
+(3)$\lim\limits_{x\rightarrow0^+}\frac{\sqrt{1+\sqrt x}-1}{\sin{\sqrt x}}$；
+\newline
+(4)$\lim\limits_{x\rightarrow0}\frac{a^{\sin x}-1}x(a>0)$；
+\newline
+(5)$\lim\limits_{x\rightarrow0}\frac{\sqrt{1+\tan x}-\sqrt{1-\tan x}}{e^x-1}$；
+\newline
+(6)$\lim\limits_{x\rightarrow0}\frac{1-\sqrt{\cos kx}}{x^2}$；
+\newline
+(7)$\lim\limits_{x\rightarrow0}\frac{e^x-e^{\tan x}}{x-\tan x}$；
+\newline
+(8)$\lim\limits_{x\rightarrow0}x(e^{\sin\frac1x-1})$；
+\newline
+(9)$\lim\limits_{x\rightarrow0}\frac{\cos x^2-1}{x\sin x}$；
+\newline
+(10)$\lim\limits_{x\rightarrow0}\frac{\arcsin\frac{x}{\sqrt{1-x^2}}}{\ln(1-x)}$；
+\newline
+(11)$\lim\limits_{x\rightarrow0}\frac{x\tan^4x}{\sin^3x(1-\cos x)}$；
+\newline
+(12)$\lim\limits_{x\rightarrow0}\frac{\sqrt{1+x^2}-1}{1-\cos x}$；
+\newline
+(13)$\lim\limits_{x\rightarrow0}\frac{\sqrt{1+x^4}-1}{1-\cos^2x}$；
+\newline
+(14)$\lim\limits_{x\rightarrow0}\frac{\tan(\sin x)}{\sin(\tan x)}$；
+\newline
+(15)$\lim\limits_{x\rightarrow a}\frac{2^x-2^a}{x-a}$.
+
+解：(1)$\lim\limits_{x\rightarrow0}\frac{e^{x^2}-1}{\cos x-1}=\lim\limits_{x\rightarrow0}\frac{x^2}{-\frac12x^2}=-2$.
+
+(2)$\lim\limits_{x\rightarrow\infty}n^2\sin\frac1{2n^2}=\lim\limits_{n\rightarrow\infty}n^2\frac1{2n^2}=\frac12$.
+
+(3)$\lim\limits_{x\rightarrow0^+}\frac{\sqrt{1+\sqrt x}-1}{\sin{\sqrt x}}=\lim\limits_{x\rightarrow0^+}\frac{\frac12\sqrt x}{\sin{\sqrt x}}=\frac12$.
+
+(4)$\lim\limits_{x\rightarrow0}\frac{a^{\sin x}-1}x=\lim\limits_{x\rightarrow0}\frac{\ln a(\sin x)}x=\ln a$.
+
+(5)$\lim\limits_{x\rightarrow0}\frac{\sqrt{1+\tan x}-\sqrt{1-\tan x}}{e^x-1}=\lim\limits_{x\rightarrow0}\frac{1+\tan x-1+\tan x}{x(\sqrt{1+\tan x}+\sqrt{1-\tan x})}=\lim\limits_{x\rightarrow0}\frac{2x}{x(\sqrt{1+\tan x}+\sqrt{1-\tan x})}=1$.
+
+(6)$\lim\limits_{x\rightarrow0}\frac{1-\sqrt{\cos kx}}{x^2}=\lim\limits_{x\rightarrow0}\frac{1-\cos kx}{x^2(1+\sqrt{\cos kx})}=\lim\limits_{x\rightarrow0}\frac{\frac12(kx)^2}{x^2(1+\sqrt{\cos kx})}=\frac14k^2$.
+
+(7)$\lim\limits_{x\rightarrow0}\frac{e^x-e^{\tan x}}{x-\tan x}=\lim\limits_{x\rightarrow0}\frac{e^{\tan x}(e^{x-\tan x}-1)}{x-\tan x}=\lim\limits_{x\rightarrow0}\frac{e^{\tan x}(x-\tan x)}{x-\tan x}=1$.
+
+(8)$\lim\limits_{x\rightarrow0}x(e^{\sin\frac1x-1})=\lim\limits_{x\rightarrow0}\frac{e^{\sin\frac1x-1}}{\frac1x}=\lim\limits_{x\rightarrow0}\frac{\sin\frac1x}{\frac1x}=1$.
+
+(9)$\lim\limits_{x\rightarrow0}\frac{\cos x^2-1}{x\sin x}=\lim\limits_{x\rightarrow0}\frac{-\frac12x^4}{x\sin x}=\lim\limits_{x\rightarrow0}\frac{-\frac12x^3}{\sin x}=0$.
+
+(10)$\lim\limits_{x\rightarrow0}\frac{\arcsin\frac{x}{\sqrt{1-x^2}}}{\ln(1-x)}=\lim\limits_{x\rightarrow0}\frac{\arcsin\frac{x}{\sqrt{1-x^2}}}{-x}\xlongequal{t=\arcsin\frac{x}{\sqrt{1-x^2}}}\lim\limits_{x\rightarrow0}\frac{t}{-\sin t}\sqrt{1+\sin^2t}=-1$.
+
+(11)$\lim\limits_{x\rightarrow0}\frac{x\tan^4x}{\sin^3x(1-\cos x)}=\lim\limits_{x\rightarrow0}\frac{x^5}{x^3\frac12x^2}=2$.
+
+(12)$\lim\limits_{x\rightarrow0}\frac{\sqrt{1+x^2}-1}{1-\cos x}=\lim\limits_{x\rightarrow0}\frac{\frac12x^2}{\frac12x^2}=1$.
+
+(13)$\lim\limits_{x\rightarrow0}\frac{\sqrt{1+x^4}-1}{1-\cos^2x}=\lim\limits_{x\rightarrow0}\frac{\frac12x^4}{(1-\cos x)(1+\cos x)}=\lim\limits_{x\rightarrow0}\frac{\frac12x^4}{\frac12x^2(1+\cos x)}=0$.
+
+(14)$\lim\limits_{x\rightarrow0}\frac{\tan(\sin x)}{\sin(\tan x)}=\lim\limits_{x\rightarrow0}\frac{\sin x}{\tan x}=\lim\limits_{x\rightarrow0}\frac{\sin x}{x}=1$.
+
+(15)$\lim\limits_{x\rightarrow a}\frac{2^x-2^a}{x-a}=\lim\limits_{x\rightarrow a}\frac{2^a(2^{x-a}-1)}{x-a}=\lim\limits_{x\rightarrow a}\frac{2^a\ln a(x-a)}{x-a}=2^a\ln a$.
+\end{enumerate}
+\subsection{第2章补充题}
+\begin{enumerate}
+\item求下列极限：
+\newline
+(1)$\lim\limits_{n\rightarrow\infty}\frac{2^n\cdot n!}{n^n}$；
+\newline
+(2)$\lim\limits_{n\rightarrow\infty}\frac{n^n}{3^n\cdot n!}$.
+
+解：(1)记$a_n=\frac{2^n\cdot n!}{n^n}$
+
+$\because\frac{a_{n+1}}{a_n}=2(\frac{n}{n+1})^n=\frac2{(1+\frac1n)^n}\rightarrow\frac2e(n\rightarrow\infty)$
+
+$\therefore$对于$\varepsilon=\frac{0.5}e,\exists N>0$，使$n>N$时，$|\frac{a_{n+1}}{a_n}-\frac{2}e|<\frac{0.5}e,\frac{a_{n+1}}{a_n}<\frac{2.5}e<1$
+
+$\therefore$在第$N$项以后$\{a_n\}$单调非增，且$a_n>0$，故$\{a_n\}$收敛
+
+$\therefore\lim\limits_{n\rightarrow\infty}\frac{2^n\cdot n!}{n^n}=A$存在
+
+将$a_{n+1}=2(\frac{n}{n+1})^na_n$两侧取极限，得到$A=\frac2eA$，故$\lim\limits_{n\rightarrow\infty}\frac{2^n\cdot n!}{n^n}=A=0$.
+
+(2)记$a_{n}=\frac{n^n}{3^n\cdot n!}$
+
+$\because\frac{a_{n+1}}{a_n}=\frac13(\frac{n+1}n)^n=\frac13(1+\frac{1}n)^n\rightarrow\frac e3(x\rightarrow\infty)$
+
+$\therefore$对于$\varepsilon=\frac{0.1}3,\exists N>0$，使$n>N$时，$|\frac{a_{n+1}}{a_n}-\frac{e}3|<\frac{0.1}3,\frac{a_{n+1}}{a_n}<\frac{e+0.1}3<1$
+
+$\therefore$在第$N$项以后$\{a_n\}$单调非增，且$a_n>0$，故$\{a_n\}$收敛
+
+$\therefore\lim\limits_{n\rightarrow\infty}\frac{n^n}{3^n\cdot n!}=A$存在
+
+将$a_{n+1}=\frac13(\frac{n+1}n)^na_n$两侧取极限，得到$A=\frac e3A$，故$\lim\limits_{n\rightarrow\infty}\frac{n^n}{3^n\cdot n!}=A=0$.
+
+\item设函数$f$在$[0,+\infty)$单调非负，并且满足$\lim\limits_{x\rightarrow+\infty}\frac{f(2x)}{f(x)}=1$. 试证对任意整数$c$，都有
+\[
+\lim\limits_{x\rightarrow+\infty}\frac{f(cx)}{f(x)}=1.
+\]
+证明：$\because\lim\limits_{x\rightarrow+\infty}\frac{f(2x)}{f(x)}=1$
+
+$\therefore\lim\limits_{x\rightarrow+\infty}\frac{f(2^nx)}{f(x)}=\lim\limits_{x\rightarrow+\infty}\frac{f(2^nx)}{f(2^{n-1}x)}\frac{f(2^{n-1}x)}{f(2^{n-2}x)}\frac{f(2^{n-2}x)}{f(2^{n-3}x)}\cdots\frac{f(2^2x)}{f(2x)}\frac{f(2x)}{f(x)}=1,n\in\mathbb Z^+$
+
+且$\lim\limits_{x\rightarrow+\infty}\frac{f(x)}{f(2x)}=\lim\limits_{x\rightarrow+\infty}\frac1{\frac{f(2x)}{f(x)}}=1$
+
+$\therefore\lim\limits_{x\rightarrow+\infty}\frac{f(2^{-n}x)}{f(x)}=\lim\limits_{x\rightarrow+\infty}\frac{f(2^{-n}x)}{f(2^{-(n-1)}x)}\frac{f(2^{-(n-1)}x)}{f(2^{-(n-2)}x)}\frac{f(2^{-(n-2)}x)}{f(2^{-(n-3)}x)}\cdots\frac{f(2^{-1}x)}{f(x)}=1,n\in\mathbb Z^+$
+
+不妨设$f$在$[0,+\infty)$单调非减，已知$f(x)\geq0$，则
+
+i. 当$c=1$时，显然成立
+
+ii. 当$c>1$时，存在$k\in\mathbb Z^+$，使$2^{k-1}<c<2^{k}$，则$\frac{f(2^{k-1}x)}{f(x)}\leq\frac{f(cx)}{f(x)}\leq\frac{f(2^{k}x)}{f(x)}$，故$\lim\limits_{x\rightarrow+\infty}\frac{f(cx)}{f(x)}=1$.
+
+iii. 当$0<c<1$时，存在$k\in\mathbb Z^+$，使$2^{-k}<c<2^{-(k-1)}$，则$\frac{f(2^{-k}x)}{f(x)}\leq\frac{f(cx)}{f(x)}\leq\frac{f(2^{-(k-1)}x)}{f(x)}$，故$\lim\limits_{x\rightarrow+\infty}\frac{f(cx)}{f(x)}=1$.
+
+证毕.
+
+\item设$a>0$. 如果极限$\lim\limits_{x\rightarrow+\infty}x^p(a^{\frac1x}-a^{\frac1{x+1}})$存在，试确定数$p$的值，并求次极限.
+
+解：$\lim\limits_{x\rightarrow+\infty}x^p(a^{\frac1x}-a^{\frac1{x+1}})=\lim\limits_{x\rightarrow+\infty}x^pa^{\frac1{x+1}}(a^{\frac1x-\frac1{x+1}}-1)=\lim\limits_{x\rightarrow+\infty}x^pa^{\frac1{x+1}}(a^{\frac1{x(x+1)}}-1)=\lim\limits_{x\rightarrow+\infty}\frac{x^p}{x(x+1)}a^{\frac1{x+1}}\ln a$
+
+可知，当$p>2$时，极限$\lim\limits_{x\rightarrow+\infty}x^p(a^{\frac1x}-a^{\frac1{x+1}})$不存在；当$p=2$时，$\lim\limits_{x\rightarrow+\infty}x^p(a^{\frac1x}-a^{\frac1{x+1}})=\ln a$；当$p<2$时，$\lim\limits_{x\rightarrow+\infty}x^p(a^{\frac1x}-a^{\frac1{x+1}})=0$.
+
+\item设当$x\rightarrow0$时，$u(x)$与$v(x)$是等价的正无穷小量，试求
+\[
+\lim\limits_{x\rightarrow0}(1+\sqrt{u(x)})^{v(x)}.
+\]
+解：$\lim\limits_{x\rightarrow0}(1+\sqrt{u(x)})^{v(x)}=\lim\limits_{x\rightarrow0}[(1+\sqrt{u(x)})^{\frac1{\sqrt{u(x)}}}]^{\frac{\sqrt{u(x)}}{v(x)}}=\lim\limits_{x\rightarrow0}e^{\frac{\ln(1+\sqrt{u(x)})}{\sqrt{u(x)}}\frac{\sqrt{u(x)}}{\sqrt{v(x)}}\frac1{\sqrt{v(x)}}}=+\infty$
+
+\item求极限$\lim\limits_{x\rightarrow0}(\frac{\sqrt{\cos x}}{x^2}-\frac{\sqrt{1+\sin^2x}}{x^2})$.
+
+解：$\lim\limits_{x\rightarrow0}(\frac{\sqrt{\cos x}}{x^2}-\frac{\sqrt{1+\sin^2x}}{x^2})=\lim\limits_{x\rightarrow0}\frac{\cos x-1-\sin^2x}{x^2(\sqrt{\cos x}+\sqrt{1+\sin^2x})}=\lim\limits_{x\rightarrow0}\frac{\cos^2x+\cos x-2}{x^2(\sqrt{\cos x}+\sqrt{1+\sin^2x})}\\
+=\lim\limits_{x\rightarrow0}\frac{(\cos x-1)(\cos x+2)}{x^2(\sqrt{\cos x}+\sqrt{1+\sin^2x})}=\lim\limits_{x\rightarrow0}\frac{-\frac{x^2}2(\cos x+2)}{x^2(\sqrt{\cos x}+\sqrt{1+\sin^2x})}=-\frac34$.
+
+\item设${a_n}$是一个有界数列，令
+\[
+\alpha_n=\inf\limits_{k\geq n}\{a_k\},\quad\beta_n=\sup\limits_{k\geq n}\{a_k\}.
+\]
+(1)求证$\{\alpha_n\}$为有界的单调非减数列，$\{\beta_n\}$为有界的单调非增数列；
+\newline
+(2)求证$\lim\limits_{n\rightarrow\infty}\alpha_n\leq\lim\limits_{n\rightarrow\infty}\beta_n$；
+\newline
+(3)称$\lim\limits_{n\rightarrow\infty}\alpha_n$和$\lim\limits_{n\rightarrow\infty}\beta_n$分别为数列$\{a_n\}$的下极限和上极限，并分别记为\[
+\lim\limits_{\overline{n\rightarrow\infty}}a_n,\quad\overline{\lim\limits_{n\rightarrow\infty}}a_n.
+\]
+试证$\lim\limits_{n\rightarrow n}a_n$存在的充分必要条件是$\lim\limits_{\overline{n\rightarrow\infty}}a_n=\overline{\lim\limits_{n\rightarrow\infty}}a_n$.
+\newline
+(4)求证$\forall\varepsilon>0$，在区间$(A-\varepsilon,B+\varepsilon)$之外最多有$\{a_n\}$中的有限项，其中$A=\lim\limits_{\overline{n\rightarrow\infty}}a_n,B=\overline{\lim\limits_{n\rightarrow\infty}}a_n$.
+
+(1)证明：$\because\alpha_n=\inf\limits_{k\geq n}\{a_k\}=\text{min}\{a_n,\inf\limits_{k\geq n+1}\{a_k\}\}\leq\inf\limits_{k\geq n+1}\{a_k\}\}=\alpha_{n+1}$
+
+$\therefore\{\alpha_n\}$是单调非减数列
+
+又$\because\inf\{a_n\}=\inf\limits_{k\geq 1}\{a_k\}\leq\alpha_n=\inf\limits_{k\geq n}\{a_k\}=\text{min}\{a_n,\inf\limits_{k\geq n+1}\{a_k\}\}\leq a_n\leq\sup\{a_n\}$
+
+故$\{\alpha_n\}$有界.
+
+$\because\beta_n=\sup\limits_{k\geq n}\{a_k\}=\max\{a_n,\sup\limits_{k\geq n+1}\{a_k\}\}\{a_k\}\geq\sup\limits_{k\geq n+1}\{a_k\}\geq\beta_{n+1}$
+
+$\therefore\{\beta_n\}$是单调非增数列
+
+又$\because\sup\{a_n\}=\sup\limits_{k\geq1}\{a_k\}\geq\beta_n=\sup\limits_{k\geq n}\{a_k\}=\max\{a_n,\sup\limits_{k\geq n+1}\{a_k\}\}\geq a_n\geq\inf\{a_n\}$
+
+故$\{\beta_n\}$有界.
+
+(2)由(1)知，$\lim\limits_{n\rightarrow\infty}\alpha_n$和$\lim\limits_{n\rightarrow\infty}\beta_n$均存在
+
+$\because\alpha_n\leq a_n\leq\beta_n$
+
+$\therefore\alpha_n-\beta_n\leq0$
+
+$\therefore\lim\limits_{n\rightarrow\infty}\alpha_n-\lim\limits_{n\rightarrow\infty}\beta_n=\lim\limits_{n\rightarrow\infty}(\alpha_n-\beta_n)\leq0$
+
+$\therefore\lim\limits_{n\rightarrow\infty}\alpha_n\leq\lim\limits_{n\rightarrow\infty}\beta_n$
+
+(3)证明：必要性：$\because\lim\limits_{n\rightarrow\infty}a_n=A$存在
+
+$\therefore\forall\varepsilon>0,\exists N>0$，当$n>N$时，$|a_n-A|<\varepsilon$，即$A-\varepsilon<a_n<A+\varepsilon$
+
+$\therefore$当$n>N$时，$A-\varepsilon<\inf\limits_{k\geq n}\{a_k\}\leq\sup\limits_{k\geq n}\{a_k\}<A+\varepsilon$
+
+$\therefore|\inf\limits_{k\geq n}\{a_k\}-A|<\varepsilon,|\sup\limits_{k\geq n}\{a_k\}-A|<\varepsilon$
+
+$\therefore\lim\limits_{\overline{n\rightarrow\infty}}a_n=\overline{\lim\limits_{n\rightarrow\infty}}a_n=A$
+
+充分性：$\because\alpha_n\leq a_n\leq\beta_n$
+
+又$\because\lim\limits_{\overline{n\rightarrow\infty}}a_n=\lim\limits_{n\rightarrow\infty}\alpha_n=\overline{\lim\limits_{n\rightarrow\infty}}a_n=\lim\limits_{n\rightarrow\infty}\beta_n=A$
+
+$\therefore\lim\limits_{n\rightarrow\infty}a_n=A$存在.
+
+(4)证明：$\because A=\lim\limits_{\overline{n\rightarrow\infty}}a_n=\lim\limits_{n\rightarrow\infty}\alpha_n,B=\overline{\lim\limits_{n\rightarrow\infty}}a_n=\lim\limits_{n\rightarrow\infty}\beta_n$
+
+$\forall\varepsilon>0,\exists N>0$，当$n>N$时，$s.t. |\alpha_n-A|<\varepsilon,|\beta_n-B|<\varepsilon$
+
+$\therefore A-\varepsilon<\alpha_n\leq a_n\leq\beta_n<B+\varepsilon$
+
+故$\forall\varepsilon>0$，只有$N$之前的有限项在区间$(A-\varepsilon,B+\varepsilon)$之外.
+
+\item设$a_n>0(n\in\mathbb Z^+)$，且$a_1\geq a_2\geq a_3\geq\cdots$，又设$\sum_{k=1}^na_k\rightarrow+\infty(n\rightarrow\infty)$. 求证：
+\[
+\lim\limits_{n\rightarrow\infty}\frac{a_1+a_3+\cdots+a_{2n-1}}{a_2+a_4+\cdots+a_{2n}}=1.
+\]
+证明：$\because a_1\geq a_2\geq a_3\geq\cdots$且$a_n>0(n\in\mathbb Z^+)$
+
+又$\because\sum_{k=1}^na_k\rightarrow+\infty(n\rightarrow\infty)$
+
+$\therefore\forall M>0,\exists N>0$，当$n>N$时，$a_1+a_2+a_3+\cdots+a_n>M$
+
+$\therefore a_1+2(a_2+a_4+a_6+\cdots+a_{2n-2}+a_{2n})>a_1+2(a_2+a_4+a_6+\cdots+a_{2n-2}+a_{2n})-a_{2n}>a_1+a_2+a_3+\cdots+a_n>M$
+
+$\therefore a_2+a_4+\cdots+a_{2n}>\frac{M-a_1}{2}$
+
+$\therefore a_2+a_4+\cdots+a_{2n}\rightarrow+\infty(n\rightarrow\infty)$
+
+$\because \frac{a_2+a_4+\cdots+a_{2n}}{a_2+a_4+\cdots+a_{2n}}\leq\frac{a_1+a_3+\cdots+a_{2n-1}}{a_2+a_4+\cdots+a_{2n}}\leq\frac{a_1+(a_2+a_4+\cdots+a_{2n-2}+a_{2n})-a_{2n}}{a_2+a_4+\cdots+a_{2n}}<\frac{a_1}{a_2+a_4+\cdots+a_{2n}}+1$
+
+$\because\frac{a_1}{a_2+a_4+\cdots+a_{2n}}\rightarrow0(n\rightarrow\infty)$
+
+$\therefore\lim\limits_{n\rightarrow\infty}\frac{a_1+a_3+\cdots+a_{2n-1}}{a_2+a_4+\cdots+a_{2n}}=1$
+\item在求数列极限方面有一个很著名的定理，即施笃兹（Stolz）定理. 这个定理的内容是：
+
+\indent设$\{a_n\}$和$\{b_n\}$是两个数列，其中$\{b_n\}$单调增加并且趋向于$+\infty$（至少从某一项开始），则有以下结论：
+
+\indent(1)如果$\lim\limits_{n\rightarrow\infty}\frac{a_n-a_{n-1}}{b_n-b_{n-1}}=A$，则$\lim\limits_{n\rightarrow\infty}\frac{a_n}{b_n}=A$；
+
+\indent(2)如果$\frac{a_n-a_{n-1}}{b_n-b_{n-1}}\rightarrow\infty(n\rightarrow\infty)$，则$\frac{a_n}{b_n}\rightarrow\infty(n\rightarrow\infty)$.
+
+\indent请用施笃兹定理证明下列结论：
+
+\indent(1)若$\lim\limits_{n\rightarrow\infty}a_n=A$，则$\lim\limits_{n\rightarrow\infty}\frac{a_1+a_2+\cdots+a_n}n=A$；
+
+\indent(2)若$a_n>0(n\in\mathbb Z^+),\lim\limits_{n\rightarrow\infty}a_n=A$，则$\lim\limits_{n\rightarrow\infty}\sqrt[n]{a_1a_2\cdots a_n}=A$；
+
+\indent(3)$\lim\limits_{n\rightarrow\infty}\frac{1^k+2^k+\cdots+n^k}{n^{k+1}}=\frac1{k+1}(k\in\mathbb Z^+)$.
+
+证明：(1)记$A_n=a_1+a_2+\cdots+a_n,B_n=n$，则$\{B_n\}$单调增加并且趋向于$+\infty$
+
+$\because\lim\limits_{n\rightarrow\infty}\frac{A_n-A_{n-1}}{B_n-B_{n-1}}=\lim\limits_{n\rightarrow\infty}a_n=A$
+
+
+$\therefore\lim\limits_{n\rightarrow\infty}\frac{a_1+a_2+\cdots+a_n}n=\lim\limits_{n\rightarrow\infty}\frac{A_n}{B_n}=A$.
+
+(2)$\because a_n>0(n\in\mathbb Z^+),\lim\limits_{n\rightarrow\infty}a_n=A$
+
+%$\therefore\lim\limits_{n\rightarrow\infty}\ln a_n=\ln A$
+
+记$A_n=\ln a_1+\ln a_2+\cdots+\ln a_n,B_n=n$，则$\{B_n\}$单调增加并且趋向于$+\infty$
+
+$\because\lim\limits_{n\rightarrow\infty}\mathrm e^{\frac{A_n-A_{n-1}}{B_n-B_{n-1}}}=\lim\limits_{n\rightarrow\infty}\mathrm e^{\ln a_n}=\lim\limits_{n\rightarrow\infty}a_n=A$
+
+%$\therefore\lim\limits_{n\rightarrow\infty}\frac{A_n}{B_n}=\lim\limits_{n\rightarrow\infty}\frac{\ln a_1+\ln a_2+\cdots+\ln a_n}{n}=\ln A$
+
+$\therefore\lim\limits_{n\rightarrow\infty}\sqrt[n]{a_1a_2\cdots a_n}=\lim\limits_{n\rightarrow\infty}\mathrm e^{\frac1n\ln(a_1a_2\cdots a_n)}=\lim\limits_{n\rightarrow\infty}\mathrm e^{\frac{\ln a_1+\ln a_2+\cdots+\ln a_n}{n}}=\lim\limits_{n\rightarrow\infty}\mathrm e^{\frac{A_n}{B_n}}=\lim\limits_{n\rightarrow\infty}\mathrm e^{\frac{A_n-A_{n-1}}{B_n-B_{n-1}}}\\
+=A$.
+
+(3)记$A_n=1^k+2^k+\cdots+n^k,B_n=n^{k+1}$，则$\{B_n\}$单调增加并且趋向于$+\infty$
+
+$\lim\limits_{n\rightarrow\infty}\frac{A_n-A_{n-1}}{B_n-B_{n-1}}=\lim\limits_{n\rightarrow\infty}\frac{n^k}{n^{k+1}-(n-1)^{k+1}}=\lim\limits_{n\rightarrow\infty}\frac{n^k}{n^{k+1}-[n^{k+1}-(k+1)n^k+C_{k+1}^2n^{k-1}+\cdots]}=\frac1{k+1}$
+
+$\therefore\lim\limits_{n\rightarrow\infty}\frac{1^k+2^k+\cdots+n^k}{n^{k+1}}=\frac1{k+1}(k\in\mathbb Z^+)$
+
+\item设$a_n>0(n\in\mathbb Z^+)$，如果$\lim\limits_{n\rightarrow\infty}\frac{a_{n+1}}{a_n}=l$，求证$\lim\limits_{n\rightarrow\infty}\sqrt[n]{a_n}=l$.
+
+证明：$\because\lim\limits_{n\rightarrow\infty}\frac{a_{n+1}}{a_n}=l$且$a_n>0(n\in\mathbb Z^+)$
+
+$\therefore\lim\limits_{n\rightarrow\infty}\sqrt[n+1]{\frac{a_{n+1}}{a_{n}}\frac{a_{n}}{a_{n-1}}\cdots\frac{a_2}{a_1}}=\lim\limits_{n\rightarrow\infty}\sqrt[n+1]{\frac{a_{n+1}}{a_{1}}}=l$
+
+$\therefore\lim\limits_{n\rightarrow\infty}\sqrt[n]{a_n}=l\lim\limits_{n\rightarrow\infty}\sqrt[n]{a_1}=l$.
+
+\item设$a_1,a_2,\cdots,a_m$为正数，求证：
+
+(1)$\lim\limits_{n\rightarrow\infty}[\frac1m(a_1^{\frac1n}+a_2^{\frac1n}+\cdots+a_m^{\frac1n})]^n=(a_1a_2\cdots a_m)^{\frac1m}$；
+
+(2)$\lim\limits_{n\rightarrow\infty}(\frac1{a_1^n}+\frac1{a_2^n}+\cdots+\frac1{a_m^n})^{-\frac1n}=\text{min}\{a_1,a_2,\cdots,a_m\}$.
+
+证明：(1)$[\frac1m(a_1^{\frac1n}+a_2^{\frac1n}+\cdots+a_m^{\frac1n})]^n=\{1+\frac1m[(a_1^{\frac1n}-1)+(a_2^{\frac1n}-1)+\cdots+(a_m^{\frac1n}-1)]\}^n=(1+\alpha_n)^n$
+
+$\lim\limits_{n\rightarrow\infty}[\frac1m(a_1^{\frac1n}+a_2^{\frac1n}+\cdots+a_m^{\frac1n})]^n=\lim\limits_{n\rightarrow\infty}(1+\alpha_n)^n=\lim\limits_{n\rightarrow\infty}e^{\frac1n\ln(1+\alpha_n)}=\lim\limits_{n\rightarrow\infty}e^{n\alpha_n}
+\\=\lim\limits_{n\rightarrow\infty}e^{\frac1m[\frac{a_1^{\frac1n}-1}{\frac1n}+\frac{a_2^{\frac1n}-1}{\frac1n}+\cdots+\frac{a_m^{\frac1n}-1}{\frac1n}]}=\lim\limits_{n\rightarrow\infty}e^{\frac1m[\ln a_1+\ln a_2+\cdots+\ln a_m]}=(a_1a_2\cdots a_m)^m$.
+
+(2)$\lim\limits_{n\rightarrow\infty}(\frac1{a_1^n}+\frac1{a_2^n}+\cdots+\frac1{a_m^n})^{-\frac1n}=\lim\limits_{n\rightarrow\infty}\frac1{[(\frac1{a_1})^n+(\frac1{a_2})^n+\cdots+(\frac1{a_m})^n]^{\frac1n}}=\frac1{\text{max}\{\frac1{a_1},\frac1{a_2},\cdots,\frac1{a_m}\}}=\text{min}\{a_1,a_2,\cdots,a_m\}$
+\end{enumerate}
+\end{document}
