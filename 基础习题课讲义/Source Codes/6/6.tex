@@ -1,0 +1,498 @@
+\documentclass[12pt,UTF8]{ctexart}
+\usepackage{ctex,amsmath,amssymb,geometry,fancyhdr,bm,amsfonts
+,mathtools,extarrows,graphicx,url,enumerate,color} 
+% 加入中文支持
+\newcommand\Set[2]{%
+\left\{#1\ \middle\vert\ #2 \right\}}
+\geometry{a4paper,scale=0.80}
+\pagestyle{fancy}
+\rhead{习题4.4\&4.5\&第四章补充题}
+\lhead{基础习题课讲义}
+\chead{微积分B(1)}
+\begin{document}
+\setcounter{section}{5}
+\section{高阶导数与微分}
+\noindent
+\subsection{知识结构}
+\noindent第4章导数与微分
+	\begin{enumerate}
+		\item[4.4] 高阶导数
+			\begin{itemize}
+				\item高阶导数的运算法则：设$f,g$具有$n$阶导数，则
+					\begin{enumerate}[(1)]
+						\item$(f+g)^{(n)}=f^{(n)}+g^{(n)}$；
+						\item$(cf)^{(n)}=cf^{(n)}$；
+						\item$(fg)^{(n)}=\sum_{k=0}^nC_n^kf^{(k)}g^{(n-k)}$（乘积函数$n$阶导数的莱布尼茨公式.）
+					\end{enumerate}
+			\end{itemize}
+		\item[4.5] 微分
+			\begin{enumerate}
+				\item[4.5.1]微分概念
+				\item[4.5.2]微分用于近似计算
+				\item[4.5.3]微分运算法则
+					\begin{itemize}
+						\item四则运算法则
+						\item复合函数的链式微分法
+					\end{itemize}
+			\end{enumerate}
+	\end{enumerate}
+\subsection{习题4.4解答}
+\begin{enumerate}
+\item 求$y''(x)$：
+\newline
+(1)$y=x\sqrt{1+x^2}$；
+\newline
+(2)$y=\arcsin x$；
+\newline
+(3)$y=\frac{x^2}{\sqrt{1-x^2}}$；
+\newline
+(4)$y=x\ln x$；
+\newline
+(5)$y=e^{-x^2}$；
+\newline
+(6)$y=x[\sin(\ln x)+\cos(\ln x)]$；
+\newline
+(7)$y=\tan^2x$；
+\newline
+(8)$y=\ln f(x)$，其中$f$二阶可导.
+
+解：(1)$y'=\sqrt{1+x^2}+x\frac{2x}{2\sqrt{1+x^2}}=\frac{1+2x^2}{\sqrt{1+x^2}}$
+
+$y''=\frac{4x\sqrt{1+x^2}-(1+2x^2)\frac{2x}{2\sqrt{1+x^2}}}{1+x^2}=\frac{4x(1+x^2)-(1+2x^2)x}{(1+x^2)^{\frac32}}=\frac{3x+2x^3}{(1+x^2)^{\frac32}}$.
+
+(2)$y'=\frac1{\sqrt{1-x^2}}$
+
+$y''=\frac{2x}{2(1-x^2)^{\frac32}}=\frac{x}{(1-x^2)^{\frac32}}$.
+
+(3)$y'=\frac{2x\sqrt{1-x^2}-x^2\frac{-2x}{2\sqrt{1-x^2}}}{1-x^2}=\frac{2x(1-x^2)+x^3}{(1-x^2)^\frac32}=\frac{2x-x^3}{(1-x^2)^\frac32}$
+
+$y''=\frac{(2-3x^2)(1-x^2)^{\frac32}+(2x-x^3)\frac32(1-x^2)^{\frac12}2x}{(1-x^2)^3}=\frac{2+x^2}{(1-x^2)^{\frac52}}$.
+
+(4)$y'=\ln x+1$
+
+$y''=\frac1x$.
+
+(5)$y'=e^{-x^2}(-2x)=-2xe^{-x^2}$
+
+$y''=-2e^{-x^2}-2xe^{-x^2}(-2x)=e^{-x^2}(-2+4x^2)$.
+
+(6)$y'=\sin(\ln x)+\cos(\ln x)+x[\cos(\ln x)\frac1x-\sin(\ln x)\frac1x]=2\cos(\ln x)$
+
+$y''=-2\sin(\ln x)\frac1x=-\frac2x\sin(\ln x)$.
+
+(7)$y'=2\tan x\sec^2x$
+
+$y''=2\sec^4x+4\tan^2x\sec^2x=2\sec^2x(3\sec^2x-2)$.
+
+(8)$y'=\frac{f'(x)}{f(x)}$
+
+$y''=\frac{f''(x)f(x)-(f'(x))^2}{f^2(x)}$.
+
+\item设$f$为三次可导函数，求$y''$：
+\newline
+(1)$y=f(x^2)$；
+\newline
+(2)$y=f(e^x)$；
+\newline
+(3)$y=f(\frac1x)$；
+\newline
+(4)$y=f(\ln x)$.
+
+解：(1)$y'=2xf'(x^2)$
+
+$y''=2f'(x^2)+4x^2f''(x^2)$
+%
+%$y'''=4xf''(x^2)+8xf''(x^2)+8x^3f'''(x^2)$.
+
+(2)$y'=f'(e^x)e^x$
+
+$y''=f''(e^x)e^{2x}+f'(e^x)e^x$
+%
+%$y'''=f'''(e^x)e^{3x}+3f''(e^x)e^{3x}+f''(e^x)e^{2x}+f'(e^x)e^x$.
+
+(3)$y'=\frac{-1}{x^2}f'(\frac1x)$
+
+$y''=\frac{2}{x^3}f'(\frac1x)+\frac1{x^4}f''(\frac1x)$
+
+(4)$y'=\frac1xf'(\ln x)$
+
+$y''=\frac{-1}{x^2}f'(\ln x)+\frac1{x^2}f''(\ln x)$
+
+\item设函数$y=y(x)$由方程$y-2x=(x-y)\ln(x-y)$确定，求$\frac{\mathrm d^2y}{\mathrm dx^2}$.
+
+解：将$y-2x=(x-y)\ln(x-y)$两边求关于$x$的导数得$y'-2=(1-y')\ln(x-y)+(1-y')$，即$y'=\frac{3+\ln(x-y)}{2+\ln(x-y)}$
+
+$\frac{\mathrm d^2y}{\mathrm dx^2}=y''=\frac{\frac{1-y'}{x-y}[2+\ln(x-y)]-[3+\ln(x-y)]\frac{1-y'}{x-y}}{[2+\ln(x-y)]^2}=\frac{y'-1}{[2+\ln(x-y)]^2(x-y)}=\frac{1}{[2+\ln(x-y)]^3(x-y)}$.
+
+\item已知$\begin{cases}
+x=f'(t)\\
+y=tf'(t)-f(t)
+\end{cases}$其中$f$为三次可导函数，且$f''(t)\neq0$，求$\frac{\mathrm d^3y}{\mathrm dx^3}$.
+
+解：$\frac{\mathrm dy}{\mathrm dx}=\frac{\frac{\mathrm dy}{\mathrm dt}}{\frac{\mathrm dx}{\mathrm dt}}=\frac{f'(t)+tf''(t)-f'(t)}{f''(t)}=t$
+
+$\frac{\mathrm d^2y}{\mathrm dx^2}=\frac{\mathrm d(\frac{\mathrm dy}{\mathrm dx})}{\mathrm dx}=\frac{\frac{\mathrm d(\frac{\mathrm dy}{\mathrm dx})}{\mathrm dt}}{\frac{\mathrm dx}{\mathrm dt}}=\frac1{f''(t)}$
+
+$\frac{\mathrm d^3y}{\mathrm dx^3}=\frac{\mathrm d(\frac{\mathrm d^2y}{\mathrm dx})}{\mathrm dx}=\frac{\frac{\mathrm d(\frac{\mathrm d^2y}{\mathrm dx})}{\mathrm dt}}{\frac{\mathrm dx}{\mathrm dt}}=\frac{\frac{-f'''(t)}{[f'(t)]^2}}{f''(t)}=\frac{-f'''(t)}{[f'(t)]^3}$.
+
+\item求下列函数的制定阶数的导数：
+\newline
+(1)$y=\sqrt{1+x}$，求$y''$；
+\newline
+(2)$y=\sqrt x$，求 $y^{(10)}$；
+\newline
+(3)$y=e^xx^4$，求$y^{(4)}$；
+\newline
+(4)$y=\frac{\ln x}x$，求$y^{(5)}$；
+\newline
+(5)$y=x^2\sin2x$，求$y^{(50)}$；
+\newline
+(6)$f(x)=\ln(1+x)$，求$f^{(n)}(x)$；
+\newline
+(7)$f(x)=e^{ax}\sin bx(a,b\in\mathbb R)$，求$f^{(n)}(x)$；
+\newline
+(8)$y=x\sinh x$，求$y^{(100)}$；
+\newline
+(9)$y=\frac1{2-x-x^2}$，求$y^{(20)}$；
+\newline
+(10)$y=x^3e^x$，求$y^{(20)}$.
+
+解：(1)$y'=\frac1{2\sqrt{1+x}}$
+
+$y''=\frac{-1}{4(1+x)\sqrt{1+x}}$.
+
+(2)$y'=\frac12x^{-\frac12}$
+
+$y''=\frac12(-\frac12)x^{-\frac32}$
+
+$y'''=\frac12(-\frac12)(-\frac32)x^{-\frac52}$
+
+$\cdots$
+
+$y^{(10)}=\frac12(\frac12-1)(\frac12-2)\cdots(\frac12-9)x^{\frac12-10}=(-1)^9\frac{1\cdot3\cdot5\cdot\cdots\cdot17}{2^{10}}x^{-\frac{19}2}=-\frac{17!!}{2^{10}}x^{-\frac{19}2}$.
+
+(3)$y'=e^xx^4+4e^xx^3=e^x(x^4+4x^3)$
+
+$y''=e^x(x^4+4x^3+4x^3+12x^2)=e^x(x^4+8x^3+12x^2)$
+
+$y'''=e^x(x^4+8x^3+12x^2+4x^3+24x^2+24x)=e^x(x^4+12x^3+36x^2+24x),y^{(4)}=e^x(x^4+12x^3+36x^2+24x+4x^3+36x^2+72x+24)=e^x(x^4+16x^3+72x^2+96x+24)$.
+
+(4)$y'=\frac{\frac1xx-\ln x}{x^2}=\frac{1-\ln x}{x^2}$
+
+$y''=\frac{-\frac1xx^2-(1-\ln x)2x}{x^4}=\frac{-3+2\ln x}{x^3}$
+
+$y'''=\frac{\frac2xx^3-(-3+2\ln x)3x^2}{x^6}=\frac{11-6\ln x}{x^4}$
+
+$y^{(4)}=\frac{-\frac6xx^4-(11-6\ln x)4x^3}{x^8}=\frac{-50+24\ln x}{x^5}$
+
+$y^{(5)}=\frac{\frac{24}xx^5-(-50+24\ln x)5x^4}{x^{10}}=\frac{274-120\ln x}{x^{6}}$.
+
+(5)$y^{(50)}=(\sin2x)^{(50)}x^2+50(\sin2x)^{(49)}2x+\frac{50\cdot49}2(\sin2x)^{(48)}2=2^{50}x^2\sin(2x+\frac{50\pi}2)+50\cdot2^{50}x\sin(2x+\frac{49\pi}2)+50\cdot49\cdot2^{48}\sin(2x+\frac{48\pi}2)=-2^{50}x^2\sin2x+50\cdot2^{50}x\cos2x+50\cdot49\cdot2^{48}\sin2x$.
+
+(6)$f'(x)=\frac1{1+x}$
+
+$f''(x)=-(1+x)^{-2}$
+
+$f'''(x)=(-1)^22!(1+x)^{-3}$
+
+$f^{(4)}(x)=(-1)^33!(1+x)^{-4}$
+
+$\cdots$
+
+$f^{(n)}(x)=(-1)^{n-1}(n-1)!(1+x)^{-n}$.
+
+(7)$f^{(n)}(x)=\sum_{k=0}^nC_n^k(e^{ax})^{(k)}(\sin bx)^{(n-k)}=\sum_{k=0}^nC_n^k(a^ke^{ax})[b^{n-k}\sin(bx+\frac{(n-k)\pi}2)]=\sum_{k=0}^nC_n^ka^kb^{n-k}e^{ax}\sin(bx+\frac{(n-k)\pi}2)$.
+
+(8)$\because(\sinh x)'=(\frac{e^x-e^{-x}}2)'=\frac{e^x+e^{-x}}2=\cosh x,(\cosh x)'=(\frac{e^x+e^{-x}}2)'=\frac{e^x-e^{-x}}2=\sinh x$
+
+$\therefore y^{(100)}=(\sinh x)^{100}x+100\cdot(\sinh x)^{(99)}=x\sinh x+100\cosh x$.
+
+(9)$y=\frac1{(2+x)(1-x)}=\frac13\frac1{2+x}+\frac13\frac1{1-x}$
+
+$y^{(20)}=\frac13(-1)^{20}20!(2+x)^{-21}+\frac13(-1)^{20}20!(1-x)^{-21}(-1)^{20}=\frac{20!}3(\frac1{(2+x)^{21}}+\frac1{(1-x)^{21}})$.
+
+(10)$y^{(20)}=(e^x)^{(20)}x^3+20(e^{x})^{19}3x^2+\frac{20\cdot19}2(e^x)^{(19)}6x+\frac{20\cdot19\cdot18}{3!}(e^x)^{(18)}6=e^x(x^3+60x^2+1140x+6840)$.
+\end{enumerate}
+\subsection{习题4.5解答}
+\begin{enumerate}
+\item对所给的$x_0$和$\Delta x$，计算$\Delta f$：
+\newline
+(1)$f(x)=\sqrt x,x_0=4,\Delta x=0.2$；
+\newline
+(2)$f(x)=\sqrt[3]{2+x^2},x_0=5,\Delta x=-0.1$；
+\newline
+(3)$f(x)=x^3-2x+1,x_0=1,\Delta x=-0.01$.
+
+解：(1)$f'(x)=\frac1{2\sqrt x},\Delta f=f'(x_0)\Delta x=\frac14\cdot0.2=0.05$.
+
+(2)$f'(x)=\frac{2x}{3\sqrt[3]{(2+x^2)^2}},\Delta f=f'(x_0)\Delta x=\frac{10}{3\sqrt[3]{27^2}}\cdot(-0.1)=-\frac1{27}$.
+
+(3)$f'(x)=3x^2-2,\Delta f=f'(x_0)\Delta x=-0.01$.
+
+\item求下列函数的微分：
+\newline
+(1)$y=\frac1x$；
+\newline
+(2)$y=\sin x^2$；
+\newline
+(3)$f(x)=\sin(\cos x)$；
+\newline
+(4)$y=x\sqrt{1-x}$；
+\newline
+(5)$u=\frac{x^2+2}{x^3-3}$；
+\newline
+(6)$y=\sin x-x\cos x$；
+\newline
+(7)$f(x)=\frac12\ln|\frac{x-1}{x+1}|$；
+\newline
+(8)$y=\ln(x+\sqrt{x^2+a^2})$.
+
+解：(1)$\mathrm dy=y'\mathrm dx=-\frac1{x^2}\mathrm dx$.
+
+(2)$\mathrm dy=y'\mathrm dx=2x\cos x^2\mathrm dx$.
+
+(3)$\mathrm df(x)=f'(x)\mathrm dx=\cos(\cos x)(-\sin x)\mathrm dx=-\sin x\cos(\cos x)\mathrm dx$.
+
+(4)$\mathrm dy=y'\mathrm dx=(\sqrt{1-x}+x\frac{-1}{2\sqrt{1-x}})\mathrm dx=\frac{2-3x}{2\sqrt{1-x}}\mathrm dx$.
+
+(5)$\mathrm du=u'\mathrm dx=\frac{2x(x^3-3)-(x^2+2)(3x^2)}{(x^3-3)^2}\mathrm dx=\frac{-x^4-6x^2-6x}{(x^3-3)^2}\mathrm dx$.
+
+(6)$\mathrm dy=y'\mathrm dx=(\cos x-\cos x+x\sin x)\mathrm dx=x\sin x\mathrm dx$.
+
+(7)$f(x)=\frac12(\ln|x-1|-\ln|x+1|)$
+
+当$x>1$时，$f(x)=\frac12[\ln(x-1)-\ln(x+1)],\mathrm df(x)=f'(x)\mathrm dx=\frac12[\frac1{x-1}-\frac1{x+1}]=\frac1{x^2-1}$
+
+当$1>x>-1$时，$f(x)=\frac12[\ln(1-x)-\ln(x+1)],\mathrm df(x)=f'(x)\mathrm dx=\frac12[\frac{-1}{1-x}-\frac1{x+1}]\mathrm dx=\frac1{x^2-1}\mathrm dx$
+
+当$x<-1$时，$f(x)=\frac12[\ln(1-x)-\ln(-1-x)],\mathrm df(x)=f'(x)\mathrm dx=\frac12[\frac{-1}{1-x}-\frac{-1}{-1-x}]\mathrm dx=\frac1{x^2-1}\mathrm dx$
+
+故$\mathrm df(x)=\frac1{x^2-1}\mathrm dx$.
+
+(8)$\mathrm dy=y'\mathrm dx=\frac{1+\frac{2x}{2\sqrt{x^2+a^2}}}{x+\sqrt{x^2+a^2}}=\frac1{\sqrt{x^2+a^2}}\mathrm dx$.
+
+\item计算：
+\newline
+(1)$\mathrm d(xe^{-x})$；
+\newline
+(2)$\mathrm d(\frac{1+x-x^2}{1-x+x^2})$；
+\newline
+(3)$\mathrm d(\frac{\ln x}{\sqrt x})$；
+\newline
+(4)$\mathrm d(\frac x{\sqrt{1-x^2}})$；
+\newline
+(5)$\mathrm d[\ln(1-x^2)]$；
+\newline
+(6)$\mathrm d(\arccos\frac1{|x|})$；
+\newline
+(7)$\mathrm d(\ln\sqrt{\frac{1-\sin x}{1+\sin x}})$；
+\newline
+(8)$\mathrm d(-\frac{\cos x}{2\sin^2x}+\ln\sqrt{\frac{1+\cos x}{\sin x}})$.
+
+解：(1)$\mathrm  d(xe^{-x})=(e^{-x}-xe^{-x})\mathrm dx=(1-x)e^{-x}\mathrm dx$.
+
+(2)$\mathrm d(\frac{1+x-x^2}{1-x+x^2})=\frac{(1-2x)(1-x+x^2)-(1+x-x^2)(-1+2x)}{(1-x+x^2)^2}\mathrm dx=\frac{2-4x}{(1-x+x^2)^2}\mathrm dx$.
+
+(3)$\mathrm d(\frac{\ln x}{\sqrt x})=\frac{\frac1x\sqrt x-\frac1{2\sqrt x}\ln x}{x}\mathrm dx=\frac{2-\ln x}{2x\sqrt x}\mathrm dx$.
+
+(4)$\mathrm d(\frac x{\sqrt{1-x^2}})=\frac{\sqrt{1-x^2}-x\frac{-2x}{2\sqrt{1-x^2}}}{1-x^2}\mathrm dx=\frac1{(1-x^2)^{\frac32}}\mathrm dx$.
+
+(5)$\mathrm d[\ln(1-x^2)]=\frac{-2x}{1-x^2}\mathrm dx=\frac{2x}{x^2-1}\mathrm dx$.
+
+(6)当$x>0$时，$\mathrm d(\arccos\frac1{|x|})=\frac{-1}{\sqrt{1-\frac1{x^2}}}\frac{-1}{x^2}\mathrm dx=\frac1{x\sqrt{x^2-1}}\mathrm dx$
+
+当$x<0$时，$\mathrm d(\arccos\frac1{|x|})=\frac{-1}{\sqrt{1-\frac1{x^2}}}\frac{1}{x^2}\mathrm dx=\frac1{x\sqrt{x^2-1}}\mathrm dx$
+
+故$\mathrm d(\arccos\frac1{|x|})=\frac1{x\sqrt{x^2-1}}\mathrm dx$.
+
+(7)$\mathrm d(\ln\sqrt{\frac{1-\sin x}{1+\sin x}})=[\frac12\ln(1-\sin x)-\frac12\ln(1+\sin x)]'\mathrm dx=\frac12(\frac{-\cos x}{1-\sin x}-\frac{\cos x}{1+\sin x})\mathrm dx=\frac{-\cos x}{1-\sin^2x}\mathrm dx=-\sec x\mathrm dx$.
+
+(8)$\mathrm d(-\frac{\cos x}{2\sin^2x}+\ln\sqrt{\frac{1+\cos x}{\sin x}})=[-\frac{\cos x}{2\sin^2x}+\frac12\ln(1+\cos x)-\frac12\ln\sin x]'\mathrm dx=(-\frac{-2\sin^3x-\cos x4\sin x\cos x}{4\sin^4x}+\frac12\frac{-\sin x}{1+\cos x}-\frac12\frac{\cos x}{\sin x})\mathrm dx=(\frac{1+\cos^2x}{2\sin^3x}-\frac12\frac{\sin x}{1+\cos x}-\frac12\cot x)\mathrm dx=\sec x\cot^2x\mathrm dx$.
+
+\item设$u,v,w$均为$x$的可微函数，求函数$y$的微分：
+\newline
+(1)$y=uvw$；
+\newline
+(2)$y=\frac u{v^2}$；
+\newline
+(3)$y=\arctan\frac uv$；
+\newline
+(4)$y=\ln\sqrt{u^2+v^2}$.
+
+解：(1)$\mathrm dy=w\mathrm d(uv)+uv\mathrm dw=w(v\mathrm du+u\mathrm dv)+uv\mathrm dw=vw\mathrm du+uw\mathrm dv+uv\mathrm dw$.
+
+(2)$\mathrm dy=\frac{v^2\mathrm du-2uv\mathrm dv}{v^4}=\frac{v\mathrm du-2u\mathrm dv}{v^3}$.
+
+(3)$\mathrm dy=\frac1{1+\frac{u^2}{v^2}}\mathrm d(\frac uv)=\frac1{1+\frac{u^2}{v^2}}\frac{v\mathrm du-u\mathrm dv}{v^2}=\frac{v\mathrm du-u\mathrm dv}{u^2+v^2}$.
+
+(4)$\mathrm dy=\frac1{\sqrt{u^2+v^2}}\frac1{2\sqrt{u^2+v^2}}(2u\mathrm du+2v\mathrm dv)=\frac{u\mathrm du+v\mathrm dv}{u^2+v^2}$.
+
+\item利用函数微分近似函数值改变量的方法，求下列各式的近似值：
+\newline
+(1)$\sqrt[3]{1.02}$；
+\newline
+(2)$\sin29^\circ$；
+\newline
+(3)$\cos151^\circ$；
+\newline
+(4)$\arctan1.05$.
+
+解：(1)$(\sqrt[3]x)'=\frac1{3\sqrt[3]{x^2}},\sqrt[3]{1.02}=\sqrt[3]1+\frac1{3\sqrt[3]{1^2}}0.02=1.0067$.
+
+(2)$(\sin x)'=\cos x,\sin29^\circ=\sin30^\circ+\cos30^\circ\cdot(\frac{-1}{180}\pi)=\frac12-\frac{\pi\sqrt3}{360}=0.485$.
+
+(3)$(\cos x)'=-\sin x,\cos151^\circ=\cos150^\circ+(-\sin150^\circ)\frac1{180}\pi=-\frac{\sqrt3}2-\frac1{360}\pi=0.875$.
+
+(4)$(\arctan x)'=\frac1{1+x^2},\arctan1.05=\arctan1+\frac1{1+1^2}\cdot0.05=\frac\pi4+0.025=0.810$.
+
+\item证明近似公式
+\[
+\sqrt[n]{a^n+x}\approx a+\frac x{na^{n-1}},a>0,
+\]
+其中$|x|\ll a^n$，并利用此公式求下列各式近似值：
+\newline
+(1)$\sqrt[3]{29}$；
+\newline
+(2)$\sqrt[10]{1000}$.
+
+证明：$\mathrm d(\sqrt[n]{a^n+x})|_{x=0}=(\sqrt[n]{a^n+x})'|_{x=0}\mathrm dx=\frac1{n\sqrt[n]{(a^n+x)^{n-1}}}|_{x=0}\mathrm dx=\frac1{na^{n-1}}\mathrm dx$
+
+当$|x|\ll a^n$时，$\sqrt[n]{a^n+x}-\sqrt[n]{a^n+0}\approx\frac{\mathrm d(\sqrt[n]{a^n+x})}{\mathrm dx}|_{x=0}(x-0)=\frac1{na^{n-1}}x$
+
+即$\sqrt[n]{a^n+x}\approx a+\frac x{na^{n-1}}$.
+
+(1)$\sqrt[3]{29}=\sqrt[3]{3^3+2}\approx3+\frac2{3\cdot3^2}=3.074$.
+
+(2)$\sqrt[10]{1000}=\sqrt[10]{2^{10}-24}\approx2-\frac{24}{10\cdot2^9}=1.995$.
+
+\item摆振动的周期$T$(以$s$计算)按下式确定：
+\[
+T=2\pi\sqrt\frac lg,
+\]
+其中$l$为摆长（以$\rm cm$计算），$g=980{\rm cm}/{\rm s}^2$，为了使周期$T$增大$0.05{\rm s}$，问：对摆长$l=20{\rm cm}$需作多少修改.
+
+解：$T'=2\pi\frac1{2\sqrt{gl}}=\frac\pi{\sqrt{gl}}$
+
+$\Delta T\approx \mathrm dT=T'\mathrm dl,\Delta l=\mathrm dl\approx\frac{\Delta T}{T'}=\frac{0.05}{\frac\pi{\sqrt{980\cdot20}}}=2.228\rm cm$，即应将摆长增加$2.228\rm cm$.
+\end{enumerate}
+\subsection{第4章补充题}
+\begin{enumerate}
+\item设$f(x)=|x|^p\sin\frac1x(x\neq0)$，且$f(0)=0$. 试讨论实数$p$满足何种条件时：
+\newline
+(1)$f(x)$在$x=0$连续；
+\newline
+(2)$f(x)$在$x=0$可导；
+\newline
+(3)$f'(x)$在$x=0$连续.
+
+解：(1)$\lim\limits_{x\rightarrow0}f(x)=\lim\limits_{x\rightarrow0}|x|^p\sin\frac1x$
+
+当$p>0$时，$\lim\limits_{x\rightarrow0}f(x)=0=f(0)$，$f(x)$在$x=0$连续
+
+当$p=0$时，$\lim\limits_{x\rightarrow0}f(x)=\lim\limits_{x\rightarrow0}\sin\frac1x$不存在，故$f(x)$在$x=0$不连续
+
+当$p<0$时，$\lim\limits_{x\rightarrow0}f(x)=\lim\limits_{x\rightarrow0}\frac1{|x|^{-p}}\sin\frac1x$不存在，故$f(x)$在$x=0$不连续
+
+所以，当$p>0$时，$f(x)$在$x=0$连续.
+
+(2)$\lim\limits_{\Delta x\rightarrow0}\frac{f(\Delta x)-f(0)}{\Delta x}=\lim\limits_{\Delta x\rightarrow0}\frac{|\Delta x|^p\sin\frac1{\Delta x}-0}{\Delta x}=\lim\limits_{\Delta x\rightarrow0}{\rm sgn}(\Delta x)|\Delta x|^{p-1}\sin\frac1{\Delta x}$
+
+当$p>1$时，$\lim\limits_{\Delta x\rightarrow0}\frac{f(\Delta x)-f(0)}{\Delta x}=\lim\limits_{\Delta x\rightarrow0}{\rm sgn}(\Delta x)|\Delta x|^{p-1}\sin\frac1{\Delta x}=0$，$f(x)$在$x=0$可导
+
+当$p=1$时，$\lim\limits_{\Delta x\rightarrow0}\frac{f(\Delta x)-f(0)}{\Delta x}=\lim\limits_{\Delta x\rightarrow0}\sin\frac1{\Delta x}$不存在，$f(x)$在$x=0$不可导
+
+当$p<1$时，$\lim\limits_{\Delta x\rightarrow0}\frac{f(\Delta x)-f(0)}{\Delta x}=\lim\limits_{\Delta x\rightarrow0}{\rm sgn}(\Delta x)|\Delta x|^{1-p}\sin\frac1{\Delta x}$不存在，$f(x)$在$x=0$不可导
+
+所以，当$p>1$时，$f(x)$在$x=0$可导，$f'(0)=0$.
+
+(3)$f'(x)=\begin{cases}
+px^{p-1}\sin\frac1x+x^p\cos\frac1x\frac{-1}{x^2},&x>0\\
+-p(-x)^{p-1}\sin\frac1x+(-x)^p\cos\frac1x\frac{-1}{x^2},&x<0
+\end{cases}
+\\=\begin{cases}
+px^{p-1}\sin\frac1x-x^{p-2}\cos\frac1x,&x>0\\
+-p(-x)^{p-1}\sin\frac1x-(-x)^{p-2}\cos\frac1x,&x<0
+\end{cases}$
+
+$\lim\limits_{x\rightarrow0+}f'(x)=\lim\limits_{x\rightarrow0+}[px^{p-1}\sin\frac1x-x^{p-2}\cos\frac1x],\lim\limits_{x\rightarrow0-}f'(x)=\lim\limits_{x\rightarrow0-}[-p(-x)^{p-1}\sin\frac1x-(-x)^{p-2}\cos\frac1x]$
+
+当$p>2$时，$\lim\limits_{x\rightarrow0+}f'(x)=\lim\limits_{x\rightarrow0-}f'(x)=f'(0)$
+
+当$2\geq p>1$时，$\lim\limits_{x\rightarrow0+}f'(x)$和$\lim\limits_{x\rightarrow0-}f'(x)$在$x=0$处不存在
+
+故当$p>2$时，$f'(x)$在$x=0$连续.
+
+\item设$f'(0)$存在，且$\lim\limits_{x\rightarrow0}(1+\frac{1-\cos f(x)}{\sin x})^{\frac1x}=e$. 试求$f'(0)$.
+
+解：$\because\lim\limits_{x\rightarrow0}(1+\frac{1-\cos f(x)}{\sin x})^{\frac1x}=\lim\limits_{x\rightarrow0}e^{{\frac1x}\ln(1+\frac{1-\cos f(x)}{\sin x})}=e$
+
+$\therefore\lim\limits_{x\rightarrow0}{\frac1x}\ln(1+\frac{1-\cos f(x)}{\sin x})=1$
+
+$\therefore\lim\limits_{x\rightarrow0}\frac{1-\cos f(x)}{\sin x}=0,\lim\limits_{x\rightarrow0}\frac{1-\cos f(x)}{x\sin x}=1$
+
+$\therefore\lim\limits_{x\rightarrow0}[1-\cos f(x)]=0,\cos f(0)=1,\sin f(0)=0$
+
+$\therefore\lim\limits_{x\rightarrow0}\frac{1-\cos f(x)}{x\sin x}=\lim\limits_{x\rightarrow0}\frac{\cos f(0)-\cos f(x)}{x\sin x}=\lim\limits_{x\rightarrow0}\frac{-2\sin\frac{f(0)+f(x)}2\sin\frac{f(0)-f(x)}2}{x\sin x}
+\\=\lim\limits_{x\rightarrow0}\frac{-2\sin(\frac{f(0)+f(x)}2-f(0))\sin\frac{f(0)-f(x)}2}{x\sin x}=\lim\limits_{x\rightarrow0}\frac{-2\sin\frac{f(x)-f(0)}2\sin\frac{f(0)-f(x)}2}{x\sin x}=\lim\limits_{x\rightarrow0}\frac{2\sin^2\frac{f(x)-f(0)}2}{x^2}=\lim\limits_{x\rightarrow0}\frac{[f(x)-f(0)]^2}{2x^2}=\frac12[f'(0)]^2=1$
+
+故$f'(0)=\pm\sqrt2$.
+
+\item证明双曲线$xy=a^2$上任一点处的切线与两坐标轴构成的三角形的面积都等于某个常数，并且切点是三角形斜边的中点.
+
+证明：将$xy=a^2$两边求关于$x$的导数得$y+xy'=0$，即$y'=-\frac yx,x\neq0,y\neq0$
+
+该双曲线上任一点$(x_0,y_0)$处的切线为$y-y_0=-\frac{y_0}{x_0}(x-x_0)$，纵截距为$2y_0$，横截距为$2x_0$，切线与两坐标轴围成的三角形的面积$S=|4x_0y_0|=4a^2$是常数. 斜边中点$(\frac{2x_0+0}2,\frac{0+2y_0}2)=(x_0,y_0)$为切点.
+
+\item求曲线$y=\frac1x$与$y=\sqrt x$的交角（即交点处的两条曲线的切线的交角）.
+
+解：曲线$y=\frac1x$与$y=\sqrt x$的交点为$(1,1)$，交点处$y=\frac1x$的切线斜率为$y'(1)=\frac{-1}{x^2}|_{x=1}=-1$，倾斜角为$135^\circ$，$y=\sqrt x$的切线斜率为$y'(1)=\frac1{2\sqrt x}|_{x=1}=\frac12$，倾斜角为$\arctan\frac12$，则曲线$y=\frac1x$与$y=\sqrt x$的交角为$\frac\pi4+\arctan\frac12$.
+
+\item设$x,y$满足方程$x^3+y^3-3xy=0$，求$\lim\limits_{x\rightarrow+\infty}\frac yx$.
+
+解：记$\lim\limits_{x\rightarrow+\infty}\frac yx=A$将方程$x^3+y^3-3xy=0$两边同除以$x^3$，两边取$x\rightarrow+\infty$的极限得$1+A^3-3A\cdot0=0$，故$\lim\limits_{x\rightarrow+\infty}\frac yx=A=-1$.{\bf（题目没有给定这个极限存在，所以这种解法不准确，可参考下面的做法。）}
+
+【正确做法：】
+
+令$\begin{cases}
+x=r(\theta)\cos\theta,\\
+y=r(\theta)\sin\theta,
+\end{cases}\theta\in[0,2\pi)$代入原方程得
+\[r(\theta)^3\cos^3\theta+r(\theta)^3\sin^3\theta-3r(\theta)^2\cos\theta\sin\theta=0,\]即
+\[r(\theta)=\frac{3\cos\theta\sin\theta}{\cos^3\theta+\sin^3\theta},\]
+
+$\because$当且仅当$\theta\rightarrow\frac34\pi^-$时$r(\theta)=\frac{3\cos\theta\sin\theta}{\cos^3\theta+\sin^3\theta}\rightarrow+\infty,\ x=r(\theta)\cos\theta\rightarrow+\infty$,
+
+$\therefore\lim\limits_{x\rightarrow+\infty}\frac yx=\lim\limits_{\theta\rightarrow\frac34\pi^-}\tan\theta=-1$.
+
+\item设$y=f(x)$在点$x_0$三阶可导，且$f'(x_0)\neq0$. 若存在反函数$x=g(y),y_0=f(x_0)$. 试用$f'(x_0),f''(x_0)$和$f'''(x_0)$表示$g'''(y_0)$.
+
+解：$g'(y)=\frac{\mathrm dx}{\mathrm dy}=\frac1{\frac{\mathrm dy}{\mathrm dx}}=\frac1{f'(x)}$
+
+$g''(y)=\frac{\mathrm dg'}{\mathrm dy}=\frac{\frac{\mathrm dg'}{\mathrm dx}}{\frac{\mathrm dy}{\mathrm dx}}=\frac{\frac{-f''(x)}{(f'(x))^2}}{f'(x)}=-\frac{f''(x)}{[f'(x)]^3}$
+
+$g'''(y)=\frac{\mathrm dg''}{\mathrm dy}=\frac{\frac{\mathrm dg''}{\mathrm dx}}{\frac{\mathrm dy}{\mathrm dx}}=\frac{-\frac{f'''(x)[f'(x)]^3-3[f''(x)]^2[f'(x)]^2}{[f'(x)]^6}}{f'(x)}=\frac{3[f''(x)]^2-f'''(x)f'(x)}{[f'(x)]^5}$
+
+故$g'''(y_0)=\frac{3[f''(x_0)]^2-f'''(x_0)f'(x_0)}{[f'(x_0)]^5}$.
+
+\item设$f(a)>0,f'(a)$存在，求$\lim\limits_{n\rightarrow\infty}(\frac{f(a+\frac1n)}{f(a)})^n$.
+
+解：$\lim\limits_{n\rightarrow\infty}(\frac{f(a+\frac1n)}{f(a)})^n=\lim\limits_{n\rightarrow\infty}(1+\frac{f(a+\frac1n)-f(a)}{f(a)})^n=\lim\limits_{n\rightarrow\infty}[(1+\frac{f(a+\frac1n)-f(a)}{f(a)})^{\frac{f(a)}{f(a+\frac1n)-f(a)}}]^{\frac{f(a+\frac1n)-f(a)}{\frac1nf(a)}}=e^{\frac{f'(a)}{f(a)}}$.
+
+\item设曲线$y=f(x)$在原点与$y=\sin x$相切，试求
+\[
+\lim\limits_{n\rightarrow\infty}\sqrt n\cdot\sqrt{f(\frac2n)}.
+\]
+解：因为曲线$y=f(x)$在原点与$y=\sin x$相切
+
+$\therefore f(0)=\sin 0=0,f'(0)=(\sin x)'|_{x=0}=1$
+
+$\lim\limits_{n\rightarrow\infty}\sqrt n\cdot\sqrt{f(\frac2n)}=\lim\limits_{n\rightarrow\infty}\sqrt{2\frac{f(\frac2n)-f(0)}{\frac2n}}=\sqrt{2f'(0)}=\sqrt2$.
+
+\item构造函数$f(x)$，使它在点$x=0$处可导，在其他任意点都不连续.
+
+解：$f(x)=\begin{cases}
+x^2,&x\in\mathbb Q\\
+0,&x\notin\mathbb Q
+\end{cases}$.
+\end{enumerate}
+\end{document}
