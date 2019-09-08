@@ -1,0 +1,627 @@
+\documentclass[12pt,UTF8]{ctexart}
+\usepackage{ctex,amsmath,amssymb,geometry,fancyhdr,bm,amsfonts
+,mathtools,extarrows,graphicx,url,enumerate,color,float,multicol,,subfig} 
+\allowdisplaybreaks[4]
+% 加入中文支持
+\newcommand\Set[2]{\left\{#1\ \middle\vert\ #2 \right\}}
+\newcommand\Lim[0]{\lim\limits_{n\rightarrow\infty}}
+\newcommand\LIM[2]{\lim\limits_{#1\rightarrow#2}}
+\newcommand\Ser[1]{\sum_{n=#1}^\infty}
+\newcommand{\SER}[2]{\sum_{#1=#2}^\infty}
+\newcommand{\varSer}[3]{\sum_{#1=#2}^{#3}}
+\newcommand{\me}[0]{\mathrm e}
+\geometry{a4paper,scale=0.80}
+\pagestyle{fancy}
+\rhead{第8章补充题}
+\lhead{基础习题课讲义}
+\chead{微积分B(1)}
+\begin{document}
+\def\thesection{13C}
+\section{第8章补充题}
+\def\thesubsection{\thesection.\arabic{subsection}}
+\subsection{第8章补充题解答}
+\begin{enumerate}
+\item讨论下列级数的收敛性.
+
+\begin{tabular}{ll}
+(1)$\Ser{1}\frac{n!}{n^n}a^n(a>0)$；& (2)$\Ser{2}\frac2{2^{\ln n}}$；\\
+(3)$\Ser{2}\frac1{(\ln n)^{\ln n}}$；& (4)$\Ser{1}\frac{\sin^2(\pi\sqrt{n^2+n})}n$；\\
+\multicolumn{2}{l}{(5)$\Ser{2}\ln(1+\frac{(-1)^n}{n^p})(p>0)$；}\\
+\multicolumn{2}{l}{(6)$\Ser{1}(-1)^n(\mathrm e^{\frac1{\sqrt n}}-1-\frac1{\sqrt n})$；}\\
+\multicolumn{2}{l}{(7)$\Ser{2}\sin(n\pi+\frac1{\ln n})$.}
+\end{tabular}
+
+解：(1)$\Lim\frac{u_{n+1}}{u_n}=\Lim\frac{(n+1)!a^{n+1}}{(n+1)^{n+1}}\frac{n^n}{n!a^n}=\Lim a\frac1{(1+\frac1n)^n}=\frac a{\mathrm e}$
+
+$\therefore$当$a<\mathrm e$时级数收敛，当$a>\mathrm e$时级数发散；
+
+当$a=\mathrm e$时，由函数$f(x)=(1+\frac1x)^x$在$x\geq1$时单调增加(见教材P160例5.1.3)且$\Lim(1+\frac1x)^x=\mathrm e$可知$(1+\frac1n)^n<\mathrm e$
+
+$\therefore\frac{u_{n+1}}{u_n}=\mathrm e\frac1{(1+\frac1n)^n}>1$
+
+$\therefore u_{n+1}>u_n>\cdots>u_2>u_1=\mathrm e,\Lim u_n=\Lim\frac{n!a^n}{n^n}\neq0$，级数发散.
+
+(2)$\Ser{2}\frac2{2^{\ln n}}=\Ser{2}\frac2{\me^{\ln2\ln n}}=\Ser{2}\frac2{n^{\ln2}}$
+
+$\because0<\ln2<1$
+
+$\therefore$级数发散.
+
+(3)$\Ser{2}\frac1{(\ln n)^{\ln n}}=\Ser{2}\frac1{\me^{\ln(\ln n)\ln n}}=\Ser{2}\frac1{n^{\ln(\ln n)}}$
+
+$\because\Lim n^2\cdot\frac1{n^{\ln(\ln n)}}=\Lim\frac1{n^{\ln(\ln n)-2}}=0$,
+
+$\therefore$该级数收敛.
+
+(4)$\because\sin(\pi\sqrt{n^2+n})=\sin[(\pi\sqrt{n^2+n}-\pi n)+\pi n]=(-1)^n\sin(\pi\sqrt{n^2+n}-\pi n)\\
+=(-1)^n\sin\frac{n\pi}{\sqrt{n^2+n}+n}=(-1)^n\sin\frac{\pi}{\sqrt{1+\frac1n}+1}$
+
+$\therefore\sin^2(\pi\sqrt{n^2+n})=\sin^2\frac{\pi}{\sqrt{1+\frac1n}+1}$
+
+$\because2<\sqrt{1+\frac1n}+1\leq1+\sqrt2$
+
+$\therefore1>\sin^2\frac{\pi}{\sqrt{1+\frac1n}+1}\geq\sin^2\frac{\pi}{1+\sqrt2}$
+
+$\therefore\frac{\sin^2(\pi\sqrt{n^2+n})}n=\frac{\sin^2\frac{\pi}{\sqrt{1+\frac1n}+1}}n\geq\frac{\sin^2\frac{\pi}{1+\sqrt2}}n$
+
+$\because\Ser1\frac{\sin^2\frac{\pi}{1+\sqrt2}}n$发散
+
+$\therefore\frac{\sin^2(\pi\sqrt{n^2+n})}n$发散.
+
+(5)$\because\Lim n^p|\ln(1+\frac{(-1)^n}{n^p})|=\Lim|n^p\frac{(-1)^n}{n^p}|=1$
+
+$\therefore$当$p>1$时，该级数绝对收敛
+
+$\ln(1+\frac{(-1)^n}{n^p})=\frac{(-1)^n}{n^p}-\frac1{2n^{2p}}+o(\frac1{n^{2p}})$
+
+当$\frac12<p\leq1$时，级数$\Ser2\frac{(-1)^n}{n^p}$条件收敛
+
+$\because\Lim n^{2p}|-\frac1{2n^{2p}}+o(\frac1{n^{2p}})|=\frac12$
+
+$\therefore$级数$\Ser2[-\frac1{2n^{2p}}+o(\frac1{n^{2p}})]$绝对收敛
+
+$\because|\frac{(-1)^n}{n^p}-\frac1{2n^{2p}}+o(\frac1{n^{2p}})|\geq\frac1{n^p}-|\frac1{n^{2p}}+o(\frac1{n^{2p}})|$
+
+$\because\Ser2[\frac1{n^p}-|\frac1{n^{2p}}+o(\frac1{n^{2p}})|]=+\infty$
+
+$\therefore\Ser2|\ln(1+\frac{(-1)^n}{n^p})|=\Ser2|\frac{(-1)^n}{n^p}-\frac1{2n^{2p}}+o(\frac1{n^{2p}})|$发散
+
+$\therefore$级数$\Ser2\ln(1+\frac{(-1)^n}{n^p})$条件收敛
+
+当$0<p\leq\frac12$时，级数$\Ser2\frac{(-1)^n}{n^p}$条件收敛
+
+$\because\Lim n^{2p}|-\frac1{2n^{2p}}+o(\frac1{n^{2p}})|=\frac12$
+
+$\therefore$级数$\Ser2[-\frac1{2n^{2p}}+o(\frac1{n^{2p}})]$发散
+
+$\therefore$级数$\Ser2\ln(1+\frac{(-1)^n}{n^p})=\Ser2[\frac{(-1)^n}{n^p}-\frac1{2n^{2p}}+o(\frac1{n^{2p}})]$发散
+
+综上所述，当$p>1$时原级数绝对收敛，当$\frac12<p\leq1$时原级数条件收敛，当$0<p\leq\frac12$时原级数发散.
+%当$0<p\leq1$时，
+%
+%$s_{2n+1}=\varSer k2{2n+1}\ln(1+\frac{(-1)^n}{n^p})=\varSer k1n\ln(1+\frac1{(2k)^p})+\varSer k1n\ln(1-\frac1{(2k+1)^p})$
+%
+%$\because$级数$\varSer k1\infty\ln(1+\frac1{(2k)^p})$和$\varSer k1\infty\ln(1-\frac1{(2k+1)^p})$均收敛
+%
+%$\therefore\{s_{2n+1}\}$收敛
+%
+%$\because\Lim\ln(1+\frac{(-1)^{2n+2}}{(2n+2)^p})=0$
+%
+%$\therefore\{s_{2n+2}\}$也收敛，且$\Lim s_{2n+2}=\Lim s_{2n+1}$
+%
+%$\therefore$级数$\Ser{2}\ln(1+\frac{(-1)^n}{n^p})$收敛
+
+
+%由
+%\[\begin{aligned}
+%&|\ln[1+\frac1{(2n)^p}]|-|\ln[1-\frac1{(2n+1)^p}]|\\
+%=&\ln[1+\frac1{(2n)^p}]+\ln[1-\frac1{(2n+1)^p}]\\
+%=&\ln[1+\frac1{(2n)^p}-\frac1{(2n+1)^p}-\frac1{(2n)^p(2n+1)^p}]\\
+%=&\ln[1+\frac{(2n+1)^p-(2n)^p}{(2n)^p(2n+1)^p}-\frac1{(2n)^p(2n+1)^p}],n\geq2
+%\end{aligned}\]
+%$\because$
+%\[(2n+1)^p-(2n)^p=p\xi^{p-1}(2n+1-2n)=\frac p{\xi^{1-p}}<\frac p{(2n)^{1-p}}\leq\frac p{2^{1-p}}\leq p<1,\ 2n<\xi<2n+1\]
+%
+%$\therefore$
+%\[
+%|\ln[1+\frac1{(2n)^p}]|-|\ln[1-\frac1{(2n+1)^p}]|=\ln[1+\frac{(2n+1)^p-(2n)^p}{(2n)^p(2n+1)^p}-\frac1{(2n)^p(2n+1)^p}]<0
+%\]
+%即
+%\[
+%|\ln[1+\frac1{(2n)^p}]<|\ln[1-\frac1{(2n+1)^p}]|
+%\]
+%$\because$
+%\[\begin{aligned}
+%&|\ln[1-\frac1{(2n+1)^p}]|-|\ln[1+\frac1{(2n+2)^p}]|\\
+%=&-\ln[1-\frac1{(2n+1)^p}]-\ln[1+\frac1{(2n+2)^p}]\\
+%=&-\ln[1-\frac1{(2n+1)^p}+\frac1{(2n+2)^p}-\frac1{(2n+1)^p(2n+2)^p}]\\
+%=&-\ln[1-\frac{(2n+2)^p-(2n+1)^p}{(2n+1)^p(2n+2)^p}-\frac1{(2n+1)^p(2n+2)^p}]>0
+%\end{aligned}\]
+%$\therefore$
+%\[|\ln[1-\frac1{(2n+1)^p}]|>|\ln[1+\frac1{(2n+2)^p}]|\]
+
+(6)令$f(x)=\me^x-1-x$, 则当$0<x\leq1$时$f'(x)=\me^x-1>0$
+
+$\therefore|u_{n+1}|=f(\frac1{\sqrt{n+1}})<f(\frac1{\sqrt n})=|u_n|$
+
+又$\because\Lim(\mathrm e^{\frac1{\sqrt n}}-1-\frac1{\sqrt n})=1-1-0=0$
+
+$\therefore\Ser{1}(-1)^n(\mathrm e^{\frac1{\sqrt n}}-1-\frac1{\sqrt n})$是莱布尼茨交错级数
+
+$\therefore\Ser{1}(-1)^n(\mathrm e^{\frac1{\sqrt n}}-1-\frac1{\sqrt n})$收敛
+
+$\because\Lim n\cdot|u_n|=\Lim n\cdot|\me^{\frac1{\sqrt n}}-1-\frac1{\sqrt n}|=\Lim n\cdot|1+\frac1{\sqrt n}+\frac1{2n}+o(\frac1n)-1-\frac1{\sqrt n}|\\
+=\Lim n\cdot|1+\frac1{\sqrt n}+\frac1{2n}+o(\frac1n)-1-\frac1{\sqrt n}|=\frac12$
+
+$\therefore\Ser1|u_n|$发散
+
+$\therefore$级数$\Ser{1}(-1)^n(\mathrm e^{\frac1{\sqrt n}}-1-\frac1{\sqrt n})$条件收敛.
+
+(7)$\sin(n\pi+\frac1{\ln n})=\sin n\pi\sin\frac1{\ln n}+\cos n\pi\sin\frac1{\ln}=(-1)^n\sin\frac1{\ln n}$
+
+$\because\frac1{\ln 2}=1.4427<\frac\pi2$
+
+$\therefore$当$n>2$时$\sin\frac1{\ln n}>\sin\frac1{\ln(n+1)}$
+
+又$\because\Lim\sin\frac1{\ln n}=0$
+
+$\therefore$级数$\Ser{2}\sin(n\pi+\frac1{\ln n})$是莱布尼茨交错级数，故收敛
+
+$\because\Lim n\cdot|\sin(n\pi+\frac1{\ln n})|=\Lim n\cdot|\sin\frac1{\ln n}|=\Lim n\cdot\frac1{\ln n}=+\infty$
+
+$\therefore\Ser{2}|u_n|$发散
+
+$\therefore$级数$\Ser{2}\sin(n\pi+\frac1{\ln n})$条件收敛.
+\item设$a_n\geq0$且$\Ser{1}a_n$发散，讨论下列级数的收敛性：
+
+\begin{tabular}{lll}
+(1)$\Ser{1}\frac{a_n}{1+a_n}$；& (2)$\Ser{1}\frac{a_n}{1+n^2a_n}$；& (3)$\Ser{1}\frac{a_n}{1+a_n^2}$.
+\end{tabular}
+
+解：(1)假设$\Ser{1}\frac{a_n}{1+a_n}$收敛，则$\Lim\frac{a_n}{1+a_n}=\Lim\frac1{\frac1{a_n}+1}=0$
+
+$\therefore\Lim a_n=0$
+
+$\therefore\Lim\frac1{a_n}\cdot\frac{a_n}{1+a_n}=1$
+
+$\because$级数$\Ser{1}a_n$发散
+
+$\therefore$级数$\Ser{1}\frac{a_n}{1+a_n}$发散，与假设矛盾
+
+$\therefore$级数$\Ser{1}\frac{a_n}{1+a_n}$发散.
+
+(2)$\because\Lim n^2\cdot\frac{a_n}{1+n^2a_n}=\Lim\frac{a_n}{\frac1{n^2}+a_n}=1$
+
+$\therefore$级数$\Ser{1}\frac{a_n}{1+n^2a_n}$收敛.
+
+(3)当$a_n=n$时，$\Ser{1}\frac{a_n}{1+a_n^2}=\Ser{1}\frac n{1+n^2}$，由$\Lim n\cdot\frac n{1+n^2}=1$知该级数发散
+
+当$a_n=n^2$时，$\Ser{1}\frac{a_n}{1+a_n^2}=\Ser{1}\frac{n^2}{1+n^4}$，由$\Lim n^2\cdot\frac{n^2}{1+n^4}=1$知该级数收敛
+
+$\therefore$该级数可能收敛也可能发散.
+\item设$a>0,b_n=\frac{a^{\frac{n(n+1)}2}}{[(1+a)(1+a^2)\cdots(1+a^n)]}$，讨论级数$\Ser{1}b_n$的收敛性.
+
+解：$b_n=\frac{a^{1+2+\cdots+n}}{(1+a)(1+a^2)\cdots(1+a^n)}=\frac a{1+a}\cdot\frac{a^2}{1+a^2}\cdot\cdots\cdot\frac{a^n}{1+a^n}$
+
+当$a=1$时$b_n=\frac1{2^n}$, 级数$\Ser{1}b_n$收敛
+
+$\because f(x)=\frac x{1+x}=1-\frac1{1+x}$单调增加
+
+$\therefore$当$0<a<1$时$b_n=\frac a{1+a}\cdot\frac{a^2}{1+a^2}\cdot\cdots\cdot\frac{a^n}{1+a^n}<\frac a{1+a}\cdot\frac a{1+a}\cdot\cdots\cdot\frac a{1+a}=(\frac a{1+a})^n$
+
+$\because$级数$\Ser1(\frac a{1+a})^n$收敛
+
+【或者：$b_n=\frac{a^{1+2+\cdots+n}}{(1+a)(1+a^2)\cdots(1+a^n)}<a^{1+2+\cdots+n}=a^1\cdot a^2\cdot\cdots\cdot a^n<a^n$, 级数$\Ser1a^n$收敛】
+
+$\therefore$级数$\Ser{1}b_n$收敛
+
+当$a>1$时$b_n=\frac a{1+a}\cdot\frac{a^2}{1+a^2}\cdot\cdots\cdot\frac{a^n}{1+a^n}=\frac1{(1+\frac1a)(1+\frac1{a^2})\cdots(1+\frac1{a^n})}=\frac1{\me^{\ln[(1+\frac1a)(1+\frac1{a^2})\cdots(1+\frac1{a^n})]}}\\
+=\frac1{\me^{\ln(1+\frac1a)+\ln(1+\frac1{a^2})+\cdots+\ln(1+\frac1{a^n})}}>\frac1{\me^{\frac1a+\frac1{a^2}+\cdots+\frac1{a^n}}}=\frac1{\me^{\frac{\frac1a(1-\frac1{a^n})}{1-\frac1a}}}>\frac1{\me^{\frac1{a-1}}}$
+
+$\therefore\Lim b_n\neq0$, 故级数$\Ser{1}b_n$发散
+
+综上所述，当$0<a\leq1$时，级数$\Ser{1}b_n$收敛；当$a>1$时，级数$\Ser{1}b_n$发散.
+
+\item设$a_n>0$且$\Lim\frac{\ln\frac1{a_n}}{\ln n}=l>1$，求证$\Ser{1}a_n$收敛.
+
+证明：$\because\Lim\frac{\ln\frac1{a_n}}{\ln n}=\Lim\frac{\ln a_n}{\ln\frac1n}=l>1$
+
+$\therefore$根据数列极限的保号性知$\exists\varepsilon>0$使得$|\frac{\ln a_n}{\ln\frac1n}-l|<\varepsilon$即$\frac{\ln a_n}{\ln\frac1n}>l-\varepsilon$, $\varepsilon$应满足$l-\varepsilon>1$
+
+$\therefore$当$n\geq2$时$\ln a_n<(l-\varepsilon)\ln\frac1n=\ln\frac1{n^{l-\varepsilon}}$
+
+$\therefore a_n<\frac1{n^{l-\varepsilon}}(n\geq2)$
+
+$\because$当$l-\varepsilon>1$时$\Ser2\frac1{n^{l-\varepsilon}}$收敛
+
+$\therefore$$\Ser{1}a_n$收敛.
+\item已知$\Lim(n^{2n\sin\frac1n}\cdot a_n)=1$，试讨论$\Ser{1}a_n$的收敛性.
+
+解：$\because\Lim(n^{2n\sin\frac1n}\cdot a_n)=\Lim(n^{2n\sin\frac1n-1.5}n^{1.5}\cdot a_n)=\Lim[\me^{(2n\sin\frac1n-1.5)\ln n}n^{1.5}\cdot a_n]\\
+=\Lim\{\me^{[2n(\frac1n+o(\frac1{n^2}))-1.5]\ln n}n^{1.5}\cdot a_n\}=\Lim\{\me^{(2+o(\frac1{n})-1.5)\ln n}n^{1.5}\cdot a_n\}\\
+=\Lim\{\me^{(0.5+o(\frac1{n}))\ln n}n^{1.5}\cdot a_n\}=1$
+
+$\because\Lim\me^{(0.5+o(\frac1{n}))\ln n}=+\infty$
+
+$\therefore\Lim n^{1.5}\cdot a_n=\Lim\frac1{\me^{(0.5+o(\frac1{n}))\ln n}}=0$
+
+$\therefore$级数$\Ser1{a_n}$收敛.
+
+\item设$p>0,\Lim[n^p(\mathrm e^{\frac1n}-1)a_n]=1$，试讨论$\Ser{1}a_n$的收敛性.
+
+解：$\because\Lim n^p(\mathrm e^{\frac1n}-1)a_n=\Lim n^{p-1}\frac{\mathrm e^{\frac1n}-1}{\frac1n}a_n=\Lim n^{p-1}a_n=1$
+
+$\therefore$当$p-1>1$即$p>2$时，级数收敛；
+
+当$0<p-1\leq1$即$1<p\leq2$时，级数发散；
+
+当$p=1$时$p-1=0,\ \Lim a_n=1$，级数发散；
+
+当$0<p<1$时$p-1<0,\ \Lim a_n=+\infty$，级数发散.
+
+\item设$a_n>0,\Ser{1}a_n$发散，令$S_k=a_1+a_2+\cdots+a_k$，试证$\Ser{1}\frac{a_n}{S_n}$也发散.
+
+证明：$\because a_n>0,\Ser{1}a_n$发散
+
+$\therefore\Lim S_n=+\infty$
+
+$\therefore\varSer k{n+1}{n+p}\frac{a_k}{S_k}\geq\frac{a_{n+1}+a_{n+2}+\cdots+a_{n+p}}{S_{n+p}}=\frac{S_{n+p}-S_{n+1}}{S_{n+p}}=1-\frac{S_{n+1}}{S_{n+p}}\rightarrow1,p\rightarrow\infty$
+
+$\therefore\exists P>0,s.t.$当$p>P$时$\varSer k{n+1}{n+p}\frac{a_k}{S_k}\geq\frac{a_{n+1}+a_{n+2}+\cdots+a_{n+p}}{S_{n+p}}>1-\frac12=\frac12$
+
+$\therefore$对于$\varepsilon_0=\frac12, \forall N>0$，如取$n=N+1,p=P+1$，则
+\[|\varSer k{n+1}{n+p}\frac{a_k}{S_k}|\geq\frac{a_{n+1}+a_{n+2}+\cdots+a_{n+p}}{S_{n+p}}>\frac12=\varepsilon_0\]
+
+$\therefore$级数$\Ser{1}\frac{a_n}{S_n}$发散.
+
+\item设$\varphi(x)$在$(-\infty,+\infty)$上连续，周期为$1$，且$\int_0^1\varphi(x)\mathrm dx=0,f(x)$在$[0,1]$上连续可导，令$a_n=\int_0^1f(x)\varphi(nx)\mathrm dx$，求证级数$\Ser{1}a_n^2$收敛.
+
+证明：令$G(x)=\int_0^x\varphi(nx)\mathrm dx$, 则$G(1)=0$
+
+$\therefore$
+\[
+a_n=\int_0^1f(x)\varphi(nx)\mathrm dx=f(x)G(x)\big|_0^1-\int_0^1G(x)f'(x)\mathrm dx=-\int_0^1G(x)f'(x)\mathrm dx
+\]
+$\because f(x)$在$[0,1]$上连续可导，$\varphi(x)$在$(-\infty,+\infty)$上连续
+
+$\therefore\exists M_1=\max|f'(x)|,\exists M_2=\max|\varphi(x)|$
+
+$\therefore$
+\[
+|a_n|\leq\int_0^1|G(x)||f(x)|\mathrm dx\leq M_1\int_0^1|G(x)|\mathrm dx
+\]
+
+$\because\int_0^1\varphi(x)\mathrm dx=0$
+
+$\therefore$
+\[
+|G(x)|=|\int_0^x\varphi(nt)\mathrm dt|=\frac1n|\int_0^{nx}\varphi(u)\mathrm du|=\frac1n|\int_{[nx]}^{nx}\varphi(u)\mathrm du|\leq\frac1nM_2
+\]
+$\therefore a_n\leq\frac1nM_1M_2,\ a_n^2\leq\frac1{n^2}(M_1M_2)^2$
+
+$\therefore$级数$\Ser{1}a_n^2$收敛.
+\item确定下列函数级数的收敛域：
+
+\begin{tabular}{ll}
+(1)$\Ser{1}\frac{x^{n^2}}{2^n}$；& (2)$\Ser{1}\frac n{x^n}$；\\
+(3)$\Ser{1}n!(\frac xn)^n$；& (4)$\Ser{1}(1-\cos\frac xn)$；\\
+(5)$\Ser{1}\sin\frac1{n^{\frac{x+1}x}}$；& (6)$\Ser{1}\frac{x^n}{1+x^{2n}}$.
+\end{tabular}
+
+解：(1)$\Lim\sqrt[n]{|\frac{x^{n^2}}{2^n}|}=\Lim\frac{|x|^n}2=\begin{cases}
+0,&|x|<1\\
+\frac12,&x=1\\
+\frac12,&x=-1\\
+\infty,&|x|>1
+\end{cases}$
+
+$\therefore$收敛域为$[-1,1]$.
+
+(2)$\Lim\sqrt[n]{|\frac n{x^n}|}=\Lim\frac{\sqrt[n]n}{|x|}=\frac1{|x|}$
+
+$\therefore$当$|x|>1$时级数绝对收敛；当$|x|<1$时级数发散；当$|x|=1$时，$\Lim\frac n{x^2}\neq0$, 故发散
+
+$\therefore$级数的收敛域为$(-\infty,-1)\cup(1,+\infty)$.
+
+(3)$\Lim\frac{|u_{n+1}|}{|u_n|}=\Lim\frac{(n+1)!(|\frac x{n+1}|)^{n+1}}{n!(|\frac xn|)^n}=\Lim(\frac n{n+1})^n|x|=\Lim\frac 1{(1+\frac1n)^n}|x|=\frac{|x|}\me$
+
+$\therefore$当$|x|<\me$时级数绝对收敛；当$|x|>\me$时级数发散
+
+当$|x|=\me$时，$\frac{|u_{n+1}|}{|u_n|}=\frac\me{(1+\frac1n)^n}$
+
+由函数$f(x)=(1+\frac1x)^x$在$x\geq1$时单调增加(见教材P160例5.1.3)且$\Lim(1+\frac1x)^x=\mathrm e$
+
+$\therefore\frac{|u_{n+1}|}{|u_n|}>1$, $|u_{n+1}|>|u_n|>\cdots>|u_1|$
+
+$\therefore\Lim{|u_n|}\neq0$, 级数发散
+
+综上所述，该级数的收敛域为$(-\me,\me)$.
+
+(4)$1-\cos\frac xn=2\sin^2\frac x{2n}$
+
+$\because\Lim n^2\cdot(1-\cos\frac xn)=\Lim n^2\cdot2\sin^2\frac x{2n}=\Lim2(\frac{\sin\frac x{2n}}{\frac1n})^2=2(\frac x2)^2=\frac{x^2}2$
+
+$\therefore$该级数的收敛域为$(-\infty,+\infty)$.
+
+(5)$\Lim n^{\frac{1+1+\frac1x}2}\cdot\sin\frac1{n^{\frac{x+1}x}}=\Lim n^{1+\frac1{2x}}\cdot\frac1{n^{\frac{x+1}x}}=\Lim n^{-\frac1{2x}}=\begin{cases}
+0,&x>0\\
++\infty,&x<0
+\end{cases}$
+
+$\because$当$x>0$时，级数$\Ser1\frac1{n^{\frac{1+1+\frac1x}2}}$收敛；当$x<0$时，级数$\Ser1\frac1{n^{\frac{1+1+\frac1x}2}}$发散
+
+$\therefore$原级数的收敛域为$(0,+\infty)$.
+
+(6)$\because\Lim\sqrt[n]{|\frac{x^n}{1+x^{2n}}|}=\Lim\frac{|x|}{\sqrt[n]{1+x^{2n}}}=\begin{cases}
+|x|,&|x|<1\\
+1,&|x|=1\\
+0,&|x|>1
+\end{cases}$
+
+$\therefore$当$x\neq1$时，该级数收敛
+
+当$x=1$时$\Ser{1}\frac{x^n}{1+x^{2n}}=\Ser1\frac12$，该级数发散
+
+$\therefore$该级数的收敛域为$(-\infty,1)\cup(1+\infty)$.
+\item讨论下列函数级数在指定区间上的一致收敛性：
+\\
+(1)$\Ser{1}n\mathrm e^{-nx},(0,+\infty)$与$[\delta,+\infty),\delta>0$为常数；\\
+(2)$\Ser{1}\frac{x^2}{(1+x^2)^n},(0,+\infty)$与$[\delta,+\infty),\delta>0$；\\
+(3)$\Ser{1}(-1)^n\frac1{x+n},[0,+\infty)$.
+
+解：(1)在区间$(0,+\infty)$上：
+
+$\forall N>0$, 取$n_0=N+1,p_0\geq1,0<x_0<\frac{\ln[p_0(n_0+1)]}{n_0+p_0}$, 则
+\[
+|\sum_{k=n_0+1}^{n_0+p_0}k\me^{-kx_0}|\geq|\sum_{k=n_0+1}^{n_0+p_0}(n_0+1)\me^{-(n_0+p_0)x_0}|=p_0(n_0+1)\me^{-(n_0+p_0)x_0}=1
+\]
+故级数$\Ser{1}n\mathrm e^{-nx}$在区间$(0,+\infty)$上不一致收敛.
+
+在区间$[\delta,+\infty),\delta>0$上：
+
+$\because\Lim n^2\cdot n\me^{-nx}=0$
+
+$\therefore$级数$\Ser{1}n\mathrm e^{-nx}$收敛
+
+$\because n\me^{-nx}<n\me^{-n\delta}$
+
+又$\because\Lim n^2\cdot n\me^{-n\delta}=0$, 故级数$\Ser{1}n\mathrm e^{-n\delta}$在区间$[\delta,+\infty)$上收敛
+
+$\therefore$级数$\Ser{1}n\mathrm e^{-nx}$在区间$[\delta,+\infty)$上一致收敛.
+
+(2)该级数的部分和序列$S_n(x)=\varSer k1n\frac{x^2}{(1+x^2)^k}=\frac{x^2}{1+x^2}\frac{1-\frac1{(1+x^2)^n}}{1-\frac1{1+x^2}}=1-\frac1{(1+x^2)^n}$
+
+和函数$S(x)=\Ser{1}\frac{x^2}{(1+x^2)^n}=\frac{x^2}{1+x^2}\frac1{1-\frac1{1+x^2}}=1$
+
+当$x\in(0,+\infty)$时：
+
+$\forall N>0$, 取$n_0=N+1,0<x_{n_0}<\sqrt{2^{\frac1{n_0}}-1}$, 则
+\[
+|S_{n_0}(x)-S(x)|=\frac1{(1+x_{n_0}^2)^{n_0}}>\frac12
+\]
+
+故该级数不一致收敛.
+
+当$x\in[\delta,+\infty)$时：
+
+$\forall\varepsilon>0$, 取$N=\max\{[\frac{\ln\frac1{\varepsilon}}{\ln(1+\delta^2)}]+1,1\}$, 当$n>N$时$n>\frac{\ln\frac1{\varepsilon}}{\ln(1+\delta^2)}$, 故
+\[
+|S_{n_0}(x)-S(x)|=\frac1{(1+x_n^2)^n}<\frac1{(1+\delta^2)^n}<\frac1{(1+\delta^2)^{\frac{\ln\frac1{\varepsilon}}{\ln(1+\delta^2)}}}<\frac1{\me^{\ln(1+\delta^2)\frac{\ln\frac1{\varepsilon}}{\ln(1+\delta^2)}}}<\varepsilon
+\]
+$\therefore$该级数一致收敛.
+
+(3)$\forall x\in[0,+\infty)$, 级数$\Ser{1}(-1)^n\frac1{x+n}$是莱布尼茨交错级数，故收敛
+
+$\because\forall\varepsilon>0$, 取$N=\max\{[\frac1\varepsilon-x-1]+1,1\}$, 则当$n>N$时，$\forall x\in[0,+\infty),\ \forall p\in\mathbb Z^+$,
+\[|\varSer k{n+1}{n+p}(-1)^n\frac1{x+n}|\leq\frac1{x+n+1}<\varepsilon\]
+
+$\therefore$该级数一致收敛.
+\item设函数$f(x)$在$(-\infty,+\infty)$上有任意阶导数，记$f_n(x)=f^{(n)}(x)(n=1,2,\cdots)$，设函数序列$\{f_n(x)\}$在任意有限区间上一致收敛于某个函数$\varphi(x)$，求证：存在常数$c$，使$\varphi(x)=c\mathrm e^x$.
+
+证明：$\because f(x)$在$(-\infty,+\infty)$上有任意阶导数
+
+$\therefore f^{(n)}(x)$在任意区间$[a,b]$上连续可微
+
+$\because\{f^{(n)}\}$在$[a,b]$内一致收敛于$\varphi(x)$
+
+$\therefore$其导函数序列$\{f^{(n)}(x)\}$在$[a,b]$内也一致收敛于$\varphi(x)$
+
+$\therefore$函数$\varphi(x)$在$[a,b]$上可导，且
+\[
+\varphi'(x)=[\Lim f^{(n)}(x)]'=\Lim f^{(n+1)(x)}=\varphi(x)
+\]
+即
+\[\frac{\mathrm d\varphi(x)}{\mathrm dx}=\varphi(x)\]
+
+$\therefore$
+\[\frac{\mathrm d\varphi(x)}{\varphi(x)}=\mathrm dx\]
+
+$\therefore\ln\varphi(x)=x+C$, 即$\varphi(x)=\me^C\me^x=c\me^x$, 其中$c=\me^C$.
+
+\item已知$\{a_n\}$是一单增有界的正数列，试证级数$\Ser{1}(1-\frac{a_n}{a_{n+1}})$收敛.
+
+证明：$\because\{a_n\}$是一单增有界的正数列
+
+$\therefore\Lim a_n$存在，不妨设为$A$
+
+$\because\varSer k1n(1-\frac{a_k}{a_{k+1}})=\varSer k1n\frac{a_{k+1}-a_k}{a_{k+1}}\leq\varSer k1n\frac{a_{k+1}-a_k}{a_2}=\frac1{a_2}(a_{n+1}-a_1)\rightarrow\frac1{a_2}(A-a_1),n\rightarrow\infty$
+
+$\therefore\varSer k1n(1-\frac{a_k}{a_{k+1}})$有界
+
+又$\because1-\frac{a_n}{a_{n+1}}>0$
+
+$\therefore$根据单调有界收敛定理，级数$\Ser{1}(1-\frac{a_n}{a_{n+1}})$收敛.
+\item设$a_n$是方程$\tan\sqrt x=x$的正根$(n=1,2,\cdots)$. 研究$\Ser{1}\frac1{a_n}$是否收敛.
+
+解：令$y=\sqrt x$, 则$\tan\sqrt x=x\Leftrightarrow\tan y=y^2$
+
+$\because a_n$是方程$\tan\sqrt x=x$的正根$(n=1,2,\cdots)$
+
+$\therefore$由$\tan y$和$y^2$的图像可知：
+\[\pi<\sqrt{a_1}<\frac32\pi,\ 2\pi<\sqrt{a_2}<\frac52\pi,\cdots,n\pi<\sqrt{a_n}<n\pi+\frac\pi2,\cdots\]
+$\therefore a_n>(n\pi)^2,n=1,2,\cdots$
+
+$\therefore\frac1{a_n}<\frac1{n^2\pi^2},n=1,2,\cdots$
+
+$\because$级数$\Ser1\frac1{n^2}$收敛
+
+$\therefore$级数$\Ser{1}\frac1{a_n}$收敛.
+
+\item判定级数$\Ser{1}(\ln n+\ln\sin\frac1n)$的收敛性.
+
+解：$\because\sin\frac1n<\frac1n(n\geq1)$
+
+$\therefore\ln n+\ln\sin\frac1n=\ln\sin\frac1n-\ln\frac1n<0$
+
+$\because\ln n+\ln\sin\frac1n=\ln\sin\frac1n-\ln\frac1n=\ln\frac{\sin\frac1n}{\frac1n}=\ln\frac{\frac1n-\frac1{3!n^3}+o(\frac1{n^3})}{\frac1n}=\ln[1-\frac1{6n^2}+o(\frac1{n^2})]$
+
+$\therefore\Lim n^2[-(\ln n+\ln\sin\frac1n)]=-\Lim n^2\ln[1-\frac1{6n^2}+o(\frac1{n^2})]=-\Lim n^2[-\frac1{6n^2}+o(\frac1{n^2})]=\frac16$
+
+$\therefore$正项级数$\Ser{1}-(\ln n+\ln\sin\frac1n)$收敛，故级数$\Ser{1}(\ln n+\ln\sin\frac1n)$收敛.
+
+\item设正项数列$\{a_n\}$单调减少且$\Ser{1}(-1)^na_n$发散，试问级数$\Ser{1}(\frac1{1+a_n})^n$是否收敛，并说明理由.
+
+解：$\because\{a_n\}$是正项数列且单调减少
+
+$\therefore\{a_n\}$的极限$\Lim a_n=A$存在且$A\geq0$
+
+$\because\Ser{1}(-1)^na_n$发散
+
+$\therefore A\neq0$, 即$A>0$
+
+$\because\Lim\sqrt[n]{(\frac1{1+a_n})^n}=\Lim\frac1{1+a_n}=\frac1{1+A}<1$
+
+$\therefore$级数$\Ser{1}(\frac1{1+a_n})^n$收敛.
+
+\item试证函数级数$\Ser{1}\frac{nx}{1+n^5x^2}$在其收敛域内一致收敛.
+
+证明：$\because|\frac{nx}{1+n^5x^2}|=\frac n{\frac1{|x|}+n^5|x|}\leq\frac n{2\sqrt{n^5}}=\frac1{2n^{\frac32}},\ x\neq0$
+
+又$\because$级数$\Ser1\frac1{2n^{\frac32}}$收敛
+
+$\therefore$级数$\Ser{1}\frac{nx}{1+n^5x^2}$在其收敛域内一致收敛.
+
+\item设$u_n>0,v_n>0,\frac{u_{n+1}}{u_n}\leq\frac{v_{n+1}}{v_n}(n=1,2,\cdots)$. 证明由$\Ser{1}v_n$收敛可以推出$\Ser{1}u_n$收敛.
+
+解：$\because\frac{u_{n+1}}{u_n}\leq\frac{v_{n+1}}{v_n}$
+
+$\therefore\frac{u_{n+1}}{v_{n+1}}\leq\frac{u_n}{v_n}\leq\frac{u_{n-1}}{v_{n-1}}\leq\cdots\leq\frac{u_1}{v_1}$
+
+$\therefore u_n\leq\frac{u_1}{v_1}v_n$
+
+$\because\Ser{1}v_n$收敛
+
+$\therefore\Ser{1}u_n$收敛.
+
+\item设$\Lim a_n>1$. 求证$\Ser{1}\frac1{n^{a_n}}$收敛.
+
+
+证明：$\because\Lim a_n=A>1$
+
+$\therefore\exists N>0,s.t.a_n>\frac{1+A}2=q>1(n>N)$
+
+$\therefore$当$n>N$时$0<\frac1{n^{a_n}}<\frac1{n^q}$
+
+$\because\Ser{N}\frac1{n^q}$收敛，故$\Ser{N}\frac1{n^{a_n}}$收敛，故$\Ser{1}\frac1{n^{a_n}}$收敛.
+
+\item研究下列级数的收敛性：
+
+\begin{tabular}{ll}
+(1)$\Ser{1}\int_0^{n^{-p}}\ln(1+x^2)\mathrm dx(p>0)$；& (2)$\Ser{1}\int_0^{\frac1n}(\mathrm e^{\sqrt x}-1)\mathrm dx$；\\
+(3)$\Ser{1}\int_0^{\frac1{\sqrt n}}(\mathrm e^{\sqrt x}-1)\mathrm dx$；& (4)$\Ser{1}\int_n^{n+1}\mathrm e^{\frac1x}\mathrm dx$.
+\end{tabular}
+
+解：(1)$\int_0^{n^{-p}}\ln(1+x^2)\mathrm dx=x\ln(1+x^2)\big|_0^{n^{-p}}-\int_0^{n^{-p}}x\frac{2x}{1+x^2}\mathrm dx\\
+=n^{-p}\ln(1+n^{-2p})-2\int_0^{n^{-p}}(1-\frac1{1+x^2})\mathrm dx=n^{-p}\ln(1+n^{-2p})-2n^{-p}+2\arctan(n^{-p})\\
+=n^{-p}[n^{-2p}+o(n^{-2p})]-2n^{-p}+2[n^{-p}-\frac16n^{-3p}+o(n^{-3p})]=\frac23n^{-3p}+o(n^{-3p})$
+
+$\therefore\Lim n^{3p}\int_0^{n^{-p}}\ln(1+x^2)\mathrm dx=\Lim n^{3p}[\frac23n^{-3p}+o(n^{-3p})]=\frac23$
+
+$\therefore$当$3p>1$即$p>\frac13$时级数收敛，当$0<3p\leq1$即$p\leq\frac13$时级数发散.
+
+(2)$\because\int_0^{\frac1n}(\mathrm e^{\sqrt x}-1)\mathrm dx\leq\int_0^{\frac1n}(\mathrm e^{\frac1{\sqrt n}}-1)\mathrm dx=\frac1n(\mathrm e^{\frac1{\sqrt n}}-1)$
+
+$\therefore\Lim n^{\frac32}\cdot\frac1n(\mathrm e^{\frac1{\sqrt n}}-1)=\Lim\sqrt n(\frac1{\sqrt n})=1$
+
+$\therefore$级数$\Ser1\frac1n(\mathrm e^{\frac1{\sqrt n}}-1)$收敛
+
+$\therefore$级数$\Ser{1}\int_0^{\frac1n}(\mathrm e^{\sqrt x}-1)\mathrm dx$收敛.
+
+(3)$\me^{\sqrt x}-1=1+\sqrt x+\frac12(\sqrt x)^2+\frac16(\sqrt x)^3+\cdots-1=\sqrt x+\frac12(\sqrt x)^2+\frac16(\sqrt x)^3+\cdots$
+
+$\therefore\int_0^{\frac1{\sqrt n}}(\me^{\sqrt x}-1)\mathrm dx=(\frac1{1+\frac12}x^{\frac12+1}+\frac12\frac1{1+1}x^{1+1}+\frac16\frac1{1+\frac32}x^{\frac32+1}+\cdots)\big|_0^{\frac1{\sqrt n}}=\frac23\frac1{n^{\frac34}}+\frac14\frac1n+\frac1{15}\frac1{n^{\frac54}}+\cdots$
+
+$\therefore\Lim n\frac34\cdot\int_0^{\frac1{\sqrt n}}(\me^{\sqrt x}-1)\mathrm dx=\Lim n\frac34\cdot(\frac23\frac1{n^{\frac34}}+\frac14\frac1n+\frac1{15}\frac1{n^{\frac54}}+\cdots)=\frac23$
+
+$\therefore$级数$\Ser{1}\int_0^{\frac1{\sqrt n}}(\mathrm e^{\sqrt x}-1)\mathrm dx$发散.
+
+(4)$\Ser{1}\int_n^{n+1}\mathrm e^{\frac1x}\mathrm dx=\int_0^{+\infty}\me^{\frac1x}\mathrm dx$
+
+$\because\Lim\sqrt x\cdot\me^{\frac1x}=+\infty$
+
+$\therefore$无穷积分$\int_0^{+\infty}\me^{\frac1x}\mathrm dx$发散
+
+$\therefore$级数$\Ser{1}\int_n^{n+1}\mathrm e^{\frac1x}\mathrm dx$发散.
+
+\item求函数级数$\Ser{1}x^{1+\frac12+\cdots+\frac1n}$的收敛域.
+
+解：【该题可用级数收敛的广义比值判定准则直接得到结果，即：对于正项级数$\Ser1a_n$, 若$\Lim(\frac{a_{n+1}}{a_n})^n=q$, 则当$0\leq q<\frac1\me$时，级数$\Ser1a_n$收敛；当$q>\frac1\me$时，级数$\Ser1a_n$发散.
+下面的证明过程相当于是广义比值判定准则的证明过程。】
+
+$\because\Lim(\frac{a_{n+1}}{a_n})^n=\Lim(\frac{x^{1+\frac12+\cdots+\frac1n+\frac1{n+1}}}{x^{1+\frac12+\cdots+\frac1n}})^n=\Lim x^{\frac n{n+1}}=x$
+
+(1)当$0\leq x<\frac1\me$时$\Lim[(\frac{a_{n+1}}{a_n})^n-(\frac n{n+1})^n]=x-\frac1\me<0$
+
+根据数列极限的保号性知$\exists N>0$, 当$n>N$时$(\frac{a_{n+1}}{a_n})^n-(\frac n{n+1})^n<0$即$(\frac{a_{n+1}}{a_n})^n<(\frac n{n+1})^n$
+
+$\because(\frac n{n+1})^n<1$
+
+$\therefore\exists p>1,\ s.t.(\frac{a_{n+1}}{a_n})^n\leq[(\frac n{n+1})^n]^p<(\frac n{n+1})^n$
+
+$\therefore\frac{a_{n+1}}{\frac1{(n+1)^p}}\leq\frac{a_n}{\frac1{n^p}}\leq\cdots\leq\frac{a_1}{\frac1{1^p}}$
+
+$\therefore a_{n}\leq a_1\frac1{n^p}$
+
+$\therefore\Ser1a_n$收敛；
+
+(2)当$x\geq\frac1\me$时$\Lim[(\frac{a_{n+1}}{a_n})^n-(\frac n{n+1})^n]=x-\frac1\me\geq0$
+
+根据数列极限的保号性知$\exists N>0$, 当$n>N$时$(\frac{a_{n+1}}{a_n})^n-(\frac n{n+1})^n\geq0$即$(\frac{a_{n+1}}{a_n})^n\geq(\frac n{n+1})^n$, 即$(\frac{a_{n+1}}{a_n})^n\geq(\frac n{n+1})^n$
+
+$\therefore\frac{a_{n+1}}{\frac1{n+1}}\geq\frac{a_n}{\frac1n}\geq\cdots\geq\frac{a_1}{\frac11}$
+
+$\therefore a_n\geq a_1\frac1n$
+
+$\therefore\Ser1a_n$发散；
+
+综上所述，级数$\Ser1{a_n}$的收敛域为$[0,\frac1\me)$.
+
+\item设$p>0$. 求证当且仅当$p>1$时，曲线$y=x^p\cos\frac\pi x(0<x\leq1)$具有有限的长度.
+
+证明：曲线长度可表示为
+\[
+\int_0^1\sqrt{1+[y'(x)]^2}\mathrm dx=\int_0^1\sqrt{1+[px^{p-1}\cos\frac\pi x+\pi x^{p-2}\sin\frac\pi x]^2}\mathrm dx,
+\]
+(1)当$p>2$时该积分的被积函数有界，为一定积分，故原曲线有有限的长度；
+
+(2)当$1<p\leq2$时该积分为以$0$为瑕点的反常积分，$\frac12\leq\frac1p<1,\ p+\frac1p>2$,
+\[\begin{aligned}
+&\LIM x0x^{\frac1p}\cdot\sqrt{1+[px^{p-1}\cos\frac\pi x+\pi x^{p-2}\sin\frac\pi x]^2}\\
+=&\LIM x0\sqrt{x^{\frac2p}+[px^{p+\frac1p-1}\cos\frac\pi x+\pi x^{p+\frac1p-2}\sin\frac\pi x]^2}\\
+=&0,
+\end{aligned}\]
+故该反常积分收敛，原曲线有有限的长度；
+
+(3)当$0<p\leq1$时
+\[\begin{aligned}
+\int_0^1\sqrt{1+[y'(x)]^2}\mathrm dx&\geq\int_0^1|y'(x)|\mathrm dx=\int_0^1|[x^p\cos\frac\pi x]'|\mathrm dx=\Ser1\int_{\frac1{n+1}}^{\frac1n}|[x^p\cos\frac\pi x]'|\mathrm dx\\
+&\geq\Ser1|\int_{\frac1{n+1}}^{\frac1n}[x^p\cos\frac\pi x]'\mathrm dx|=\Ser1|x^p\cos\frac\pi x\big|_{\frac1{n+1}}^{\frac1n}|\\
+&=\Ser1|\frac1{n^p}(-1)^n-\frac1{(n+1)^p}(-1)^{n+1}|\\
+&=\Ser1[\frac1{n^p}+\frac1{(n+1)^p}]\\
+&=+\infty,
+\end{aligned}\]
+故该反常积分发散，原曲线为无限长.
+
+综上所述，当且仅当$p>1$时，曲线$y=x^p\cos\frac\pi x(0<x\leq1)$具有有限的长度.
+\end{enumerate}
+\end{document}
